@@ -30,7 +30,7 @@
   .p-brandline .brand-mark path{stroke:#7FC8AF} /* traço claro sobre o hero escuro */
   h1.p-brand{
     font-family:var(--font-display); font-weight:700; letter-spacing:-0.02em;
-    font-size:clamp(44px,8vw,76px); line-height:1; margin:0; color:var(--header-ink);
+    font-size:clamp(28px,10vw,76px); line-height:1; margin:0; color:var(--header-ink);
   }
   h1.p-brand span{font-weight:500; color:var(--header-muted)}
   .p-thesis{
@@ -47,7 +47,7 @@
   .p-hero-cta .btn-ghost:hover{border-color:rgba(244,243,239,.5)}
 
   /* trilha animada (mesma do login) */
-  .p-trail{margin:40px 0 8px; width:min(360px,80%)}
+  .p-trail{margin:40px 0 8px; width:100%; max-width:360px}
   .p-trail svg{display:block; width:100%; height:auto; overflow:visible}
   .p-trail .trail-path{
     fill:none; stroke:var(--accent); stroke-width:5; stroke-linecap:round; stroke-linejoin:round;
@@ -62,9 +62,11 @@
   .p-trail .trail-dot:nth-of-type(3){animation:trail-dot .5s ease 1.5s forwards}
   .p-trail .trail-dot:nth-of-type(4){animation:trail-dot .5s ease 2s forwards}
   .p-trail-labels{
-    display:flex; justify-content:space-between; width:min(360px,80%);
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px 14px;
+    width:100%; max-width:360px;
     font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--header-muted);
   }
+  .p-trail-labels span{white-space:nowrap}
 
   /* seções */
   .p-section{padding:60px 0 52px; border-bottom:1px solid var(--line)}
