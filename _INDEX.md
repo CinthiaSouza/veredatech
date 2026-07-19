@@ -1,13 +1,13 @@
 # _INDEX — Produto GovTech Câmaras Municipais
 
-_Atualizado em: 2026-07-19 (sessão 3)_
+_Atualizado em: 2026-07-19 (sessão 4)_
 
 Projeto: NOVOS PROJETOS/vereda-tech · Nome do produto: **VeredaTech** (3.1 — pendente INPI/registro.br)
 Início do pipeline: 2026-07-17
 
 ## Estado
 - **Fase corrente:** 4 Execução — **COMPLETA**.
-- **Última sub-etapa concluída:** 4.4 fechada — as 8 estórias construídas e aprovadas (Login · Painel/dashboard estratégico · Ficha da indicação · Registrar desfecho · Requerimento de informação · Gerar balanço · Visualização do balanço · Simulação WhatsApp), mais a apresentação do produto (`04-execucao/prototipo/apresentacao.html`) reestilizada com a identidade final e linkada ao protótipo.
+- **Última sub-etapa concluída:** 4.4 fechada — as 8 estórias construídas e aprovadas (Login · Painel/dashboard estratégico · Ficha da indicação · Registrar desfecho · Requerimento de informação · Gerar balanço · Visualização do balanço · Simulação WhatsApp), mais a apresentação do produto (`04-execucao/prototipo/index.html`) reestilizada com a identidade final e linkada ao protótipo. Responsividade mobile revisada e corrigida (QA com Playwright em 320-430px), e o projeto publicado em produção: `https://cinthiasouza.github.io/veredatech/`.
 - **Próxima:** Fase 05 Lançamento (posicionamento + go-to-market), ou primeiro fechar pendências herdadas (INPI/registro.br, validações de campo com Diego).
 
 ## Artefatos por fase
@@ -61,6 +61,7 @@ Início do pipeline: 2026-07-17
 | 2026-07-18 | 1.6 (Regimento + dados abertos), Fase 2 completa, Fase 3 (3.1/3.3/3.4, 3.2 pulada), nome VEREDA, apresentação HTML | `04-execucao/_logs/2026-07-18_fase2-fase3-vereda.md` |
 | 2026-07-18 | 3.2 cores aprovada, nome final VeredaTech, Fase 4 (4.1-4.3 escritos) + 4.4 iniciada (global.css, 1.1 Login aprovada, 1.2 Painel pendente) | `04-execucao/_logs/2026-07-18_fase4-execucao-veredatech.md` |
 | 2026-07-19 | Fase 4 fechada: 8/8 estórias construídas, 1.2 virou dashboard estratégico com mapa de calor real, apresentação reestilizada e linkada ao protótipo, projeto migrado para `NOVOS PROJETOS/vereda-tech/` | `04-execucao/_logs/2026-07-19_fase4-fechamento-e-migracao.md` |
+| 2026-07-19 | QA de responsividade mobile (3 bugs corrigidos: legibilidade login, callout empilhado, wordmark/trilha do hero), rename `apresentacao.html`→`index.html`, projeto publicado em `github.com/CinthiaSouza/veredatech` com GitHub Pages via Actions | `04-execucao/_logs/2026-07-19_responsividade-e-publicacao-github-pages.md` |
 
 ## Material-fonte
 `inputs/` — resumo da reunião + 2 pesquisas de mercado GovTech legislativo.
