@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VeredaTech — Notificações no WhatsApp</title>
+<link rel="stylesheet" href="styles/global.css">
+</head>
+<body>
+  <!-- Tela ilustrativa: NÃO é integração real com WhatsApp (fora do escopo front-end).
+       Mostra os 3 gatilhos de retenção do MVP em formato de bolha de conversa. -->
+  <div class="app">
+
+    <header class="topbar">
+      <div class="container">
+        <a href="1.2-painel.html" class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3,15 C6,20 11,20.5 14,17 C17,13.5 15,8.5 18.5,6 C20,5 21.5,5.8 22.5,7.5" stroke="#1E5F4E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="brand-word">Vereda<span>Tech</span></span>
+        </a>
+        <div class="topbar-actions">
+          <div class="user-chip">
+            <span class="avatar">SR</span>
+            <span>Gabinete <b>Vereadora Simone Rocha</b></span>
+          </div>
+          <a href="1.1-login.html" class="btn btn-secondary btn-sm">Sair</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="container stack" style="max-width:640px">
+
+        <a href="1.2-painel.html" class="back-link">← Painel do gabinete</a>
+
+        <div class="page-head">
+          <div>
+            <div class="eyebrow">Retenção · Simulação</div>
+            <h1 class="font-display">Como o VeredaTech te avisa no WhatsApp</h1>
+            <div class="date">Você não precisa lembrar de abrir o sistema — ele lembra por você.</div>
+          </div>
+        </div>
+
+        <section class="card wa-trigger">
+          <div>
+            <span class="chip chip-ok">Movimento no SAPL</span>
+            <p class="t-desc">Dispara na hora em que uma indicação sua movimenta na Câmara ou recebe resposta do Executivo.</p>
+          </div>
+          <div class="wa-chat">
+            <div class="wa-msg">
+              <span class="wa-sender">VeredaTech</span>
+              <p>🔔 <b>Movimentação agora há pouco</b></p>
+              <p>A <b>Ind. 1.302/2026</b> — Iluminação da Praça da Juventude (Industrial) — recebeu <b>resposta da Secretaria de Serviços Urbanos</b> no SAPL.</p>
+              <p>Toque para ver a ficha e registrar o desfecho.</p>
+              <div class="wa-meta">10:42 ✓✓</div>
+            </div>
+          </div>
+          <a href="2.1-ficha.html?id=ind-1302" class="i-action" style="font-size:13px; font-weight:600; color:var(--accent); text-decoration:none">Ver a ficha desta indicação →</a>
+        </section>
+
+        <section class="card wa-trigger">
+          <div>
+            <span class="chip chip-warning">Silêncio prolongado</span>
+            <p class="t-desc">Dispara quando uma indicação completa 60 dias sem nenhuma resposta — antes que ela morra no esquecimento.</p>
+          </div>
+          <div class="wa-chat">
+            <div class="wa-msg">
+              <span class="wa-sender">VeredaTech</span>
+              <p>⏰ <b>60 dias de silêncio</b></p>
+              <p>A <b>Ind. 1.289/2026</b> — Tapa-buraco na Av. Euclides Figueiredo (Atalaia) — completou <b>60 dias sem resposta</b> do Executivo.</p>
+              <p>Você pode gerar o requerimento de informação em 1 toque.</p>
+              <div class="wa-meta">08:15 ✓✓</div>
+            </div>
+          </div>
+          <a href="2.1-ficha.html?id=ind-1289" class="i-action" style="font-size:13px; font-weight:600; color:var(--accent); text-decoration:none">Ver a ficha desta indicação →</a>
+        </section>
+
+        <section class="card wa-trigger">
+          <div>
+            <span class="chip chip-accent">Digest semanal</span>
+            <p class="t-desc">Toda segunda-feira de manhã: o resumo do mandato em uma mensagem, pronto para repassar à vereadora.</p>
+          </div>
+          <div class="wa-chat">
+            <div class="wa-msg">
+              <span class="wa-sender">VeredaTech</span>
+              <p>📋 <b>Sua semana no mandato</b></p>
+              <p>✅ 2 respostas recebidas<br>🕐 3 indicações em silêncio<br>⚠️ 1 prazo regimental vencendo (Req. 214/2026, em 2 dias)</p>
+              <p>No mandato: <b>47 indicações</b>, <b>62% com desfecho</b>. Bom trabalho — a taxa subiu 9 pontos no trimestre.</p>
+              <div class="wa-meta">Seg 07:30 ✓✓</div>
+            </div>
+          </div>
+          <a href="2.1-ficha.html?id=req-214" class="i-action" style="font-size:13px; font-weight:600; color:var(--accent); text-decoration:none">Ver a ficha do prazo que vence →</a>
+        </section>
+
+        <span class="text-muted" style="font-size:12px">Simulação ilustrativa — o protótipo não envia mensagens reais de WhatsApp.</span>
+
+      </div>
+    </main>
+
+  </div>
+</body>
+</html>

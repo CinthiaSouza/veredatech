@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VeredaTech — Registrar desfecho</title>
+<link rel="stylesheet" href="styles/global.css">
+</head>
+<body>
+  <div class="app">
+
+    <header class="topbar">
+      <div class="container">
+        <a href="1.2-painel.html" class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3,15 C6,20 11,20.5 14,17 C17,13.5 15,8.5 18.5,6 C20,5 21.5,5.8 22.5,7.5" stroke="#1E5F4E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="brand-word">Vereda<span>Tech</span></span>
+        </a>
+        <div class="topbar-actions">
+          <div class="user-chip">
+            <span class="avatar">SR</span>
+            <span>Gabinete <b>Vereadora Simone Rocha</b></span>
+          </div>
+          <a href="1.1-login.html" class="btn btn-secondary btn-sm">Sair</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="container stack center-narrow">
+
+        <a href="2.1-ficha.html?id=req-214" class="back-link">← Poda de árvores na Rua Itabaiana</a>
+
+        <section class="card">
+          <div>
+            <div class="eyebrow">Req. 214/2026</div>
+            <h3 class="font-display" style="font-size:20px">Registrar desfecho</h3>
+            <p class="sub mt-0">O morador perguntou e você tem a resposta na hora. Leva menos de 10 segundos.</p>
+          </div>
+
+          <form class="login-form" onsubmit="event.preventDefault()">
+            <div class="field">
+              <label for="desfecho">O que aconteceu?</label>
+              <select id="desfecho" class="input">
+                <option value="atendida">Atendida</option>
+                <option value="parcial">Resposta parcial</option>
+                <option value="sem-resposta" selected>Sem resposta</option>
+              </select>
+            </div>
+
+            <a href="2.1-ficha.html?id=req-214" class="btn btn-primary btn-block">Salvar desfecho</a>
+          </form>
+
+          <span class="text-muted" style="font-size:12px">Simulação — a próxima tela mostra a ficha já com o novo estado.</span>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+</body>
+</html>

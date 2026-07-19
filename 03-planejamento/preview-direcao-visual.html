@@ -1,0 +1,266 @@
+<title>VEREDA — Direção visual (3.2)</title>
+<style>
+  :root{
+    --bg:#EFEEEA; --panel:#FFFFFF; --ink:#1A1B1E; --muted:#6D7078; --line:#E3E1DB;
+    --accent:#1E5F4E; --accent-soft:#E4EFEA;
+    --ok:#1E5F4E; --ok-soft:#E4EFEA;
+    --warn:#B45309; --warn-soft:#FCEFDD;
+    --err:#C22F2F; --err-soft:#FBE7E5;
+    --radius-card:20px; --radius-pill:999px;
+    --page-bg:var(--bg); --page-ink:var(--ink); --page-muted:var(--muted); --page-panel:var(--panel); --page-line:var(--line);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --page-bg:#17181B; --page-ink:#ECEBE7; --page-muted:#9A9CA3; --page-panel:#202226; --page-line:#33353B; }
+  }
+  :root[data-theme="dark"]{ --page-bg:#17181B; --page-ink:#ECEBE7; --page-muted:#9A9CA3; --page-panel:#202226; --page-line:#33353B; }
+  :root[data-theme="light"]{ --page-bg:#EFEEEA; --page-ink:#1A1B1E; --page-muted:#6D7078; --page-panel:#FFFFFF; --page-line:#E3E1DB; }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--page-bg); color:var(--page-ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  main{max-width:1060px; margin:0 auto; padding:56px 24px 96px; display:flex; flex-direction:column; gap:56px}
+  h1{font-size:clamp(28px,4vw,40px); font-weight:700; letter-spacing:-0.02em; margin:0; text-wrap:balance}
+  h2{font-size:14px; font-weight:600; letter-spacing:.09em; text-transform:uppercase; color:var(--page-muted); margin:0 0 18px}
+  p{margin:0; max-width:62ch}
+  .lead{font-size:17px; color:var(--page-muted); margin-top:12px}
+  .kicker{font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--page-muted); margin-bottom:14px}
+
+  /* princípios */
+  .principles{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px}
+  .principle{background:var(--page-panel); border:1px solid var(--page-line); border-radius:var(--radius-card); padding:20px 22px}
+  .principle strong{display:block; font-size:15px; margin-bottom:6px}
+  .principle span{font-size:13.5px; color:var(--page-muted)}
+
+  /* paleta */
+  .swatches{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px}
+  .swatch{background:var(--page-panel); border:1px solid var(--page-line); border-radius:var(--radius-card); overflow:hidden}
+  .swatch .chip{height:76px}
+  .swatch .meta{padding:12px 14px}
+  .swatch .meta b{display:block; font-size:13.5px}
+  .swatch .meta code{font-size:12px; color:var(--page-muted); font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  .swatch .meta span{display:block; font-size:12px; color:var(--page-muted); margin-top:4px}
+
+  /* seletor de acento */
+  .accent-picker{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px}
+  .accent-opt{
+    background:var(--page-panel); border:2px solid var(--page-line); border-radius:var(--radius-card);
+    padding:18px 20px; cursor:pointer; text-align:left; font:inherit; color:inherit; transition:border-color .15s;
+  }
+  .accent-opt:hover{border-color:var(--page-muted)}
+  .accent-opt[aria-pressed="true"]{border-color:var(--page-ink)}
+  .accent-opt .dot{width:34px; height:34px; border-radius:50%; margin-bottom:12px}
+  .accent-opt b{display:block; font-size:15px}
+  .accent-opt code{font-size:12px; color:var(--page-muted); font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  .accent-opt p{font-size:13px; color:var(--page-muted); margin-top:8px}
+  .accent-opt:focus-visible{outline:2px solid var(--page-ink); outline-offset:2px}
+
+  /* palco do produto — sempre claro, é a superfície do produto */
+  .stage{
+    background:var(--bg); border:1px solid var(--line); border-radius:28px; padding:32px;
+    color:var(--ink);
+  }
+  .stage-label{font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:20px}
+  .stage-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; align-items:start}
+  .card{background:var(--panel); border-radius:var(--radius-card); padding:22px; box-shadow:0 1px 2px rgba(26,27,30,.05), 0 8px 24px rgba(26,27,30,.06); display:flex; flex-direction:column; gap:16px}
+  .card h3{margin:0; font-size:16px; font-weight:650; letter-spacing:-0.01em}
+  .card .sub{font-size:13px; color:var(--muted)}
+
+  .field label{display:block; font-size:12.5px; font-weight:600; margin-bottom:6px; color:var(--ink)}
+  .input{
+    width:100%; padding:12px 18px; border-radius:var(--radius-pill); border:1px solid var(--line);
+    background:var(--panel); font:inherit; font-size:14px; color:var(--ink);
+  }
+  .input::placeholder{color:var(--muted)}
+  .input:focus{outline:none; border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft)}
+  select.input{appearance:none; background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%); background-position:calc(100% - 22px) 55%,calc(100% - 17px) 55%; background-size:5px 5px; background-repeat:no-repeat}
+
+  .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:12px 24px; border-radius:var(--radius-pill); font:inherit; font-size:14px; font-weight:600; cursor:pointer; border:1px solid transparent}
+  .btn:focus-visible{outline:2px solid var(--ink); outline-offset:2px}
+  .btn-primary{background:var(--ink); color:#fff}
+  .btn-primary:hover{background:#000}
+  .btn-secondary{background:var(--panel); color:var(--ink); border-color:var(--line)}
+  .btn-secondary:hover{border-color:var(--muted)}
+  .btn-accent{background:var(--accent); color:#fff}
+  .btn-row{display:flex; flex-wrap:wrap; gap:10px}
+
+  .chip{display:inline-flex; align-items:center; gap:6px; padding:5px 12px; border-radius:var(--radius-pill); font-size:12px; font-weight:600}
+  .chip::before{content:""; width:7px; height:7px; border-radius:50%}
+  .chip-ok{background:var(--ok-soft); color:var(--ok)} .chip-ok::before{background:var(--ok)}
+  .chip-warn{background:var(--warn-soft); color:var(--warn)} .chip-warn::before{background:var(--warn)}
+  .chip-err{background:var(--err-soft); color:var(--err)} .chip-err::before{background:var(--err)}
+
+  .ind{display:flex; flex-direction:column; gap:8px; padding:14px 16px; border:1px solid var(--line); border-radius:16px}
+  .ind .top{display:flex; justify-content:space-between; gap:10px; align-items:baseline; flex-wrap:wrap}
+  .ind b{font-size:13.5px; font-weight:650}
+  .ind .num{font-size:12px; color:var(--muted); font-variant-numeric:tabular-nums}
+  .ind .meta{font-size:12px; color:var(--muted)}
+
+  .stat{display:flex; flex-direction:column; gap:2px}
+  .stat .big{font-size:30px; font-weight:700; letter-spacing:-0.02em; font-variant-numeric:tabular-nums}
+  .stat .big em{font-style:normal; color:var(--accent)}
+  .stat .lbl{font-size:12.5px; color:var(--muted)}
+  .bar{height:8px; border-radius:var(--radius-pill); background:var(--line); overflow:hidden}
+  .bar i{display:block; height:100%; width:72%; border-radius:var(--radius-pill); background:var(--accent)}
+
+  .type-specimen{background:var(--page-panel); border:1px solid var(--page-line); border-radius:var(--radius-card); padding:26px 28px; display:flex; flex-direction:column; gap:10px}
+  .type-specimen .t1{font-size:26px; font-weight:700; letter-spacing:-0.02em}
+  .type-specimen .t2{font-size:15px}
+  .type-specimen .t3{font-size:12px; font-weight:600; letter-spacing:.09em; text-transform:uppercase; color:var(--page-muted)}
+  .type-note{font-size:13px; color:var(--page-muted); margin-top:10px}
+
+  .callout{background:var(--page-panel); border:1px solid var(--page-line); border-left:4px solid var(--warn); border-radius:12px; padding:18px 20px; font-size:14px}
+  .callout b{display:block; margin-bottom:6px}
+  @media (prefers-reduced-motion: reduce){ *{transition:none !important} }
+</style>
+
+<main>
+  <header>
+    <div class="kicker">VEREDA · etapa 3.2 · proposta para aprovação</div>
+    <h1>Direção visual: clean, leve, com o preto no comando e a cor no que importa</h1>
+    <p class="lead">Traduzida da sua referência (Document Management): base neutra quente, cartões brancos flutuando com sombra suave, tudo em pílula, CTA preto e a cor de acento reservada para dado e estado — nunca para decoração.</p>
+  </header>
+
+  <section>
+    <h2>Princípios extraídos da referência</h2>
+    <div class="principles">
+      <div class="principle"><strong>Base neutra, cartão branco</strong><span>Fundo cinza-quente; conteúdo vive em cartões brancos com sombra difusa. Sem bordas pesadas.</span></div>
+      <div class="principle"><strong>Tudo em pílula</strong><span>Inputs, botões e chips com raio total (999px), como você pediu. Cartões com raio 20px.</span></div>
+      <div class="principle"><strong>CTA preto</strong><span>A ação primária é sempre o botão preto. Isso libera a cor de acento para significado, não para clique.</span></div>
+      <div class="principle"><strong>Cor = estado do ciclo</strong><span>Verde responde, âmbar avisa do silêncio, vermelho cobra o prazo. A cor da marca é a cor do ciclo fechado.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Paleta base (fixa nas 3 opções)</h2>
+    <div class="swatches">
+      <div class="swatch"><div class="chip" style="background:#EFEEEA"></div><div class="meta"><b>Névoa</b><code>#EFEEEA</code><span>Fundo de tela</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#FFFFFF; border-bottom:1px solid #E3E1DB"></div><div class="meta"><b>Papel</b><code>#FFFFFF</code><span>Cartões e inputs</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#1A1B1E"></div><div class="meta"><b>Tinta</b><code>#1A1B1E</code><span>Texto e CTA primário</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#6D7078"></div><div class="meta"><b>Grafite</b><code>#6D7078</code><span>Texto secundário</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#B45309"></div><div class="meta"><b>Âmbar</b><code>#B45309</code><span>Estado: em silêncio</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#C22F2F"></div><div class="meta"><b>Alerta</b><code>#C22F2F</code><span>Estado: prazo vencido</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Cor de acento — clique para testar nos componentes abaixo</h2>
+    <div class="accent-picker" role="group" aria-label="Opções de cor de acento">
+      <button class="accent-opt" aria-pressed="true" data-accent="#1E5F4E" data-soft="#E4EFEA">
+        <div class="dot" style="background:#1E5F4E"></div>
+        <b>A · Verde-vereda <span style="font-weight:400">(recomendada)</span></b>
+        <code>#1E5F4E</code>
+        <p>Verde profundo de mata, o próprio nome do produto. Vira também a cor do estado "respondida": fechar o ciclo é literalmente a cor da marca.</p>
+      </button>
+      <button class="accent-opt" aria-pressed="false" data-accent="#C05A38" data-soft="#F7E7DF">
+        <div class="dot" style="background:#C05A38"></div>
+        <b>B · Terracota</b>
+        <code>#C05A38</code>
+        <p>A mais fiel à temperatura da referência. Porém disputa espaço com o âmbar dos avisos: estado e marca ficam parecidos demais.</p>
+      </button>
+      <button class="accent-opt" aria-pressed="false" data-accent="#2E5AAC" data-soft="#E3EAF6">
+        <div class="dot" style="background:#2E5AAC"></div>
+        <b>C · Azul-cobalto</b>
+        <code>#2E5AAC</code>
+        <p>A escolha institucional segura, zero conflito com estados. Custo: é a cara de todo GovTech; perde a chance de a marca ter cor própria.</p>
+      </button>
+    </div>
+  </section>
+
+  <section>
+    <h2>Componentes na prática</h2>
+    <div class="stage">
+      <div class="stage-label">Superfície do produto · tema claro</div>
+      <div class="stage-grid">
+
+        <div class="card">
+          <h3>Registrar desfecho</h3>
+          <div class="sub">O gesto de 10 segundos que cria o dado.</div>
+          <div class="field">
+            <label for="f1">Indicação</label>
+            <input class="input" id="f1" value="Ind. 1.284/2026 — Recapeamento da Rua Niceu Dantas" readonly>
+          </div>
+          <div class="field">
+            <label for="f2">Desfecho</label>
+            <select class="input" id="f2">
+              <option>Atendida pelo Executivo</option>
+              <option>Resposta parcial</option>
+              <option>Sem resposta — gerar requerimento</option>
+            </select>
+          </div>
+          <div class="btn-row">
+            <button class="btn btn-primary">Salvar desfecho</button>
+            <button class="btn btn-secondary">Cancelar</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Ciclo das indicações</h3>
+          <div class="ind">
+            <div class="top"><b>Iluminação da Praça da Juventude</b><span class="num">Ind. 1.302/2026</span></div>
+            <div class="meta">Bairro Industrial · enviada há 12 dias</div>
+            <div><span class="chip chip-ok">Respondida</span></div>
+          </div>
+          <div class="ind">
+            <div class="top"><b>Tapa-buraco na Av. Euclides Figueiredo</b><span class="num">Ind. 1.289/2026</span></div>
+            <div class="meta">Atalaia · enviada há 34 dias</div>
+            <div><span class="chip chip-warn">Em silêncio</span></div>
+          </div>
+          <div class="ind">
+            <div class="top"><b>Poda de árvores na Rua Itabaiana</b><span class="num">Req. 214/2026</span></div>
+            <div class="meta">Centro · requerimento vence em 2 dias</div>
+            <div><span class="chip chip-err">Prazo regimental</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Balanço do gabinete</h3>
+          <div class="stat">
+            <span class="big"><em>72%</em> com desfecho</span>
+            <span class="lbl">Meta do piloto: 60% das indicações com resposta registrada</span>
+          </div>
+          <div class="bar"><i></i></div>
+          <div class="stat">
+            <span class="big">2.398</span>
+            <span class="lbl">Indicações da Casa em 2023 — 61% de tudo que tramita</span>
+          </div>
+          <button class="btn btn-accent">Gerar balanço por bairro</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tipografia</h2>
+    <div class="type-specimen">
+      <div class="t3">Rótulo · Schibsted Grotesk 600</div>
+      <div class="t1">Nenhum pedido de morador morre no silêncio</div>
+      <div class="t2">Corpo e UI em Inter: neutra, excelente em números e tabelas, feita para tela. Títulos em Schibsted Grotesk, um grotesco moderno com personalidade sem perder a sobriedade que o B2G pede.</div>
+    </div>
+    <p class="type-note">Este preview usa a fonte do sistema como aproximação; as famílias reais (Google Fonts, gratuitas) entram no design system da 4.2. Números sempre com <code>tabular-nums</code>.</p>
+  </section>
+
+  <section>
+    <h2>Ponto de atenção</h2>
+    <div class="callout">
+      <b>Cor e política andam juntas no B2G</b>
+      No plenário, vermelho, verde e azul carregam leitura partidária. A arquitetura proposta minimiza isso: a interface é 90% neutra (névoa, papel, tinta) e a cor aparece só em estados e dados. Ainda assim, evito vermelho como cor de marca por princípio — ele fica reservado para o alerta de prazo, onde a urgência é o significado.
+    </div>
+  </section>
+</main>
+
+<script>
+  const opts = document.querySelectorAll('.accent-opt');
+  opts.forEach(btn => btn.addEventListener('click', () => {
+    opts.forEach(b => b.setAttribute('aria-pressed', 'false'));
+    btn.setAttribute('aria-pressed', 'true');
+    const r = document.documentElement.style;
+    r.setProperty('--accent', btn.dataset.accent);
+    r.setProperty('--accent-soft', btn.dataset.soft);
+    r.setProperty('--ok', btn.dataset.accent === '#1E5F4E' ? '#1E5F4E' : '#1E7A4F');
+    r.setProperty('--ok-soft', btn.dataset.accent === '#1E5F4E' ? '#E4EFEA' : '#E2F2E8');
+  }));
+</script>

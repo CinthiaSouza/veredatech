@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VeredaTech — Apresentação do produto</title>
+<link rel="stylesheet" href="styles/global.css">
+<style>
+  /* ===== estilos específicos da apresentação (identidade 3.2/4.1/4.2) ===== */
+  .p-wrap{max-width:880px; margin:0 auto; padding:0 24px; width:100%}
+
+  /* hero escuro — mesmo tratamento editorial do login */
+  .p-hero{
+    position:relative; background:var(--header-bg); color:var(--header-ink);
+    padding:72px 0 64px; overflow:hidden; isolation:isolate;
+  }
+  .p-hero::before{
+    content:""; position:absolute; inset:0; z-index:-1;
+    background:
+      radial-gradient(640px 460px at 80% 10%, rgba(30,95,78,.35), transparent 65%),
+      radial-gradient(2px 2px at 15% 30%, rgba(244,243,239,.16) 0, transparent 60%),
+      radial-gradient(2px 2px at 40% 70%, rgba(244,243,239,.12) 0, transparent 60%),
+      radial-gradient(2px 2px at 66% 26%, rgba(244,243,239,.14) 0, transparent 60%),
+      radial-gradient(2px 2px at 84% 64%, rgba(244,243,239,.10) 0, transparent 60%);
+  }
+  .p-hero .eyebrow{color:var(--header-muted); margin-bottom:22px}
+  .p-brandline{display:flex; align-items:center; gap:14px; margin-bottom:22px}
+  .p-brandline .brand-mark{width:44px; height:44px; background:rgba(244,243,239,.12)}
+  .p-brandline .brand-mark svg{width:26px; height:26px}
+  .p-brandline .brand-mark path{stroke:#7FC8AF} /* traço claro sobre o hero escuro */
+  h1.p-brand{
+    font-family:var(--font-display); font-weight:700; letter-spacing:-0.02em;
+    font-size:clamp(44px,8vw,76px); line-height:1; margin:0; color:var(--header-ink);
+  }
+  h1.p-brand span{font-weight:500; color:var(--header-muted)}
+  .p-thesis{
+    font-family:var(--font-display); font-weight:600; letter-spacing:-0.02em;
+    font-size:clamp(20px,3.2vw,28px); line-height:1.3; max-width:22ch;
+    margin:0 0 26px; color:var(--header-ink); text-wrap:balance;
+  }
+  .p-hero-meta{display:flex; flex-wrap:wrap; gap:8px 28px; font-size:13.5px; color:var(--header-muted)}
+  .p-hero-meta strong{color:var(--header-ink); font-weight:600}
+  .p-hero-cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:34px}
+  .p-hero-cta .btn-ghost{
+    background:transparent; color:var(--header-ink); border:1px solid rgba(244,243,239,.25);
+  }
+  .p-hero-cta .btn-ghost:hover{border-color:rgba(244,243,239,.5)}
+
+  /* trilha animada (mesma do login) */
+  .p-trail{margin:40px 0 8px; width:min(360px,80%)}
+  .p-trail svg{display:block; width:100%; height:auto; overflow:visible}
+  .p-trail .trail-path{
+    fill:none; stroke:var(--accent); stroke-width:5; stroke-linecap:round; stroke-linejoin:round;
+    filter:drop-shadow(0 0 10px rgba(30,95,78,.55));
+    stroke-dasharray:100; stroke-dashoffset:100;
+    animation:trail-draw 1.8s cubic-bezier(.65,0,.35,1) .3s forwards;
+  }
+  .p-trail .trail-dot{fill:#F4F3EF; opacity:0; transform-origin:center; transform-box:fill-box}
+  .p-trail .trail-dot.is-lit{fill:var(--accent)}
+  .p-trail .trail-dot:nth-of-type(1){animation:trail-dot .5s ease .5s forwards}
+  .p-trail .trail-dot:nth-of-type(2){animation:trail-dot .5s ease 1s forwards}
+  .p-trail .trail-dot:nth-of-type(3){animation:trail-dot .5s ease 1.5s forwards}
+  .p-trail .trail-dot:nth-of-type(4){animation:trail-dot .5s ease 2s forwards}
+  .p-trail-labels{
+    display:flex; justify-content:space-between; width:min(360px,80%);
+    font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--header-muted);
+  }
+
+  /* seções */
+  .p-section{padding:60px 0 52px; border-bottom:1px solid var(--line)}
+  .p-marker{display:flex; align-items:baseline; gap:14px; margin-bottom:6px}
+  .p-marker .n{
+    font-family:var(--font-display); font-size:13px; font-weight:700; color:#fff;
+    background:var(--accent); border-radius:50%; width:30px; height:30px;
+    display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;
+    transform:translateY(5px);
+  }
+  .p-section h2{
+    font-size:clamp(24px,4vw,33px); margin:0; line-height:1.2; letter-spacing:-0.02em; text-wrap:balance;
+  }
+  .p-kicker{color:var(--muted); font-size:14.5px; margin:6px 0 30px 44px; max-width:620px}
+  .p-section p{max-width:660px; font-size:15px}
+  .p-section h3{
+    font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent);
+    font-weight:700; margin:38px 0 14px; font-family:var(--font-body);
+  }
+
+  /* stats */
+  .p-stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin:26px 0 6px}
+  .p-stat{background:var(--surface); border-radius:var(--radius-card); padding:20px 20px 16px; box-shadow:var(--shadow-card)}
+  .p-stat .num{font-family:var(--font-display); font-size:32px; font-weight:700; letter-spacing:-0.02em; line-height:1.05; color:var(--accent)}
+  .p-stat .num.warn{color:var(--warning)}
+  .p-stat .lbl{font-size:13px; color:var(--muted); margin-top:8px; line-height:1.45}
+
+  /* quote */
+  .p-quote{margin:28px 0; padding:4px 0 4px 22px; border-left:3px solid var(--accent); max-width:600px}
+  .p-quote p{font-family:var(--font-display); font-weight:600; font-size:19px; margin:0; line-height:1.4; letter-spacing:-0.01em}
+  .p-quote cite{display:block; font-style:normal; font-size:13px; color:var(--muted); margin-top:10px}
+
+  /* cards de conteúdo */
+  .p-cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; margin-top:20px}
+  .p-card{background:var(--surface); border-radius:var(--radius-card); padding:22px; box-shadow:var(--shadow-card)}
+  .p-card h4{margin:10px 0 8px; font-size:15.5px; font-weight:650; font-family:var(--font-display); letter-spacing:-0.01em}
+  .p-card p{margin:0; font-size:13.5px; color:var(--muted); line-height:1.6}
+  .p-card p strong{color:var(--ink)}
+
+  /* camadas */
+  .p-layers{margin-top:24px; display:flex; flex-direction:column; max-width:680px}
+  .p-layer{display:grid; grid-template-columns:44px 1fr; gap:0 16px; position:relative; padding-bottom:24px}
+  .p-layer::before{content:""; position:absolute; left:21px; top:32px; bottom:-4px; width:1.5px; background:var(--line)}
+  .p-layer:last-child::before{display:none}
+  .p-layer .ldot{
+    width:30px; height:30px; margin-left:6px; border-radius:50%;
+    background:var(--surface); border:2px solid var(--accent); color:var(--accent);
+    font-family:var(--font-display); font-size:13px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; position:relative; z-index:1;
+  }
+  .p-layer.core .ldot{background:var(--accent); color:#fff}
+  .p-layer.tooth .ldot{border-color:var(--warning); color:var(--warning)}
+  .p-layer h4{margin:4px 0 4px; font-size:16px; font-family:var(--font-display); letter-spacing:-0.01em}
+  .p-layer p{margin:0; font-size:14px; color:var(--muted); max-width:560px}
+
+  /* tabelas */
+  .p-tablewrap{overflow-x:auto; margin-top:20px; background:var(--surface); border-radius:var(--radius-card); box-shadow:var(--shadow-card); position:relative; -webkit-overflow-scrolling:touch}
+  .p-tablehint{display:none; font-size:11.5px; color:var(--muted); margin-top:6px}
+  @media (max-width:640px){ .p-tablehint{display:block} }
+  .p-tablewrap table{border-collapse:collapse; width:100%; font-size:14px}
+  .p-tablewrap th{
+    text-align:left; font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--muted); font-weight:600; padding:14px 18px 10px; border-bottom:1px solid var(--line); white-space:nowrap;
+  }
+  .p-tablewrap td{padding:12px 18px; border-bottom:1px solid var(--line); vertical-align:top}
+  .p-tablewrap tr:last-child td{border-bottom:none}
+  .p-tablewrap td.num{font-variant-numeric:tabular-nums; white-space:nowrap; font-weight:600}
+  .p-tablewrap td .sub{display:block; font-size:12.5px; color:var(--muted)}
+  .p-tablewrap tr.highlight td{background:var(--accent-soft)}
+
+  /* entra / fica fora */
+  .p-inout{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; margin-top:20px}
+  .p-inout .panel-io{background:var(--surface); border-radius:var(--radius-card); padding:20px 22px; box-shadow:var(--shadow-card)}
+  .p-inout ul{margin:10px 0 0; padding:0; list-style:none}
+  .p-inout li{padding:7px 0 7px 26px; position:relative; font-size:14px; border-bottom:1px dashed var(--line)}
+  .p-inout li:last-child{border-bottom:none}
+  .p-inout .in li::before{content:"✓"; position:absolute; left:2px; color:var(--accent); font-weight:700}
+  .p-inout .out li::before{content:"✕"; position:absolute; left:2px; color:var(--danger); font-weight:700}
+
+  /* faixa do protótipo navegável */
+  .p-proto{
+    background:var(--header-bg); color:var(--header-ink); padding:56px 0;
+    position:relative; overflow:hidden; isolation:isolate;
+  }
+  .p-proto::before{
+    content:""; position:absolute; inset:0; z-index:-1;
+    background:radial-gradient(560px 400px at 15% 100%, rgba(30,95,78,.32), transparent 65%);
+  }
+  .p-proto h2{color:var(--header-ink); font-size:clamp(22px,3.5vw,30px); margin:0 0 6px; letter-spacing:-0.02em}
+  .p-proto .sub{color:var(--header-muted); font-size:14.5px; max-width:56ch; margin:0 0 26px}
+  .p-screens{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:28px}
+  .p-screen{
+    display:inline-flex; align-items:center; gap:8px; padding:8px 16px;
+    border-radius:var(--radius-pill); border:1px solid rgba(244,243,239,.18);
+    color:var(--header-ink); text-decoration:none; font-size:13px; font-weight:600;
+    transition:border-color .15s, background-color .15s;
+  }
+  .p-screen:hover{border-color:rgba(244,243,239,.5); background:rgba(244,243,239,.06)}
+  .p-screen .k{
+    font-size:10.5px; font-weight:700; color:var(--header-bg); background:#7FC8AF;
+    border-radius:var(--radius-pill); padding:2px 8px;
+  }
+
+  footer.p-footer{padding:52px 0 80px; color:var(--muted); font-size:13.5px}
+  footer.p-footer .sign{
+    font-family:var(--font-display); font-weight:600; letter-spacing:-0.01em;
+    font-size:18px; color:var(--ink); margin-bottom:12px;
+  }
+  footer.p-footer ul{margin:8px 0 0; padding-left:18px}
+  footer.p-footer li{margin-bottom:4px}
+
+  @media (max-width:560px){ .p-kicker{margin-left:0} }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="p-hero">
+  <div class="p-wrap">
+    <p class="eyebrow">Proposta de produto · GovTech legislativo · Julho 2026</p>
+    <div class="p-brandline">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M3,15 C6,20 11,20.5 14,17 C17,13.5 15,8.5 18.5,6 C20,5 21.5,5.8 22.5,7.5" stroke="#1E5F4E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <h1 class="p-brand">Vereda<span>Tech</span></h1>
+    </div>
+    <p class="p-thesis">Nenhum pedido de morador morre no silêncio.</p>
+    <div class="p-hero-meta">
+      <span><strong>Primeiro case:</strong> Câmara Municipal de Aracaju/SE</span>
+      <span><strong>Estágio:</strong> protótipo navegável completo (Fase 4)</span>
+    </div>
+
+    <div class="p-hero-cta">
+      <a href="1.1-login.html" class="btn btn-accent">Navegar pelo protótipo</a>
+      <a href="4.1-whatsapp.html" class="btn btn-ghost">Ver a simulação do WhatsApp</a>
+    </div>
+
+    <div class="p-trail" aria-hidden="true">
+      <svg viewBox="0 0 320 96" fill="none">
+        <path class="trail-path" pathLength="100" d="M8,72 C48,88 96,84 128,62 C160,40 168,24 208,20 C248,16 288,28 312,44"/>
+        <circle class="trail-dot is-lit" cx="8" cy="72" r="7"/>
+        <circle class="trail-dot" cx="128" cy="62" r="6"/>
+        <circle class="trail-dot" cx="208" cy="20" r="6"/>
+        <circle class="trail-dot is-lit" cx="312" cy="44" r="7"/>
+      </svg>
+    </div>
+    <div class="p-trail-labels" aria-label="O ciclo da indicação: do pedido ao desfecho">
+      <span>Pedido</span><span>Protocolo</span><span>Resposta</span><span>Conta prestada</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- 1. O PROBLEMA -->
+<section class="p-section">
+  <div class="p-wrap">
+    <div class="p-marker"><span class="n">1</span><h2 class="font-display">O ciclo da indicação é cego do meio para o fim</h2></div>
+    <p class="p-kicker">A dor que encontramos verbalizada em Aracaju e em câmaras de vários estados.</p>
+
+    <p>O vereador transforma o pedido do morador em indicação e protocola. A partir daí, o pedido some: o Executivo não é obrigado a responder, e o gabinete controla tudo em planilha, WhatsApp e memória. Quando o morador cobra, ninguém sabe dizer em que pé está. No fim do ano, montar o balanço do mandato consome dias de compilação manual.</p>
+
+    <div class="p-stats">
+      <div class="p-stat"><div class="num">2.398</div><div class="lbl">indicações em Aracaju num único ano: 61% de toda a produção da Casa</div></div>
+      <div class="p-stat"><div class="num">26</div><div class="lbl">gabinetes controlando isso em planilha, papel e memória</div></div>
+      <div class="p-stat"><div class="num warn">0</div><div class="lbl">prazo regimental para o Executivo responder: o silêncio é legal</div></div>
+    </div>
+
+    <blockquote class="p-quote">
+      <p>"Tive paciência de esperar por 90 dias as respostas. Não sei o que falar para a população."</p>
+      <cite>Vereador de Acorizal/MT. A mesma queixa aparece em SC, SP, MS e na porta dos gabinetes de Aracaju</cite>
+    </blockquote>
+
+    <p>Importante: <strong>não é falta de sistema.</strong> Aracaju usa o SAPL (Interlegis) para tramitar. O que não existe, em nenhum sistema, é o que acontece <em>depois</em> do protocolo: a resposta, a obra, a prova.</p>
+  </div>
+</section>
+
+<!-- 2. AS DESCOBERTAS -->
+<section class="p-section">
+  <div class="p-wrap">
+    <div class="p-marker"><span class="n">2</span><h2 class="font-display">Três descobertas mudaram o desenho do produto</h2></div>
+    <p class="p-kicker">O que a investigação (mercado, Regimento Interno e bases de dados públicas) revelou e que ninguém tinha visto.</p>
+
+    <div class="p-cards">
+      <div class="p-card">
+        <span class="chip chip-ok">Descoberta técnica</span>
+        <h4>O dado que prometemos rastrear não existe em lugar nenhum</h4>
+        <p>O SAPL registra só o começo do ciclo. A resposta do Executivo chega por ofício, fora de qualquer base. Logo, o VeredaTech não é um painel sobre dados existentes: é a ferramenta que <strong>cria o dado que falta</strong>. Esse histórico proprietário é o fosso competitivo. Um dashboard qualquer concorrente copia; anos de desfechos registrados, não.</p>
+      </div>
+      <div class="p-card">
+        <span class="chip chip-warning">Descoberta regimental</span>
+        <h4>O Regimento dá um "dente" que ninguém conectou</h4>
+        <p>A indicação não tem prazo nem sanção. Mas o <strong>requerimento de informação tem: 15 dias, sob pena de crime de responsabilidade</strong> (Regimento de Aracaju, Resolução 12/2022). O VeredaTech detecta o silêncio e prepara a cobrança regimental em um clique. Deixamos de "só monitorar" e passamos a operar o instrumento de pressão que a própria Casa oferece.</p>
+      </div>
+      <div class="p-card">
+        <span class="chip chip-ok">Descoberta territorial</span>
+        <h4>O Regimento já pensa por bairro, só não registra</h4>
+        <p>O Art. 159 §2º obriga cada indicação a citar logradouros de um mesmo bairro. O bairro está no texto de toda ementa, nunca num campo estruturado. Extração por IA + confirmação de um clique resolve a leitura territorial sem digitação.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. O PRODUTO -->
+<section class="p-section">
+  <div class="p-wrap">
+    <div class="p-marker"><span class="n">3</span><h2 class="font-display">O produto: da indicação protocolada à conta prestada</h2></div>
+    <p class="p-kicker">Seis camadas, cada uma construída sobre a anterior. O núcleo é fechar o ciclo; o mapa é a camada que encanta, não a promessa central.</p>
+
+    <div class="p-layers">
+      <div class="p-layer">
+        <span class="ldot">1</span>
+        <div><h4>Ingestão</h4><p>Importa as indicações do SAPL automaticamente para banco próprio. Desenhada como adaptador trocável: se o scraping quebrar, o produto continua de pé.</p></div>
+      </div>
+      <div class="p-layer core">
+        <span class="ldot">2</span>
+        <div><h4>Ciclo <span class="chip chip-ok" style="vertical-align:2px">núcleo</span></h4><p>Linha do tempo de cada indicação até o desfecho, com registro em menos de 10 segundos. É aqui que nasce o dado proprietário.</p></div>
+      </div>
+      <div class="p-layer tooth">
+        <span class="ldot">3</span>
+        <div><h4>Pressão <span class="chip chip-warning" style="vertical-align:2px">o dente</span></h4><p>Alerta de silêncio no WhatsApp + minuta de requerimento de informação em um clique. O gabinete decide disparar; o produto prepara.</p></div>
+      </div>
+      <div class="p-layer">
+        <span class="ldot">4</span>
+        <div><h4>Prova <span class="chip chip-accent" style="vertical-align:2px">a demo que vende</span></h4><p>Balanço de mandato por bairro em minutos: o trabalho que hoje consome dias, pronto para a reunião de comunidade.</p></div>
+      </div>
+      <div class="p-layer">
+        <span class="ldot">5</span>
+        <div><h4>Território</h4><p>Mapa de calor por bairro sobre os limites reais do município, alimentado pela extração de IA sobre as ementas. Diferenciação que nenhum concorrente mapeado entrega — já visível no protótipo.</p></div>
+      </div>
+      <div class="p-layer">
+        <span class="ldot">6</span>
+        <div><h4>Instituição</h4><p>Visão agregada da Mesa: volume da Casa e taxa de resposta do Executivo, nunca ranking de vereador. A cobrança aponta para fora, não para dentro.</p></div>
+      </div>
+    </div>
+
+    <h3>Para quem</h3>
+    <div class="p-cards">
+      <div class="p-card"><h4 style="margin-top:0">O assessor de gabinete</h4><p><strong>Usa todo dia.</strong> Responde ao morador na hora e monta o balanço em minutos, não em dias.</p></div>
+      <div class="p-card"><h4 style="margin-top:0">O vereador</h4><p><strong>Patrocina e exibe.</strong> Chega na comunidade com dado e mapa: o que pediu, o que conseguiu, o que a prefeitura silenciou.</p></div>
+      <div class="p-card"><h4 style="margin-top:0">O Presidente da Mesa</h4><p><strong>Assina o cheque.</strong> "A Câmara que responde": transparência ativa e modernização, sem guerra interna entre os 26.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAIXA: PROTÓTIPO NAVEGÁVEL -->
+<section class="p-proto">
+  <div class="p-wrap">
+    <h2 class="font-display">Deixe de imaginar: navegue pelo produto</h2>
+    <p class="sub">As 8 telas do MVP estão construídas e linkadas entre si — da entrada no sistema ao balanço territorial, passando pelo dashboard estratégico com mapa de calor de Aracaju e pela inteligência de dados do mandato.</p>
+
+    <div class="p-screens">
+      <a class="p-screen" href="1.1-login.html"><span class="k">início</span> Login</a>
+      <a class="p-screen" href="1.2-painel.html">Dashboard estratégico</a>
+      <a class="p-screen" href="2.1-ficha.html">Ficha da indicação</a>
+      <a class="p-screen" href="2.2-desfecho.html">Registrar desfecho</a>
+      <a class="p-screen" href="2.3-requerimento.html">Requerimento de informação</a>
+      <a class="p-screen" href="3.1-gerar-balanco.html">Gerar balanço</a>
+      <a class="p-screen" href="3.2-visualizacao-balanco.html">Balanço por bairro</a>
+      <a class="p-screen" href="4.1-whatsapp.html">Simulação WhatsApp</a>
+    </div>
+
+    <div class="p-hero-cta" style="margin-top:0">
+      <a href="1.1-login.html" class="btn btn-accent">Começar pelo login</a>
+      <a href="4.1-whatsapp.html" class="btn btn-ghost">Como o WhatsApp avisa o gabinete</a>
+    </div>
+  </div>
+</section>
+
+<!-- 4. MERCADO E PREÇO -->
+<section class="p-section">
+  <div class="p-wrap">
+    <div class="p-marker"><span class="n">4</span><h2 class="font-display">O mercado paga, e o caminho da venda dispensa licitação</h2></div>
+    <p class="p-kicker">Premissas verificadas em contratos públicos reais (PNCP) e no decreto vigente, não em estimativa.</p>
+
+    <div class="p-tablewrap">
+      <table>
+        <thead><tr><th>Câmara</th><th>Objeto contratado</th><th>Valor/mês</th></tr></thead>
+        <tbody>
+          <tr><td>Recife/PE <span class="sub">capital, 39 vereadores</span></td><td>Gestão dos gabinetes (a nossa categoria exata)</td><td class="num">R$ 66.666</td></tr>
+          <tr><td>Propriá/SE <span class="sub">cidade pequena</span></td><td>Sistema legislativo</td><td class="num">R$ 9.000</td></tr>
+          <tr><td>Maruim/SE <span class="sub">~11 vereadores</span></td><td>Software legislativo</td><td class="num">R$ 6.250</td></tr>
+          <tr><td>Ladário/MS</td><td>Software legislativo, incl. controle de indicações</td><td class="num">R$ 5.000</td></tr>
+          <tr class="highlight"><td><strong>Aracaju — proposta VeredaTech</strong> <span class="sub">capital, 26 vereadores</span></td><td>Ciclo completo + prestação de contas territorial</td><td class="num"><strong>R$ 4.900</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="p-tablehint">↔ Arraste a tabela para o lado para ver todas as colunas</p>
+
+    <div class="p-stats">
+      <div class="p-stat"><div class="num">R$ 58,8 mil<span style="font-size:16px">/ano</span></div><div class="lbl">abaixo do teto de dispensa de licitação de R$ 65.492 (Decreto 12.807/2025): venda direta, sem edital</div></div>
+      <div class="p-stat"><div class="num">0,05%</div><div class="lbl">do orçamento anual da Câmara de Aracaju (R$ 111 mi): cabe na justificativa, não só no bolso</div></div>
+      <div class="p-stat"><div class="num">&lt; R$ 2 mil<span style="font-size:16px">/mês</span></div><div class="lbl">custo total de infra (hosting + WhatsApp): o negócio se paga com 1 cliente, vira renda com 3-4</div></div>
+    </div>
+
+    <p style="margin-top:26px">Câmaras sergipanas minúsculas já pagam R$ 6-9 mil/mês por menos do que isso. A tese de preço do case 1 não é margem, é <strong>prova social</strong>: a primeira câmara-referência e o início do histórico de dados. Recife mostra que a categoria sustenta 10× esse valor em capitais maiores; o reajuste vem na expansão.</p>
+  </div>
+</section>
+
+<!-- 5. COMO VAMOS CONSTRUIR -->
+<section class="p-section">
+  <div class="p-wrap">
+    <div class="p-marker"><span class="n">5</span><h2 class="font-display">Como vamos construir: piloto antes de contrato</h2></div>
+    <p class="p-kicker">Bootstrap, sem prazo fixo, equipe atual. A sequência comercial usa o comprador híbrido a nosso favor: o gabinete prova, a Mesa compra.</p>
+
+    <div class="p-tablewrap">
+      <table>
+        <thead><tr><th>Horizonte</th><th>Entrega</th><th>Critério de conclusão</th></tr></thead>
+        <tbody>
+          <tr><td class="num">H0</td><td><strong>Fundação:</strong> scraper do SAPL, banco próprio, extração de bairro por IA</td><td>As ~2.400 indicações/ano importadas e navegáveis; ≥80% com bairro extraído</td></tr>
+          <tr class="highlight"><td class="num">H1</td><td><strong>MVP do piloto:</strong> ciclo, WhatsApp, balanço por bairro, minuta de requerimento <span class="sub">2-3 gabinetes gratuitos, 60-90 dias, via relacionamento comercial</span></td><td>Métricas do piloto batidas (abaixo)</td></tr>
+          <tr><td class="num">H2</td><td><strong>Venda institucional:</strong> visão da Mesa, mapa da cidade, 26 gabinetes, dossiê de contratação</td><td>Contrato assinado; ≥70% dos gabinetes ativos por semana</td></tr>
+          <tr><td class="num">H3</td><td><strong>Replicabilidade:</strong> multi-tenancy, 2º adaptador de ingestão</td><td>2ª câmara operando sem fork do código</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="p-tablehint">↔ Arraste a tabela para o lado para ver todas as colunas</p>
+
+    <h3>O piloto decide se o produto existe</h3>
+    <div class="p-stats">
+      <div class="p-stat"><div class="num">≥ 60%</div><div class="lbl">das indicações novas com desfecho registrado em 30 dias. <strong>A aposta central</strong>: se o assessor não registra, o produto vira vitamina</div></div>
+      <div class="p-stat"><div class="num">≥ 1</div><div class="lbl">balanço por bairro usado publicamente por cada gabinete piloto</div></div>
+      <div class="p-stat"><div class="num">≥ 1</div><div class="lbl">requerimento de informação disparado a partir do produto</div></div>
+    </div>
+
+    <h3>MVP: o corte</h3>
+    <div class="p-inout">
+      <div class="panel-io in">
+        <span class="chip chip-ok">Entra</span>
+        <ul>
+          <li>Importação automática do SAPL</li>
+          <li>Linha do tempo + registro de desfecho &lt;10s (mobile)</li>
+          <li>WhatsApp: movimento · silêncio &gt;60 dias · digest semanal</li>
+          <li>Balanço por bairro (PDF/link)</li>
+          <li>Minuta de requerimento de informação em 1 clique</li>
+          <li>Bairro por IA + confirmação de 1 clique</li>
+        </ul>
+      </div>
+      <div class="panel-io out">
+        <span class="chip chip-danger">Fica fora (por enquanto ou por princípio)</span>
+        <ul>
+          <li>Visão da Mesa e mapa visual (H2, quando houver dado acumulado)</li>
+          <li>Comparação pública entre vereadores (fora por princípio)</li>
+          <li>App do cidadão (fora por princípio nesta fase)</li>
+          <li>Orçamento/finanças da Câmara (decisão antiga, mantida)</li>
+          <li>Redigir indicações: não competimos com o SAPL na origem</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. DECISÕES E PENDÊNCIAS -->
+<section class="p-section" style="border-bottom:none">
+  <div class="p-wrap">
+    <div class="p-marker"><span class="n">6</span><h2 class="font-display">O que está travado e o que ainda depende de nós</h2></div>
+    <p class="p-kicker">Transparência sobre o estado real: decisões tomadas com base em evidência, e as pendências que antecedem a execução.</p>
+
+    <div class="p-cards">
+      <div class="p-card">
+        <span class="chip chip-ok">Travado</span>
+        <h4>Núcleo do problema</h4>
+        <p>Fechar o ciclo da indicação (prestação de contas) é o núcleo; o mapa georreferenciado é camada de diferenciação. A dor verbalizada manda, a aposta visual acompanha.</p>
+      </div>
+      <div class="p-card">
+        <span class="chip chip-ok">Travado</span>
+        <h4>Modelo de compra</h4>
+        <p>Híbrido: a Mesa compra (contrato institucional único, sob dispensa), o gabinete usa. Piloto com gabinetes gera a prova que fecha a venda.</p>
+      </div>
+      <div class="p-card">
+        <span class="chip chip-ok">Travado</span>
+        <h4>Identidade visual e protótipo</h4>
+        <p>Marca VeredaTech com o Verde-vereda <strong>#1E5F4E</strong>, design system completo e <strong>8 telas navegáveis construídas</strong> — o que você acabou de ver nesta apresentação é o produto real em HTML.</p>
+      </div>
+      <div class="p-card">
+        <span class="chip chip-ok">Travado</span>
+        <h4>Requisitos de base</h4>
+        <p>LGPD e acessibilidade (WCAG) desde o design. Dados privados por gabinete desde o dia 1: ninguém vê o dado dos outros.</p>
+      </div>
+      <div class="p-card">
+        <span class="chip chip-warning">Pendente</span>
+        <h4>Nome: VeredaTech (condicionado)</h4>
+        <p>Verificação web feita: colisões só em segmentos distintos. <strong>Falta: INPI (classes 9/42) e registro.br</strong>. Fallback verificado: "Protocola".</p>
+      </div>
+      <div class="p-card">
+        <span class="chip chip-warning">Pendente</span>
+        <h4>Validações de campo</h4>
+        <p>Confirmar os 2-3 gabinetes do piloto; validar a dor com a secretaria legislativa/Mesa; obter o exemplo real de indicação prometido na reunião de origem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="p-footer">
+  <div class="p-wrap">
+    <p class="sign">"A gente fez esse sistema porque pedido de morador não pode morrer no silêncio."</p>
+    <p>VeredaTech · proposta de produto · julho de 2026. Base documental completa no repositório do projeto:</p>
+    <ul>
+      <li>Discovery (fases 1.1 a 1.6): premissas, mercado, evidência de dor, personas, Regimento Interno e dados abertos</li>
+      <li>Estratégia (2.1 a 2.5): requisitos, soluções, golden circle, business case com fontes (PNCP, Decreto 12.807/2025), lean canvas</li>
+      <li>Planejamento (3.1 a 3.4): naming verificado, cores e estilo aprovados, roadmap H0 a H4, corte do MVP</li>
+      <li>Execução (4.1 a 4.4): identidade visual, design system, épicos e estórias, protótipo navegável de 8 telas</li>
+    </ul>
+    <div class="p-hero-cta" style="margin-top:24px">
+      <a href="1.1-login.html" class="btn btn-accent">Navegar pelo protótipo</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

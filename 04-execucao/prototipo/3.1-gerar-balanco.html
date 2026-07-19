@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VeredaTech — Gerar balanço por bairro</title>
+<link rel="stylesheet" href="styles/global.css">
+</head>
+<body>
+  <div class="app">
+
+    <header class="topbar">
+      <div class="container">
+        <a href="1.2-painel.html" class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3,15 C6,20 11,20.5 14,17 C17,13.5 15,8.5 18.5,6 C20,5 21.5,5.8 22.5,7.5" stroke="#1E5F4E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="brand-word">Vereda<span>Tech</span></span>
+        </a>
+        <div class="topbar-actions">
+          <div class="user-chip">
+            <span class="avatar">SR</span>
+            <span>Gabinete <b>Vereadora Simone Rocha</b></span>
+          </div>
+          <a href="1.1-login.html" class="btn btn-secondary btn-sm">Sair</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="container stack center-narrow">
+
+        <a href="1.2-painel.html" class="back-link">← Painel do gabinete</a>
+
+        <section class="card">
+          <div>
+            <div class="eyebrow">Balanço territorial</div>
+            <h3 class="font-display" style="font-size:20px">Gerar balanço por bairro</h3>
+            <p class="sub mt-0">Monte em segundos a prestação de contas que hoje leva dias para compilar.</p>
+          </div>
+
+          <form class="login-form" onsubmit="event.preventDefault()">
+            <div class="field">
+              <label for="bairro">Bairro</label>
+              <select id="bairro" class="input">
+                <option selected>Todos os bairros</option>
+                <option>Atalaia</option>
+                <option>Centro</option>
+                <option>Farolândia</option>
+                <option>Industrial</option>
+                <option>Jabotiana</option>
+                <option>Santa Maria</option>
+                <option>Suíssa</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="periodo">Período</label>
+              <select id="periodo" class="input">
+                <option>Todo o mandato</option>
+                <option>Últimos 12 meses</option>
+                <option>Últimos 90 dias</option>
+                <option selected>Últimos 30 dias</option>
+              </select>
+            </div>
+
+            <a href="3.2-visualizacao-balanco.html" class="btn btn-accent btn-block">Gerar balanço</a>
+          </form>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+</body>
+</html>

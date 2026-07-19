@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VeredaTech — Painel do gabinete</title>
+<link rel="stylesheet" href="styles/global.css">
+</head>
+<body>
+  <div class="app">
+
+    <header class="topbar">
+      <div class="container">
+        <a href="1.2-painel.html" class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3,15 C6,20 11,20.5 14,17 C17,13.5 15,8.5 18.5,6 C20,5 21.5,5.8 22.5,7.5" stroke="#1E5F4E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="brand-word">Vereda<span>Tech</span></span>
+        </a>
+        <div class="topbar-actions">
+          <div class="user-chip">
+            <span class="avatar">SR</span>
+            <span>Gabinete <b>Vereadora Simone Rocha</b></span>
+          </div>
+          <a href="1.1-login.html" class="btn btn-secondary btn-sm">Sair</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- faixa hero: contínua com o header, carrega saudação + filtros -->
+    <section class="hero-band">
+      <div class="container">
+        <div class="hero-head">
+          <div>
+            <div class="eyebrow">Painel estratégico · Mandato 2025–2028</div>
+            <h1 class="font-display">Bom dia, Rafael</h1>
+            <p class="hero-insight">A taxa de desfecho subiu <b class="up">+9 pontos</b> no trimestre. <b>Farolândia</b> concentra o maior volume de demandas abertas do mandato.</p>
+          </div>
+          <div class="date" style="color:rgba(244,243,239,.55)">Quinta-feira, 18 de julho de 2026</div>
+        </div>
+
+        <div class="filters" role="group" aria-label="Filtros do painel (ilustrativos)">
+          <div class="pill-group">
+            <button type="button" class="pill is-active">Mandato</button>
+            <button type="button" class="pill">12 meses</button>
+            <button type="button" class="pill">90 dias</button>
+            <button type="button" class="pill">30 dias</button>
+          </div>
+          <select class="filter-select" aria-label="Filtrar por bairro">
+            <option selected>Todos os bairros</option>
+            <option>Atalaia</option>
+            <option>Jabotiana</option>
+            <option>Centro</option>
+            <option>Farolândia</option>
+            <option>Industrial</option>
+            <option>Jardins</option>
+            <option>Luzia</option>
+            <option>Santa Maria</option>
+            <option>Suíssa</option>
+          </select>
+          <span class="hint">Filtros ilustrativos — protótipo</span>
+        </div>
+      </div>
+    </section>
+
+    <main class="page" style="padding-top:0">
+      <div class="container">
+
+        <!-- KPIs sobrepostos à faixa escura -->
+        <div class="kpi-row">
+          <div class="kpi">
+            <span class="lbl">Indicações no mandato</span>
+            <span class="val">47</span>
+            <span class="delta good"><i>▲ +8</i> <span>vs. semestre anterior</span></span>
+            <div class="spark" aria-hidden="true">
+              <svg viewBox="0 0 100 34" preserveAspectRatio="none">
+                <polyline class="spark-line" points="0,26 9,24 18,25 27,21 36,22 45,18 54,19 63,15 72,16 81,12 90,10 100,7"/>
+                <circle class="spark-now" cx="100" cy="7" r="4"/>
+              </svg>
+            </div>
+          </div>
+          <div class="kpi">
+            <span class="lbl">Taxa de desfecho</span>
+            <span class="val">62<small>%</small></span>
+            <span class="delta good"><i>▲ +9 pp</i> <span>no trimestre</span></span>
+            <div class="spark" aria-hidden="true">
+              <svg viewBox="0 0 100 34" preserveAspectRatio="none">
+                <polyline class="spark-line" points="0,28 9,27 18,28 27,24 36,25 45,22 54,23 63,19 72,17 81,14 90,12 100,8"/>
+                <circle class="spark-now" cx="100" cy="8" r="4"/>
+              </svg>
+            </div>
+          </div>
+          <div class="kpi">
+            <span class="lbl">Tempo médio até resposta</span>
+            <span class="val">23 <small>dias</small></span>
+            <span class="delta good"><i>▼ −6 dias</i> <span>vs. semestre anterior</span></span>
+          </div>
+          <div class="kpi">
+            <span class="lbl">Em silêncio agora</span>
+            <span class="val">11</span>
+            <span class="delta bad"><i>● 3</i> <span>em prazo regimental</span></span>
+          </div>
+        </div>
+
+        <!-- mapa de calor + inteligência -->
+        <div class="dash-grid">
+
+          <section class="card map-card">
+            <div>
+              <div class="eyebrow">Território</div>
+              <h3 class="font-display" style="font-size:17px">Calor de indicações por bairro</h3>
+              <p class="map-sub">Onde o mandato está sendo mais demandado — limites reais dos bairros de Aracaju</p>
+            </div>
+
+            <div class="map-wrap">
+              <svg viewBox="0 0 560 1216.9" role="img" aria-label="Mapa de calor de Aracaju: Farolândia lidera com 9 indicações, seguida de Centro com 7 e Atalaia com 6">
+<path class="region r-zero" d="M492.8,256.1 518.3,255.8 519.4,250.3 531.4,250.2 534.3,285.0 534.8,302.7 492.4,297.2 477.2,290.4 487.5,274.7 487.3,256.2Z" fill="var(--heat-0)" data-b="13 de Julho" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M308.2,570.9 295.0,599.8 271.0,588.3 283.6,563.6 311.7,509.1 315.8,510.9 318.7,506.7 369.3,523.9 326.3,537.1Z" fill="var(--heat-0)" data-b="17 de Março" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M423.2,133.0 408.9,124.6 403.4,124.6 395.9,117.3 385.8,111.2 383.7,126.1 373.1,143.3 385.9,153.1 387.6,163.2 388.1,167.0 400.5,166.9 399.7,172.3 442.6,178.3 444.8,170.7 448.8,164.8 450.7,164.8 450.9,148.1 444.4,145.0 439.4,147.0 430.1,146.9 424.5,141.8Z" fill="var(--heat-0)" data-b="18 do Forte" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M343.3,475.4 351.3,470.4 356.1,464.1 356.0,460.1 362.9,462.0 363.7,458.0 368.8,455.4 370.9,456.2 371.2,450.9 373.3,448.9 458.1,491.0 468.2,490.4 461.9,501.3 457.1,506.1 438.9,535.9 417.8,559.5 405.9,555.5 388.7,545.8 369.9,524.2 318.7,506.7 327.9,488.2 340.6,482.0 337.7,476.6Z" fill="var(--heat-0)" data-b="Aeroporto" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M371.9,264.9 380.7,269.2 394.4,236.2 397.4,214.3 390.0,213.2 390.2,209.4 381.7,210.9 351.2,207.2 350.8,210.9 342.1,209.6 340.7,214.1 369.6,247.2 372.3,254.9Z" fill="var(--heat-0)" data-b="América" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M106.7,865.1 138.2,868.4 144.2,858.8 155.1,860.0 140.7,881.8 171.5,885.5 171.6,887.5 179.8,888.3 247.6,792.6 191.2,765.8 178.1,762.1 162.9,792.3 141.1,807.6 138.0,815.2 131.1,817.9 127.9,817.2 119.0,802.4 110.4,794.2 102.7,788.6 87.7,783.5 72.3,782.0 66.4,783.5 61.0,785.9 50.5,796.9 31.1,827.5 46.8,838.3 52.9,857.3 57.8,864.6 59.2,872.7 66.2,882.9 75.7,887.1 84.7,885.5 93.3,881.3Z" fill="var(--heat-0)" data-b="Areia Branca" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M369.3,523.9 384.9,542.6 405.9,555.5 417.8,559.5 430.8,544.8 473.8,569.9 440.8,611.7 416.1,646.6 402.7,666.2 355.7,642.7 356.6,641.6 321.2,617.8 322.7,605.6 308.2,570.9 326.3,537.1Z" fill="var(--heat-0)" data-b="Aruana" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M336.4,135.2 345.3,130.8 343.0,117.7 332.4,100.1 325.9,93.9 323.8,87.4 313.6,82.5 307.2,86.3 307.4,92.8 303.7,97.8 295.1,99.4 285.1,95.2 279.9,94.6 276.3,98.9 274.0,115.7 277.3,118.3 276.8,116.7 279.1,116.6 287.9,117.7 301.7,126.9Z" fill="var(--heat-0)" data-b="Assis Chateaubriand" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-dark" d="M498.6,469.6 525.1,476.5 531.1,475.8 535.1,480.3 547.1,484.9 488.2,553.8 473.8,569.9 431.4,545.2 444.1,528.8 468.2,490.4 473.8,489.7 485.1,493.5 485.2,482.4 481.5,461.9 487.5,468.7Z" fill="var(--heat-5)" data-b="Atalaia" data-n="6" data-cat="pavimentação" tabindex="0"/>
+<path class="region r-zero" d="M305.4,244.0 293.9,239.8 265.8,175.6 323.5,183.4 330.0,188.9 338.2,210.4 354.8,229.9 313.9,245.1Z" fill="var(--heat-0)" data-b="Capucho" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-dark" d="M483.7,176.9 463.9,178.4 464.5,228.0 473.4,227.9 526.6,227.7 522.7,213.6 520.3,168.4 492.4,170.0 492.3,175.8Z" fill="var(--heat-5)" data-b="Centro" data-n="7" data-cat="poda e arborização" tabindex="0"/>
+<path class="region r-zero" d="M432.6,118.9 433.5,121.0 423.2,133.0 408.9,124.6 403.4,124.6 394.7,116.3 383.2,109.8 395.2,96.7 395.3,90.7 394.8,89.4 401.3,84.7 405.6,91.9 414.2,97.7 417.2,104.7Z" fill="var(--heat-0)" data-b="Cidade Nova" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M464.4,222.4 464.3,209.6 458.4,211.2 437.0,209.8 423.5,208.2 416.4,228.8 464.5,228.0Z" fill="var(--heat-0)" data-b="Cirurgia" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-light" d="M496.7,317.3 492.6,330.6 490.5,355.8 491.7,362.3 485.6,424.8 482.2,441.5 481.5,461.9 487.5,468.7 498.1,470.6 525.1,476.5 531.1,475.8 535.1,480.3 547.1,484.9 552.4,477.4 557.7,463.6 560.0,442.6 551.8,421.2 549.2,407.6 550.6,397.5 555.4,385.7 543.8,363.0 537.8,336.6 534.8,302.7 501.9,297.8Z" fill="var(--heat-1)" data-b="Coroa do Meio" data-n="1" data-cat="drenagem e alagamentos" tabindex="0"/>
+<path class="region r-zero" d="M400.8,85.1 394.8,89.4 395.2,96.7 383.2,109.8 362.7,97.2 360.7,94.2 369.1,81.3 382.2,61.1 385.5,61.1 393.4,63.0 399.4,75.4 403.0,77.7Z" fill="var(--heat-0)" data-b="Dom Luciano" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-dark" d="M400.2,398.1 399.7,403.2 394.3,406.7 399.2,412.1 399.3,417.5 394.9,421.7 388.0,423.3 386.0,429.4 378.6,429.3 380.6,440.6 373.3,448.9 431.3,478.1 458.1,491.0 473.8,489.7 485.1,493.5 485.2,482.4 481.5,461.9 482.1,443.3 488.9,391.6 478.9,392.3 473.5,390.4 467.4,384.6 462.6,371.8 458.5,369.5 449.1,373.3 448.5,384.5 446.5,386.9 419.8,383.7 409.1,388.0 405.0,394.7Z" fill="var(--heat-6)" data-b="Farolândia" data-n="9" data-cat="zeladoria urbana (7 de 9)" tabindex="0"/>
+<path class="region r-zero" d="M179.8,888.3 248.4,792.2 295.2,808.0 303.1,813.7 288.5,836.1 223.6,931.4 204.7,925.3 161.6,915.3Z" fill="var(--heat-0)" data-b="Gameleira" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M442.6,178.3 463.9,178.4 464.3,209.6 459.3,210.8 423.5,208.2 432.4,176.8Z" fill="var(--heat-0)" data-b="Getúlio Vargas" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-light" d="M435.1,316.2 440.3,309.4 442.8,295.3 450.3,276.5 477.2,290.4 472.5,307.9 455.5,320.4 448.3,328.1 441.0,344.6 426.9,360.0 422.7,359.3 435.5,340.2 417.0,332.2Z" fill="var(--heat-1)" data-b="Grageru" data-n="1" data-cat="limpeza urbana" tabindex="0"/>
+<path class="region r-dark" d="M483.7,176.9 492.3,175.8 492.4,170.0 520.3,168.4 517.9,128.2 519.8,111.0 534.7,87.9 501.2,79.9 489.1,102.3 486.0,113.5 464.5,112.9 458.4,113.3 464.2,132.8 461.7,134.4 463.7,140.3 460.5,143.9Z" fill="var(--heat-4)" data-b="Industrial" data-n="4" data-cat="iluminação pública" tabindex="0"/>
+<path class="region r-zero" d="M488.9,391.6 489.7,380.3 480.5,376.8 469.4,369.2 422.7,359.3 435.5,340.2 434.0,338.8 407.1,329.5 396.7,339.6 384.2,327.6 369.5,352.6 365.7,367.5 366.1,374.6 362.3,377.3 352.7,379.0 355.9,389.0 400.2,398.1 405.0,394.7 409.1,388.0 419.8,383.7 446.5,386.9 448.5,384.5 449.1,373.3 458.5,369.5 462.6,371.8 467.4,384.6 473.5,390.4 478.9,392.3Z" fill="var(--heat-0)" data-b="Inácio Barbosa" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-dark" d="M305.4,244.0 293.9,239.8 328.7,320.5 283.5,436.9 294.6,433.7 304.2,425.0 316.6,420.4 328.7,406.4 337.0,386.5 352.9,381.4 352.7,379.0 354.7,377.4 362.3,377.3 366.1,374.6 365.7,367.5 369.5,352.6 384.3,326.8 366.5,308.2 362.1,298.3 362.8,288.2 372.4,260.7 370.6,249.0 354.8,229.9 313.9,245.1Z" fill="var(--heat-4)" data-b="Jabotiana" data-n="4" data-cat="drenagem e alagamentos" tabindex="0"/>
+<path class="region r-zero" d="M402.6,77.6 401.3,84.7 405.6,91.9 414.0,97.5 417.2,104.7 426.9,112.5 432.1,106.6 434.9,99.7 441.0,97.6 437.8,95.4 435.2,88.3 431.9,85.1 434.2,72.7 432.7,51.0 429.8,56.3 426.5,58.2 419.0,55.9 404.1,64.5Z" fill="var(--heat-0)" data-b="Japãozinho" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M286.8,129.5 285.7,122.3 278.5,119.2 276.8,116.7 287.9,117.7 299.8,126.1 332.7,133.8 336.4,135.2 335.4,137.9 335.4,154.4 333.1,157.5 324.2,160.6 283.0,137.6Z" fill="var(--heat-0)" data-b="Jardim Centenário" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-light" d="M489.7,380.3 464.7,367.4 426.9,360.0 441.5,344.0 447.4,329.9 458.1,317.8 472.5,307.9 477.2,290.4 491.4,297.0 501.9,297.8 492.6,330.6Z" fill="var(--heat-2)" data-b="Jardins" data-n="2" data-cat="poda e arborização" tabindex="0"/>
+<path class="region r-zero" d="M345.6,186.6 338.2,180.5 326.7,176.2 322.9,169.4 323.3,163.9 324.2,160.6 348.6,165.1 399.7,172.3 398.5,183.6 393.7,193.8Z" fill="var(--heat-0)" data-b="José Conrado de Araújo" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M404.1,64.5 419.0,55.9 415.1,52.7 412.3,46.2 407.7,17.3 401.5,9.9 394.9,5.6 381.2,0.5 363.1,1.3 341.5,28.9 349.3,32.8 353.1,37.9 362.3,39.0 366.4,44.5 384.8,49.7 383.7,54.6 382.2,61.1 393.4,63.0 401.3,77.2 402.6,77.6 404.0,72.1Z" fill="var(--heat-0)" data-b="Lamarão" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-light" d="M385.9,325.2 393.6,311.0 406.1,311.6 419.3,306.7 413.1,294.7 413.3,279.2 416.4,265.9 450.3,276.5 445.8,290.0 442.8,295.3 439.1,311.7 416.3,332.8 407.1,329.5 396.7,339.6 384.3,326.8Z" fill="var(--heat-3)" data-b="Luzia" data-n="3" data-cat="sinalização viária" tabindex="0"/>
+<path class="region r-zero" d="M31.1,827.5 9.0,859.9 3.3,871.0 0.0,886.3 3.0,895.1 12.6,909.6 46.2,941.1 101.5,942.7 119.7,948.5 136.8,921.9 144.9,922.2 146.4,918.7 158.1,920.5 179.8,888.3 171.6,887.5 171.5,885.5 140.7,881.8 155.1,860.0 144.2,858.8 138.2,868.4 106.7,865.1 93.3,881.3 81.2,886.9 75.7,887.1 68.5,885.0 59.2,872.7 57.8,864.6 52.9,857.3 46.8,838.3Z" fill="var(--heat-0)" data-b="Matapoã" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M29.2,988.1 44.1,969.4 46.8,958.5 46.2,941.1 101.5,942.7 119.7,948.5 136.8,921.9 144.9,922.2 146.4,918.7 158.1,920.5 161.6,915.3 183.8,920.4 223.6,931.4 154.7,1036.8 118.6,1104.1 103.5,1156.2 91.0,1175.6 81.7,1213.3 76.6,1216.9 63.8,1207.4 47.7,1188.7 36.6,1171.1 32.6,1142.8 33.4,1088.1 37.9,1053.0 37.4,1035.2Z" fill="var(--heat-0)" data-b="Mosqueiro" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M341.2,213.1 342.1,209.6 350.8,210.9 351.2,207.2 381.1,210.9 390.2,209.4 390.7,199.2 393.7,193.8 388.7,192.4 323.5,183.4 330.0,188.9 336.6,207.6Z" fill="var(--heat-0)" data-b="Novo Paraíso" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M283.0,137.6 272.5,150.5 264.3,172.1 266.1,175.7 345.6,186.6 338.2,180.5 325.4,174.7 322.9,169.4 324.2,160.6Z" fill="var(--heat-0)" data-b="Olaria" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M433.5,121.0 423.4,132.5 425.0,142.6 430.1,146.9 439.4,147.0 444.5,145.0 444.8,136.9 443.6,131.9 445.5,127.8 435.9,124.1Z" fill="var(--heat-0)" data-b="Palestina" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M436.9,228.4 421.8,246.5 428.5,246.6 427.9,266.3 427.3,269.2 404.6,261.2 416.4,228.8Z" fill="var(--heat-0)" data-b="Pereira Lobo" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M381.7,324.2 366.5,308.2 362.1,298.3 362.8,288.2 371.5,264.8 380.7,269.2 382.5,265.1 396.5,266.1 402.5,260.2 408.7,263.2 416.4,265.9 413.3,279.2 413.1,294.7 419.3,306.7 406.1,311.6 393.6,311.0 385.9,325.2 384.3,326.8Z" fill="var(--heat-0)" data-b="Ponto Novo" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M435.4,45.8 445.7,31.4 466.0,10.2 484.3,0.7 496.0,0.0 509.1,2.5 536.1,12.0 544.6,16.3 558.2,30.8 548.1,63.0 534.7,87.9 501.2,79.9 489.1,102.3 486.0,113.5 458.4,113.3 457.4,107.2 438.0,95.6 435.2,88.3 431.9,85.1 434.2,72.7 432.7,51.0Z" fill="var(--heat-0)" data-b="Porto Dantas" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M450.3,276.5 477.2,290.4 487.5,274.7 487.3,256.2 477.0,255.8 464.8,254.9 454.3,268.0Z" fill="var(--heat-0)" data-b="Salgado Filho" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-dark" d="M337.7,476.6 347.8,473.9 355.3,464.6 341.9,457.4 341.7,453.9 328.8,450.7 327.4,447.1 323.6,444.6 322.2,437.6 324.7,434.6 320.7,430.9 323.5,429.4 319.6,422.9 322.8,420.0 318.8,417.9 315.6,421.1 306.5,423.7 294.6,433.7 283.5,436.9 141.1,807.6 162.9,792.3 205.2,710.2 215.5,718.5 230.3,721.7 239.9,719.4 244.9,716.3 247.5,712.0 246.7,706.0 241.9,700.2 232.7,694.9 232.5,689.8 234.0,683.9 239.5,680.2 243.8,673.7 245.8,666.4 245.7,655.0 251.9,646.7 251.6,641.1 247.9,640.0 246.8,636.8 311.7,509.1 315.8,510.9 327.9,488.2 340.6,482.0Z" fill="var(--heat-4)" data-b="Santa Maria" data-n="5" data-cat="iluminação pública" tabindex="0"/>
+<path class="region r-zero" d="M434.7,123.3 431.3,116.5 426.9,112.5 432.1,106.6 435.0,99.6 441.0,97.6 448.2,101.1 457.7,107.8 464.2,132.8 461.7,134.4 463.7,140.3 460.5,143.9 483.9,177.1 448.7,179.5 442.6,178.3 444.8,170.7 448.8,164.8 450.7,164.8 450.9,148.1 444.5,145.0 443.6,131.9 445.5,127.8Z" fill="var(--heat-0)" data-b="Santo Antônio" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-light" d="M359.1,96.5 355.1,102.9 337.8,108.6 343.0,117.7 345.5,130.1 335.7,136.4 335.4,154.4 333.1,157.5 324.2,160.6 351.1,165.5 399.7,172.3 400.5,166.9 388.1,167.0 386.0,153.3 373.1,143.3 383.7,126.1 385.8,111.2 362.7,97.2 360.7,94.2Z" fill="var(--heat-2)" data-b="Santos Dumont" data-n="2" data-cat="limpeza urbana" tabindex="0"/>
+<path class="region r-zero" d="M390.2,209.4 390.7,199.2 397.7,187.7 399.7,172.3 432.4,176.8 416.4,228.9 404.6,261.2 402.5,260.2 396.5,266.1 382.5,265.1 394.4,236.2 397.4,214.3 390.0,213.2Z" fill="var(--heat-0)" data-b="Siqueira Campos" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M274.0,111.5 274.0,115.7 285.7,122.3 286.8,130.1 272.5,150.5 269.0,159.9 264.3,172.1 265.8,175.6 256.9,175.3 227.7,179.8 216.1,178.3 204.0,150.2 208.9,148.1 203.2,138.1 197.5,134.3 207.0,130.2 210.1,124.3 201.6,115.3 218.6,108.2 217.0,104.0 228.4,102.2 235.3,103.2 247.9,108.0 248.6,113.2 258.1,116.2 263.6,116.5Z" fill="var(--heat-0)" data-b="Sobrado" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M359.1,96.5 355.1,102.9 337.8,108.6 325.9,93.9 323.8,87.4 313.6,82.5 307.2,86.3 305.0,80.8 289.5,70.6 281.0,60.7 280.6,57.5 283.6,53.5 288.7,51.5 321.3,49.5 341.5,28.9 349.3,32.8 353.1,37.9 362.3,39.0 366.4,44.5 372.9,47.2 384.8,49.7 382.2,61.1Z" fill="var(--heat-0)" data-b="Soledade" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-light" d="M428.1,264.6 428.5,246.6 421.8,246.5 436.4,229.0 460.0,228.0 464.5,228.0 464.7,255.6 454.3,268.0 450.3,276.5 427.3,269.2Z" fill="var(--heat-3)" data-b="Suíssa" data-n="3" data-cat="recapeamento" tabindex="0"/>
+<path class="region r-zero" d="M373.3,448.9 380.6,440.6 378.6,429.3 386.0,429.4 388.0,423.3 394.9,421.7 399.3,417.5 399.2,412.1 394.3,406.7 399.7,403.2 400.2,398.1 358.4,389.9 355.9,389.0 352.9,381.4 337.8,386.0 335.0,389.0 328.7,406.4 318.8,417.9 323.0,420.3 319.6,422.9 323.0,430.3 320.6,430.2 324.7,434.6 322.2,437.6 323.1,443.8 327.4,447.1 328.8,450.7 341.7,453.9 341.9,457.4 355.3,464.6 356.4,459.9 362.9,462.0 363.7,458.0 368.8,455.4 370.9,456.2 371.2,450.9Z" fill="var(--heat-0)" data-b="São Conrado" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<path class="region r-zero" d="M526.6,227.7 531.4,250.2 519.4,250.3 518.3,255.8 487.3,256.2 464.8,254.9 464.6,228.0Z" fill="var(--heat-0)" data-b="São José" data-n="0" data-cat="sem indicações no período" tabindex="0"/>
+<text class="m-name" x="487.0" y="507.9" fill="#F4F3EF" text-anchor="middle">Atalaia</text>
+<text class="m-val" x="487.0" y="525.9" fill="#F4F3EF" text-anchor="middle">6</text>
+<text class="m-val" x="494.4" y="210.7" fill="#F4F3EF" text-anchor="middle">7</text>
+<text class="m-name" x="519.5" y="390.6" fill="#1A1B1E" text-anchor="middle">Coroa do Meio</text>
+<text class="m-val" x="519.5" y="408.6" fill="#1A1B1E" text-anchor="middle">1</text>
+<text class="m-name" x="440.4" y="425.2" fill="#F4F3EF" text-anchor="middle">Farolândia</text>
+<text class="m-val" x="440.4" y="443.2" fill="#F4F3EF" text-anchor="middle">9</text>
+<text class="m-val" x="448.9" y="322.2" fill="#1A1B1E" text-anchor="middle">1</text>
+<text class="m-val" x="496.1" y="139.9" fill="#F4F3EF" text-anchor="middle">4</text>
+<text class="m-name" x="336.9" y="314.4" fill="#F4F3EF" text-anchor="middle">Jabotiana</text>
+<text class="m-val" x="336.9" y="332.4" fill="#F4F3EF" text-anchor="middle">4</text>
+<text class="m-val" x="471.2" y="347.7" fill="#1A1B1E" text-anchor="middle">2</text>
+<text class="m-val" x="420.4" y="312.8" fill="#1A1B1E" text-anchor="middle">3</text>
+<text class="m-name" x="252.0" y="578.5" fill="#F4F3EF" text-anchor="middle">Santa Maria</text>
+<text class="m-val" x="252.0" y="596.5" fill="#F4F3EF" text-anchor="middle">5</text>
+<text class="m-val" x="361.6" y="147.0" fill="#1A1B1E" text-anchor="middle">2</text>
+<text class="m-val" x="445.7" y="259.9" fill="#1A1B1E" text-anchor="middle">3</text>
+</svg>
+              <div class="map-tip" id="mapTip" role="tooltip"></div>
+            </div>
+
+            <div class="map-legend">
+              <span>Menos</span>
+              <span class="ramp" aria-hidden="true">
+                <i style="background:var(--heat-1)"></i><i style="background:var(--heat-2)"></i><i style="background:var(--heat-3)"></i><i style="background:var(--heat-4)"></i><i style="background:var(--heat-5)"></i><i style="background:var(--heat-6)"></i>
+              </span>
+              <span>Mais indicações</span>
+              <span class="zero-key"><i></i> sem indicações</span>
+              <span style="margin-left:auto">Limites: © OpenStreetMap</span>
+            </div>
+          </section>
+
+          <div class="stack" style="gap:20px">
+
+          <section class="card">
+            <div class="section-label" style="margin-bottom:0">
+              <h2 class="font-display" style="font-size:17px">Requer ação agora</h2>
+              <span class="hint">Mais urgentes primeiro</span>
+            </div>
+
+            <div class="list-stack">
+              <a class="item-link" href="2.1-ficha.html?id=req-214">
+                <div class="item">
+                  <div class="top-row">
+                    <b>Poda de árvores na Rua Itabaiana</b>
+                    <span class="chip chip-danger">Prazo regimental</span>
+                  </div>
+                  <div class="meta">Req. 214/2026 · Centro · vence em 2 dias</div>
+                </div>
+              </a>
+              <a class="item-link" href="2.1-ficha.html?id=ind-1289">
+                <div class="item">
+                  <div class="top-row">
+                    <b>Tapa-buraco na Av. Euclides Figueiredo</b>
+                    <span class="chip chip-warning">Em silêncio</span>
+                  </div>
+                  <div class="meta">Ind. 1.289/2026 · Atalaia · enviada há 34 dias</div>
+                </div>
+              </a>
+              <a class="item-link" href="2.1-ficha.html?id=ind-1310">
+                <div class="item">
+                  <div class="top-row">
+                    <b>Coleta seletiva no bairro Farolândia</b>
+                    <span class="chip chip-warning">Em silêncio</span>
+                  </div>
+                  <div class="meta">Ind. 1.310/2026 · Farolândia · enviada há 8 dias</div>
+                </div>
+              </a>
+            </div>
+            <span class="text-muted" style="font-size:12.5px">+ 8 indicações em acompanhamento sem pendência</span>
+          </section>
+
+          <section class="card">
+            <div>
+              <div class="eyebrow">Cobrança</div>
+              <h3 class="font-display" style="font-size:17px">Silêncio médio por secretaria</h3>
+            </div>
+            <div class="hbar-list">
+              <div class="hbar">
+                <div class="h-top"><b>Serviços Urbanos</b><span>38 dias</span></div>
+                <div class="h-track"><i class="h-fill" style="width:100%"></i></div>
+              </div>
+              <div class="hbar">
+                <div class="h-top"><b>Infraestrutura</b><span>24 dias</span></div>
+                <div class="h-track"><i class="h-fill" style="width:63%"></i></div>
+              </div>
+              <div class="hbar">
+                <div class="h-top"><b>Saúde</b><span>15 dias</span></div>
+                <div class="h-track"><i class="h-fill" style="width:39%"></i></div>
+              </div>
+              <div class="hbar">
+                <div class="h-top"><b>Educação</b><span>9 dias</span></div>
+                <div class="h-track"><i class="h-fill" style="width:24%"></i></div>
+              </div>
+            </div>
+            <span class="text-muted" style="font-size:12px">Dias entre o protocolo e a primeira resposta, no mandato — simulação.</span>
+          </section>
+
+          </div><!-- /coluna direita -->
+
+        </div>
+
+        <!-- inteligência -->
+        <div class="stack" style="margin-top:20px">
+
+          <section class="card intel-card">
+            <div class="intel-head">
+              <span class="intel-dot" aria-hidden="true"></span>
+              <h3 class="font-display">Inteligência Vereda</h3>
+              <span class="sub">gerado a partir dos dados do mandato</span>
+            </div>
+
+            <div class="intel-grid">
+              <div class="insight">
+                <div class="i-top"><span class="chip chip-danger">Alerta</span></div>
+                <p>O prazo regimental do <b>Req. 214/2026</b> (poda de árvores, Centro) vence em <b>2 dias</b>. Sem resposta, o Executivo fica sujeito à sanção do art. 116.</p>
+                <a href="2.3-requerimento.html?id=req-214" class="i-action">Gerar requerimento de informação →</a>
+              </div>
+
+              <div class="insight">
+                <div class="i-top"><span class="chip chip-warning">Padrão detectado</span></div>
+                <p><b>Farolândia</b> concentra <b>19%</b> das indicações do mandato — 3× a média por bairro. 7 das 9 são de zeladoria urbana: pode valer uma indicação coletiva de mutirão.</p>
+                <a href="3.1-gerar-balanco.html" class="i-action">Gerar balanço de Farolândia →</a>
+              </div>
+
+              <div class="insight">
+                <div class="i-top"><span class="chip chip-neutral">Desempenho</span></div>
+                <p>A <b>Secretaria de Serviços Urbanos</b> fica em silêncio por <b>38 dias</b> em média — 2,6× mais que as demais secretarias.</p>
+              </div>
+
+              <div class="insight">
+                <div class="i-top"><span class="chip chip-accent">Oportunidade</span></div>
+                <p><b>Santo Antônio</b> e <b>São José</b> estão há 4 meses sem nenhuma indicação — presença territorial baixa em bairros vizinhos ao Centro.</p>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <div class="dash-cta">
+          <div>
+            <b>Pronto para prestar contas?</b>
+            <p>Gere o balanço territorial do mandato em segundos, filtrado por bairro ou período.</p>
+          </div>
+          <a href="3.1-gerar-balanco.html" class="btn btn-accent">Gerar balanço por bairro</a>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+    // Interação ilustrativa do protótipo — nenhum dado é alterado.
+    document.querySelectorAll('.pill').forEach(function(p){
+      p.addEventListener('click', function(){
+        p.closest('.pill-group').querySelectorAll('.pill').forEach(function(x){ x.classList.remove('is-active') });
+        p.classList.add('is-active');
+      });
+    });
+
+    var tip = document.getElementById('mapTip');
+    var wrap = document.querySelector('.map-wrap');
+    var TOTAL = 47;
+    document.querySelectorAll('.region').forEach(function(t){
+      function show(){
+        var n = +t.dataset.n;
+        var pct = n ? Math.round(n / TOTAL * 100) + '% do mandato · ' : '';
+        tip.innerHTML = '<b>' + t.dataset.b + '</b>' +
+          n + (n === 1 ? ' indicação' : ' indicações') + '<br>' +
+          '<span class="tt-cat">' + pct + t.dataset.cat + '</span>';
+        var r = t.getBoundingClientRect(), w = wrap.getBoundingClientRect();
+        tip.style.left = (r.left - w.left + r.width / 2) + 'px';
+        tip.style.top = (r.top - w.top) + 'px';
+        tip.style.opacity = 1;
+      }
+      function hide(){ tip.style.opacity = 0 }
+      t.addEventListener('mouseenter', show);
+      t.addEventListener('mouseleave', hide);
+      t.addEventListener('focus', show);
+      t.addEventListener('blur', hide);
+    });
+  </script>
+</body>
+</html>
