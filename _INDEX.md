@@ -1,15 +1,15 @@
 # _INDEX — Produto GovTech Câmaras Municipais
 
-_Atualizado em: 2026-07-22 (sessão 5)_
+_Atualizado em: 2026-07-22 (sessão 6)_
 
 Projeto: NOVOS PROJETOS/vereda-tech · Nome do produto: **VeredaTech** (3.1 — pendente INPI/registro.br)
 Início do pipeline: 2026-07-17
 
 ## Estado
-- **Fase corrente:** 3 Planejamento — **reaberta** (retrabalho pós-feedback), com Fase 4 Execução a receber novos épicos em seguida.
-- **Gatilho:** reunião de apresentação do protótipo a Diego em 2026-07-22 (`reunioes/`). Feedback: conceito e interface validados, mas produto precisa virar plataforma modular (5 módulos legislativos), com visão institucional, integrações futuras, anexos, WhatsApp real (fora de escopo por ora) e identidade visual real da Câmara para demo. Ver `01-discovery/1.8-feedback-diego-priorizacao.md` (priorização) e `01-discovery/1.7-tramitacao-regimental-modulos.md` (rito regimental dos 5 módulos, pré-requisito lido na íntegra do Regimento Interno de Aracaju antes de qualquer alteração de produto).
-- **Replanejamento aprovado pela usuária (2026-07-22):** `03-planejamento/3.5-impacto-modulos-e-perfis.md` — plano de impacto (ainda só protótipo, nada funcional) para: (1) badge "Origem: SAPL" na ficha de indicação; (2) módulo Projeto de Lei com linha do tempo de tramitação normal; (3) cadastro de proposição com dois perfis — Gabinete (protocola) e Secretaria/Presidência (faz tramitar/despacha/distribui a comissão), fiel ao rito dos Art. 145-146, 159-160, 74 do Regimento. WhatsApp funcional explicitamente adiado para quando houver desenvolvimento real.
-- **Próxima:** `4.3-epicos-estorias.md` já revisado (2026-07-22) com os 6 épicos/14 estórias. Falta construir os HTMLs em `04-execucao/prototipo/` — sugestão de ordem no próprio documento (seletor de perfil no login → cadastro Gabinete → fila de tramitação → módulo Projeto de Lei → leitor de texto/download → badge de tipo no painel/mapa).
+- **Fase corrente:** 4 Execução — **modularização construída e publicada**. O protótipo deixou de ser "sistema de indicações" e virou plataforma modular navegável nos 2 perfis (Gabinete e Secretaria/Presidência), servida no GitHub Pages.
+- **Construído em 2026-07-22 (sessão 6):** todos os HTMLs do 4.3 revisado (Épicos 5 e 6) + páginas dedicadas do perfil Secretaria com quantitativo por vereador/comissão (`6.2-*-mesa.html`, `6.7-ploa-mesa.html`), nav de módulos com contadores e profile-aware, subtipos de PL (Art. 138 §1º) diferenciados, leitor de texto integral, troca rápida de perfil. Commit `e988b08` publicado.
+- **⚠️ Abrir a próxima sessão pelas 4 perguntas registradas** em `memory/veredatech-perguntar-proxima-sessao.md`: (1) **transcrição bruta da reunião NÃO foi publicada** (repo é público — mantida só local; a confirmar); (2) números mock (Gabinete 52 / Casa 1.240); (3) ranking de autoria como exceção interna da Mesa; (4) páginas -mesa agregadas sem drill-down.
+- **Decisão travada:** ranking nominal de autoria só no dashboard interno da Mesa (6.6) — regra "sem comparação pública" (2.2/2.4) segue valendo fora dela.
 
 ## Artefatos por fase
 
@@ -67,6 +67,7 @@ Início do pipeline: 2026-07-17
 | 2026-07-19 | Fase 4 fechada: 8/8 estórias construídas, 1.2 virou dashboard estratégico com mapa de calor real, apresentação reestilizada e linkada ao protótipo, projeto migrado para `NOVOS PROJETOS/vereda-tech/` | `04-execucao/_logs/2026-07-19_fase4-fechamento-e-migracao.md` |
 | 2026-07-19 | QA de responsividade mobile (3 bugs corrigidos: legibilidade login, callout empilhado, wordmark/trilha do hero), rename `apresentacao.html`→`index.html`, projeto publicado em `github.com/CinthiaSouza/veredatech` com GitHub Pages via Actions | `04-execucao/_logs/2026-07-19_responsividade-e-publicacao-github-pages.md` |
 | 2026-07-22 | Feedback de Diego lido e priorizado (1.8); Regimento Interno de Aracaju lido na íntegra para tramitação dos 5 módulos (1.7); replanejamento do protótipo em 2 rodadas (3.5 + 4.3 revisado 3x) garantindo que os 5 módulos (PL, Indicação, Requerimento, Moção, Emenda ao Orçamento) sejam demonstráveis, incluindo visão institucional da Mesa (6.6). Ainda sem HTML alterado; próxima sessão constrói os 17 estórias do 4.3. | `04-execucao/_logs/2026-07-22_feedback-diego-regimento-replanejamento.md` |
+| 2026-07-22 | Construção completa dos HTMLs do 4.3 (Épicos 5 e 6); páginas dedicadas do perfil Secretaria com quantitativo por vereador/comissão (`6.2-*-mesa`, `6.7-ploa-mesa`); nav de módulos com contadores + profile-aware; subtipos de PL diferenciados; leitor de texto integral; troca rápida de perfil; upload de anexo. Revisão de consistência/design. Commit `e988b08` publicado no GitHub Pages. Transcrição bruta da reunião deixada de fora do push (repo público) — a confirmar. | `04-execucao/_logs/2026-07-22_construcao-modulos-perfil-secretaria-publicacao.md` |
 
 ## Material-fonte
 `inputs/` — resumo da reunião + 2 pesquisas de mercado GovTech legislativo.
