@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VeredaTech — Gerar balanço por bairro</title>
+<title>VeredaTech — Moções</title>
 <link rel="stylesheet" href="styles/global.css">
 </head>
 <body>
@@ -35,51 +35,43 @@
         <a href="6.2-lista-pl.html">Projetos de Lei <span class="mod-count">7</span></a>
         <a href="6.2-lista-indicacao.html">Indicações <span class="mod-count">38</span></a>
         <a href="6.2-lista-requerimento.html">Requerimentos <span class="mod-count">3</span></a>
-        <a href="6.2-lista-mocao.html">Moções <span class="mod-count">1</span></a>
+        <a href="6.2-lista-mocao.html" class="is-active">Moções <span class="mod-count">1</span></a>
         <a href="6.7-ploa.html">Emendas ao Orçamento <span class="mod-count">3</span></a>
       </div>
     </nav>
 
     <main class="page">
-      <div class="container stack center-narrow">
+      <div class="container stack">
 
         <a href="1.2-painel.html" class="back-link">← Painel do gabinete</a>
 
-        <section class="card">
-          <div>
-            <div class="eyebrow">Balanço territorial</div>
-            <h3 class="font-display" style="font-size:20px">Gerar balanço por bairro</h3>
-            <p class="sub mt-0">Monte em segundos a prestação de contas que hoje leva dias para compilar.</p>
+        <div class="page-head">
+          <div class="row" style="align-items:center; gap:18px">
+            <div class="count-hero"><span class="count-num">1</span><span class="count-lbl">no mandato</span></div>
+            <div>
+              <div class="eyebrow">Módulo · Moção</div>
+              <h1 class="font-display">Moções do mandato</h1>
+              <div class="date">Rito curtíssimo — parecer da CCJ em 2 dias úteis, discussão única (Art. 158)</div>
+            </div>
           </div>
+          <a href="6.4-cadastro.html?tipo=mocao" class="btn btn-primary">Protocolar nova moção</a>
+        </div>
 
-          <form class="login-form" onsubmit="event.preventDefault()">
-            <div class="field">
-              <label for="bairro">Bairro</label>
-              <select id="bairro" class="input">
-                <option selected>Todos os bairros</option>
-                <option>Atalaia</option>
-                <option>Centro</option>
-                <option>Farolândia</option>
-                <option>Industrial</option>
-                <option>Jabotiana</option>
-                <option>Santa Maria</option>
-                <option>Suíssa</option>
-              </select>
+        <div class="list-stack">
+          <a class="item-link" href="6.3-ficha-mocao.html?id=moc-12">
+            <div class="item">
+              <div class="top-row">
+                <span class="top" style="display:flex; align-items:center; gap:8px">
+                  <span class="badge-tipo"><b>MOÇ</b></span>
+                  <b>Moção de aplauso ao corpo de bombeiros pelo resgate na Orla de Atalaia</b>
+                </span>
+                <span class="chip chip-ok">Aprovada</span>
+              </div>
+              <div class="meta">Moç. 12/2026 · protocolada em 09/07/2026 · aprovada em discussão única</div>
             </div>
-
-            <div class="field">
-              <label for="periodo">Período</label>
-              <select id="periodo" class="input">
-                <option>Todo o mandato</option>
-                <option>Últimos 12 meses</option>
-                <option>Últimos 90 dias</option>
-                <option selected>Últimos 30 dias</option>
-              </select>
-            </div>
-
-            <a href="3.2-visualizacao-balanco.html" class="btn btn-accent btn-block">Gerar balanço</a>
-          </form>
-        </section>
+          </a>
+        </div>
+        <span class="text-muted" style="font-size:12.5px">Rito mais simples dos 5 módulos — o produto mostra que lida bem com o complexo (PL) e com o simples (Moção).</span>
 
       </div>
     </main>

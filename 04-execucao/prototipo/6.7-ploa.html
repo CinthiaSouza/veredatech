@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VeredaTech — PLOA e Emendas ao Orçamento</title>
+<link rel="stylesheet" href="styles/global.css">
+</head>
+<body>
+  <div class="app">
+
+    <header class="topbar">
+      <div class="container">
+        <a href="1.2-painel.html" class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3,15 C6,20 11,20.5 14,17 C17,13.5 15,8.5 18.5,6 C20,5 21.5,5.8 22.5,7.5" stroke="#1E5F4E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="brand-word">Vereda<span>Tech</span></span>
+        </a>
+        <div class="topbar-actions">
+          <a class="user-chip" href="6.6-visao-institucional.html" title="Clique para ver como Secretaria/Presidência (demo)">
+            <span class="avatar">SR</span>
+            <span>Gabinete <b>Vereadora Simone Rocha</b></span>
+            <span class="chip-swap" aria-hidden="true">⇄</span>
+          </a>
+          <a href="1.1-login.html" class="btn btn-secondary btn-sm">Sair</a>
+        </div>
+      </div>
+    </header>
+
+    <nav class="modulebar" aria-label="Módulos legislativos">
+      <div class="container">
+        <a href="6.2-lista-pl.html">Projetos de Lei <span class="mod-count">7</span></a>
+        <a href="6.2-lista-indicacao.html">Indicações <span class="mod-count">38</span></a>
+        <a href="6.2-lista-requerimento.html">Requerimentos <span class="mod-count">3</span></a>
+        <a href="6.2-lista-mocao.html">Moções <span class="mod-count">1</span></a>
+        <a href="6.7-ploa.html" class="is-active">Emendas ao Orçamento <span class="mod-count">3</span></a>
+      </div>
+    </nav>
+
+    <main class="page">
+      <div class="container stack">
+
+        <a href="1.2-painel.html" class="back-link">← Painel do gabinete</a>
+
+        <div class="page-head">
+          <div>
+            <div class="eyebrow">PLOA 2027 · em tramitação</div>
+            <h1 class="font-display">Projeto de Lei Orçamentária Anual 2027</h1>
+            <div class="date">Protocolado pelo Executivo em 30/06/2026 · Origem: SAPL</div>
+          </div>
+          <span class="chip chip-warning">Em análise na Comissão de Finanças</span>
+        </div>
+
+        <section class="card">
+          <h3 class="font-display">Por que a Emenda ao Orçamento é diferente dos outros 4 módulos</h3>
+          <p style="margin:0; font-size:13.5px; color:var(--muted)">A Emenda ao Orçamento é <b style="color:var(--ink)">acessória ao PLOA</b> (Art. 169) — não é uma proposição autônoma que o vereador protocola isolada; ela se anexa a este Projeto de Lei enquanto ele tramita.</p>
+          <div class="grid-3">
+            <div class="stat">
+              <span class="lbl">Parecer da Comissão de Finanças</span>
+              <b class="big" style="font-size:20px">15 dias</b>
+              <span class="lbl">vence em 3 dias (Art. 220)</span>
+            </div>
+            <div class="stat">
+              <span class="lbl">Janela de emendas</span>
+              <b class="big" style="font-size:20px" id="janelaStatus">Aberta — 24h</b>
+              <span class="lbl">após a leitura do parecer (Art. 220 §3º)</span>
+            </div>
+            <div class="stat">
+              <span class="lbl">Suas emendas nesta PLOA</span>
+              <b class="big" style="font-size:20px">3</b>
+              <span class="lbl">de 14 apresentadas por 12 gabinetes</span>
+            </div>
+          </div>
+        </section>
+
+        <div class="section-label">
+          <h2 class="font-display" style="font-size:17px">Suas emendas neste PLOA</h2>
+          <a href="6.7-cadastro-emenda.html" class="btn btn-primary btn-sm">Apresentar emenda</a>
+        </div>
+
+        <div class="list-stack">
+          <a class="item-link" href="6.7-ficha-emenda.html?id=emo-09">
+            <div class="item">
+              <div class="top-row">
+                <span class="top" style="display:flex; align-items:center; gap:8px">
+                  <span class="badge-tipo"><b>EMO</b></span>
+                  <b>Emenda — reforço de recursos para reforma de UBS em Farolândia</b>
+                </span>
+                <span class="chip chip-neutral">Recebida</span>
+              </div>
+              <div class="meta">EMO 09/2026 · Secretaria de Saúde · apresentada em 21/07/2026</div>
+            </div>
+          </a>
+          <a class="item-link" href="6.7-ficha-emenda.html?id=emo-06">
+            <div class="item">
+              <div class="top-row">
+                <span class="top" style="display:flex; align-items:center; gap:8px">
+                  <span class="badge-tipo"><b>EMO</b></span>
+                  <b>Emenda — ampliação da dotação para iluminação de praças públicas</b>
+                </span>
+                <span class="chip chip-ok">Parecer favorável</span>
+              </div>
+              <div class="meta">EMO 06/2026 · Secretaria de Infraestrutura · apresentada em 15/07/2026</div>
+            </div>
+          </a>
+          <a class="item-link" href="6.7-ficha-emenda.html?id=emo-03">
+            <div class="item">
+              <div class="top-row">
+                <span class="top" style="display:flex; align-items:center; gap:8px">
+                  <span class="badge-tipo"><b>EMO</b></span>
+                  <b>Emenda — criação de rubrica para aquisição de veículo (rejeitada)</b>
+                </span>
+                <span class="chip chip-danger">Parecer contrário</span>
+              </div>
+              <div class="meta">EMO 03/2026 · Secretaria de Administração · aumentava a despesa global — vedado pelo Art. 221 §4º</div>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+</body>
+</html>

@@ -1,6 +1,21 @@
 # Contexto atual — Produto GovTech para Câmaras Municipais
 
-_Última atualização: 2026-07-18 · **FASE 4 EXECUÇÃO EM ANDAMENTO** (4.1-4.3 escritos; 4.4 protótipo HTML iniciado: 1.1 Login aprovada, 1.2 Painel aguardando aprovação) · nome final: **VeredaTech**_
+_Última atualização: 2026-07-22 · **REPLANEJAMENTO PÓS-FEEDBACK** (Fase 4 estava completa; reunião com Diego em 22/07 pediu modularização — Fase 3 reaberta para 3.5, próxima etapa é atualizar 4.3 e construir novos HTMLs) · nome final: **VeredaTech**_
+
+## Feedback de Diego (reunião 2026-07-22) — o que muda a partir daqui
+Diego (parceiro comercial) validou o conceito e elogiou a interface, mas pediu para o produto deixar de ser "um sistema de indicações" e virar plataforma modular: 5 módulos legislativos (Projeto de Lei, Indicações, Requerimentos, Moções, Emendas ao Orçamento), visão institucional (Presidente/Mesa, não só gabinete), integrações futuras, anexos, WhatsApp via canal real (adiado — só quando houver desenvolvimento de fato) e identidade visual real da Câmara de Aracaju para demonstração (fotos dos vereadores, cores/logo oficiais — pendente de assets, pedir a Diego).
+Detalhe completo do feedback e priorização: `01-discovery/1.8-feedback-diego-priorizacao.md`.
+
+## Decisão da usuária para esta rodada (2026-07-22) — continua só protótipo
+Antes de tocar em qualquer tela, foi lido o Regimento Interno de Aracaju na íntegra para mapear o rito de cada um dos 5 módulos (`01-discovery/1.7-tramitacao-regimental-modulos.md`) — achado central: cada módulo tem atores, prazos e quóruns regimentalmente distintos (ex.: Indicação não tem prazo de resposta nenhum; Requerimento de Informação tem 15 dias úteis sob pena de crime de responsabilidade; Moção tem parecer da CCJ em 2 dias úteis; Projeto de Lei tem o rito mais longo, com sanção/veto).
+Escopo aprovado para o replanejamento do protótipo (`03-planejamento/3.5-impacto-modulos-e-perfis.md`), **ainda sem nada funcional**:
+1. Ficha da indicação ganha um badge "Origem: SAPL" (aparência de integração, sem integração real).
+2. Novo módulo **Projeto de Lei**, com linha do tempo própria mostrando a tramitação normal (protocolo → leitura → distribuição a comissões → parecer → discussões → votação → sanção/veto → promulgação).
+3. Novo fluxo de **cadastro de proposição com dois perfis**: "Gabinete" (vereador/assessor) protocola; "Secretaria/Presidência" (nome a confirmar com a usuária) faz a proposição tramitar (despacha a indicação ou distribui o PL às comissões) — mapeamento regimental confirmado (Art. 145-146, 159-160, 74).
+WhatsApp funcional fica fora desta rodada — só entra quando o produto for desenvolvido de verdade.
+
+## Exceção pontual (2026-07-22) — ranking de autoria só na visão institucional interna
+A usuária pediu um ranking de vereadores por autoria de proposições no dashboard da Secretaria/Presidência (`04-execucao/prototipo/6.6-visao-institucional.html`), que colidia com a regra travada abaixo de "sem comparação pública entre vereadores". Decisão de meio-termo: o ranking nominal existe, mas **só nesta tela interna da Mesa** — nunca público, nunca visível aos demais gabinetes (perfil Gabinete não tem acesso a ele). A regra geral de não comparação pública continua valendo para qualquer superfície fora dessa visão institucional interna. Construído junto com um "Panorama por módulo" (distribuição de estados por tipo, filtro interativo) para o dashboard institucional deixar de ser dedicado só a indicações.
 
 ## Foco travado (decisões da usuária)
 - Modelar **primeiro só o item "a"**: indicações/projetos por vereador. NÃO misturar com orçamento/finanças agora.

@@ -20,14 +20,25 @@
           <span class="brand-word">Vereda<span>Tech</span></span>
         </a>
         <div class="topbar-actions">
-          <div class="user-chip">
+          <a class="user-chip" href="6.6-visao-institucional.html" title="Clique para ver como Secretaria/Presidência (demo)">
             <span class="avatar">SR</span>
             <span>Gabinete <b>Vereadora Simone Rocha</b></span>
-          </div>
+            <span class="chip-swap" aria-hidden="true">⇄</span>
+          </a>
           <a href="1.1-login.html" class="btn btn-secondary btn-sm">Sair</a>
         </div>
       </div>
     </header>
+
+    <nav class="modulebar" aria-label="Módulos legislativos">
+      <div class="container">
+        <a href="6.2-lista-pl.html">Projetos de Lei <span class="mod-count">7</span></a>
+        <a href="6.2-lista-indicacao.html">Indicações <span class="mod-count">38</span></a>
+        <a href="6.2-lista-requerimento.html">Requerimentos <span class="mod-count">3</span></a>
+        <a href="6.2-lista-mocao.html">Moções <span class="mod-count">1</span></a>
+        <a href="6.7-ploa.html">Emendas ao Orçamento <span class="mod-count">3</span></a>
+      </div>
+    </nav>
 
     <!-- faixa hero: contínua com o header, carrega saudação + filtros -->
     <section class="hero-band">
@@ -71,18 +82,43 @@
         <!-- KPIs sobrepostos à faixa escura -->
         <div class="kpi-row">
           <div class="kpi">
-            <span class="lbl">Indicações no mandato</span>
-            <span class="val">47</span>
-            <span class="delta good"><i>▲ +8</i> <span>vs. semestre anterior</span></span>
-            <div class="spark" aria-hidden="true">
-              <svg viewBox="0 0 100 34" preserveAspectRatio="none">
-                <polyline class="spark-line" points="0,26 9,24 18,25 27,21 36,22 45,18 54,19 63,15 72,16 81,12 90,10 100,7"/>
-                <circle class="spark-now" cx="100" cy="7" r="4"/>
-              </svg>
+            <span class="lbl">Proposições no mandato</span>
+            <span class="val">52</span>
+            <div class="kpi-breakdown">
+              <a class="kpi-break-item" href="6.2-lista-indicacao.html">
+                <span class="badge-tipo"><b>IND</b></span>
+                <span class="kb-label">Indicações</span>
+                <span class="kb-count">38</span>
+                <span class="kb-chevron" aria-hidden="true">→</span>
+              </a>
+              <a class="kpi-break-item" href="6.2-lista-pl.html">
+                <span class="badge-tipo"><b>PL</b></span>
+                <span class="kb-label">Projetos de Lei</span>
+                <span class="kb-count">7</span>
+                <span class="kb-chevron" aria-hidden="true">→</span>
+              </a>
+              <a class="kpi-break-item" href="6.2-lista-requerimento.html">
+                <span class="badge-tipo"><b>REQ</b></span>
+                <span class="kb-label">Requerimentos</span>
+                <span class="kb-count">3</span>
+                <span class="kb-chevron" aria-hidden="true">→</span>
+              </a>
+              <a class="kpi-break-item" href="6.2-lista-mocao.html">
+                <span class="badge-tipo"><b>MOÇ</b></span>
+                <span class="kb-label">Moções</span>
+                <span class="kb-count">1</span>
+                <span class="kb-chevron" aria-hidden="true">→</span>
+              </a>
+              <a class="kpi-break-item" href="6.7-ploa.html">
+                <span class="badge-tipo"><b>EMO</b></span>
+                <span class="kb-label">Emendas ao Orçamento</span>
+                <span class="kb-count">3</span>
+                <span class="kb-chevron" aria-hidden="true">→</span>
+              </a>
             </div>
           </div>
           <div class="kpi">
-            <span class="lbl">Taxa de desfecho</span>
+            <span class="lbl">Taxa de desfecho (Indicação + Requerimento)</span>
             <span class="val">62<small>%</small></span>
             <span class="delta good"><i>▲ +9 pp</i> <span>no trimestre</span></span>
             <div class="spark" aria-hidden="true">
@@ -93,12 +129,12 @@
             </div>
           </div>
           <div class="kpi">
-            <span class="lbl">Tempo médio até resposta</span>
+            <span class="lbl">Tempo médio até resposta (Ind. + Req.)</span>
             <span class="val">23 <small>dias</small></span>
             <span class="delta good"><i>▼ −6 dias</i> <span>vs. semestre anterior</span></span>
           </div>
           <div class="kpi">
-            <span class="lbl">Em silêncio agora</span>
+            <span class="lbl">Em silêncio agora (Ind. + Req.)</span>
             <span class="val">11</span>
             <span class="delta bad"><i>● 3</i> <span>em prazo regimental</span></span>
           </div>
@@ -111,7 +147,16 @@
             <div>
               <div class="eyebrow">Território</div>
               <h3 class="font-display" style="font-size:17px">Calor de indicações por bairro</h3>
-              <p class="map-sub">Onde o mandato está sendo mais demandado — limites reais dos bairros de Aracaju</p>
+              <p class="map-sub">Onde o mandato está sendo mais demandado — limites reais dos bairros de Aracaju. Só entram aqui os tipos com bairro como atributo regimental.</p>
+            </div>
+
+            <div class="row" role="group" aria-label="Filtrar mapa por tipo" style="align-items:center; gap:14px; flex-wrap:wrap">
+              <div class="profile-toggle" style="max-width:340px">
+                <button type="button" class="is-active" data-map-filter="todas">Todas com bairro</button>
+                <button type="button" data-map-filter="ind">Indicações</button>
+                <button type="button" data-map-filter="req">Requerimentos</button>
+              </div>
+              <span class="text-muted" style="font-size:11.5px">Filtro ilustrativo — PL, Moção e Emenda não têm bairro (atos institucionais)</span>
             </div>
 
             <div class="map-wrap">
@@ -206,7 +251,10 @@
               <a class="item-link" href="2.1-ficha.html?id=req-214">
                 <div class="item">
                   <div class="top-row">
-                    <b>Poda de árvores na Rua Itabaiana</b>
+                    <span class="top" style="display:flex; align-items:center; gap:8px">
+                      <span class="badge-tipo"><b>REQ</b></span>
+                      <b>Poda de árvores na Rua Itabaiana</b>
+                    </span>
                     <span class="chip chip-danger">Prazo regimental</span>
                   </div>
                   <div class="meta">Req. 214/2026 · Centro · vence em 2 dias</div>
@@ -215,7 +263,10 @@
               <a class="item-link" href="2.1-ficha.html?id=ind-1289">
                 <div class="item">
                   <div class="top-row">
-                    <b>Tapa-buraco na Av. Euclides Figueiredo</b>
+                    <span class="top" style="display:flex; align-items:center; gap:8px">
+                      <span class="badge-tipo"><b>IND</b></span>
+                      <b>Tapa-buraco na Av. Euclides Figueiredo</b>
+                    </span>
                     <span class="chip chip-warning">Em silêncio</span>
                   </div>
                   <div class="meta">Ind. 1.289/2026 · Atalaia · enviada há 34 dias</div>
@@ -224,10 +275,25 @@
               <a class="item-link" href="2.1-ficha.html?id=ind-1310">
                 <div class="item">
                   <div class="top-row">
-                    <b>Coleta seletiva no bairro Farolândia</b>
+                    <span class="top" style="display:flex; align-items:center; gap:8px">
+                      <span class="badge-tipo"><b>IND</b></span>
+                      <b>Coleta seletiva no bairro Farolândia</b>
+                    </span>
                     <span class="chip chip-warning">Em silêncio</span>
                   </div>
                   <div class="meta">Ind. 1.310/2026 · Farolândia · enviada há 8 dias</div>
+                </div>
+              </a>
+              <a class="item-link" href="6.3-ficha-pl.html?id=pl-71">
+                <div class="item">
+                  <div class="top-row">
+                    <span class="top" style="display:flex; align-items:center; gap:8px">
+                      <span class="badge-tipo"><b>PL</b></span>
+                      <b>Isenção de ISS para MEIs de zeladoria urbana</b>
+                    </span>
+                    <span class="chip chip-warning">Parecer vence em 4 dias</span>
+                  </div>
+                  <div class="meta">PL 71/2026 · em Comissão (CCJ)</div>
                 </div>
               </a>
             </div>
@@ -257,7 +323,7 @@
                 <div class="h-track"><i class="h-fill" style="width:24%"></i></div>
               </div>
             </div>
-            <span class="text-muted" style="font-size:12px">Dias entre o protocolo e a primeira resposta, no mandato — simulação.</span>
+            <span class="text-muted" style="font-size:12px">Dias entre o protocolo e a primeira resposta — cobre só Indicação e Requerimento (o que sai da Casa e espera resposta externa). PL/Moção/Emenda tramitam dentro da Câmara.</span>
           </section>
 
           </div><!-- /coluna direita -->
@@ -296,6 +362,12 @@
                 <div class="i-top"><span class="chip chip-accent">Oportunidade</span></div>
                 <p><b>Santo Antônio</b> e <b>São José</b> estão há 4 meses sem nenhuma indicação — presença territorial baixa em bairros vizinhos ao Centro.</p>
               </div>
+
+              <div class="insight">
+                <div class="i-top"><span class="chip chip-danger">Alerta</span></div>
+                <p>O parecer da CCJ para o <b>PL 71/2026</b> (isenção de ISS para MEIs de zeladoria) vence em <b>4 dias</b> — a inteligência do VeredaTech também acompanha prazos de comissão, não só silêncio de indicação.</p>
+                <a href="6.3-ficha-pl.html?id=pl-71" class="i-action">Ver ficha do PL →</a>
+              </div>
             </div>
           </section>
 
@@ -316,6 +388,13 @@
 
   <script>
     // Interação ilustrativa do protótipo — nenhum dado é alterado.
+    document.querySelectorAll('[data-map-filter]').forEach(function(b){
+      b.addEventListener('click', function(){
+        b.closest('.profile-toggle').querySelectorAll('button').forEach(function(x){ x.classList.remove('is-active') });
+        b.classList.add('is-active');
+      });
+    });
+
     document.querySelectorAll('.pill').forEach(function(p){
       p.addEventListener('click', function(){
         p.closest('.pill-group').querySelectorAll('.pill').forEach(function(x){ x.classList.remove('is-active') });

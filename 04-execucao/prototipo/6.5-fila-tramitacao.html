@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VeredaTech — Fila de tramitação</title>
+<link rel="stylesheet" href="styles/global.css">
+</head>
+<body>
+  <div class="app">
+
+    <header class="topbar">
+      <div class="container">
+        <a href="6.6-visao-institucional.html" class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3,15 C6,20 11,20.5 14,17 C17,13.5 15,8.5 18.5,6 C20,5 21.5,5.8 22.5,7.5" stroke="#1E5F4E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="brand-word">Vereda<span>Tech</span></span>
+        </a>
+        <div class="topbar-actions">
+          <a class="user-chip" href="1.2-painel.html" title="Clique para ver como Gabinete (demo)">
+            <span class="avatar">SP</span>
+            <span><b>Secretaria/Presidência</b></span>
+            <span class="chip-swap" aria-hidden="true">⇄</span>
+          </a>
+          <a href="1.1-login.html" class="btn btn-secondary btn-sm">Sair</a>
+        </div>
+      </div>
+    </header>
+
+    <nav class="modulebar" aria-label="Módulos legislativos">
+      <div class="container">
+        <a href="6.2-lista-pl-mesa.html">Projetos de Lei <span class="mod-count">210</span></a>
+        <a href="6.2-lista-indicacao-mesa.html">Indicações <span class="mod-count">780</span></a>
+        <a href="6.2-lista-requerimento-mesa.html">Requerimentos <span class="mod-count">140</span></a>
+        <a href="6.2-lista-mocao-mesa.html">Moções <span class="mod-count">65</span></a>
+        <a href="6.7-ploa-mesa.html">Emendas ao Orçamento <span class="mod-count">45</span></a>
+      </div>
+    </nav>
+
+    <main class="page">
+      <div class="container stack">
+
+        <a href="6.6-visao-institucional.html" class="back-link">← Visão institucional</a>
+
+        <div class="page-head">
+          <div>
+            <div class="eyebrow">Mesa da Secretaria/Presidência · operacional</div>
+            <h1 class="font-display">Fila de tramitação</h1>
+            <div class="date">Tudo o que foi protocolado pelos gabinetes e aguarda o encaminhamento certo do rito de cada tipo</div>
+          </div>
+        </div>
+
+        <section class="card">
+          <div class="list-stack" id="filaList">
+
+            <div class="item" data-row>
+              <div class="top-row">
+                <span class="top" style="display:flex; align-items:center; gap:8px">
+                  <span class="badge-tipo"><b>PL</b></span>
+                  <span class="subtype-tag">Ordinário</span>
+                  <b>Regulamenta o uso de espaços públicos por food trucks</b>
+                </span>
+                <span class="chip chip-neutral" data-state>Aguardando distribuição</span>
+              </div>
+              <div class="meta">PL 84/2026 · protocolado em 20/07/2026 pelo Gabinete Simone Rocha · Origem: SAPL</div>
+              <div class="row" style="margin-top:4px">
+                <button class="btn btn-outline btn-sm" type="button" data-reader-open
+                  data-numero="PL 84/2026" data-modulo="Projeto de Lei"
+                  data-titulo="Regulamenta o uso de espaços públicos por food trucks"
+                  data-ementa="Dispõe sobre critérios, requisitos e procedimento de licenciamento para a exploração de comércio ambulante de alimentos (food trucks) em logradouros públicos do Município de Aracaju."
+                  data-justificativa="A ausência de regramento específico gera insegurança jurídica para os pequenos empreendedores do setor e dificulta a fiscalização municipal (Art. 145 §2º).">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/><path d="M9 9h1"/></svg>
+                  Abrir e ler na íntegra
+                </button>
+                <button class="btn btn-primary btn-sm" type="button" data-action="Distribuído à CCJ" data-chip="chip-ok">Distribuir à(s) Comissão(ões)</button>
+              </div>
+            </div>
+
+            <div class="item" data-row>
+              <div class="top-row">
+                <span class="top" style="display:flex; align-items:center; gap:8px">
+                  <span class="badge-tipo"><b>IND</b></span>
+                  <b>Instalação de academia ao ar livre na Praça Camerino</b>
+                </span>
+                <span class="chip chip-neutral" data-state>Aguardando despacho</span>
+              </div>
+              <div class="meta">Ind. 1.340/2026 · Jabotiana · protocolada em 21/07/2026 · Origem: SAPL</div>
+              <div class="row" style="margin-top:4px">
+                <button class="btn btn-outline btn-sm" type="button" data-reader-open
+                  data-numero="Ind. 1.340/2026" data-modulo="Indicação"
+                  data-titulo="Instalação de academia ao ar livre na Praça Camerino"
+                  data-ementa="Indica ao Poder Executivo Municipal a instalação de equipamentos de academia ao ar livre na Praça Camerino, bairro Jabotiana, atendendo a demanda recorrente de moradores da região por espaços públicos de prática esportiva.">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/><path d="M9 9h1"/></svg>
+                  Abrir e ler na íntegra
+                </button>
+                <button class="btn btn-primary btn-sm" type="button" data-action="Despachada à Secretaria de Infraestrutura" data-chip="chip-ok">Despachar</button>
+              </div>
+            </div>
+
+            <div class="item" data-row>
+              <div class="top-row">
+                <span class="top" style="display:flex; align-items:center; gap:8px">
+                  <span class="badge-tipo"><b>REQ</b></span>
+                  <b>Cronograma de manutenção da rede de drenagem — Coroa do Meio</b>
+                </span>
+                <span class="chip chip-neutral" data-state>Aguardando deliberação do Plenário</span>
+              </div>
+              <div class="meta">Req. 198/2026 · Coroa do Meio · protocolado em 15/07/2026 · Origem: SAPL</div>
+              <div class="row" style="margin-top:4px">
+                <button class="btn btn-outline btn-sm" type="button" data-reader-open
+                  data-numero="Req. 198/2026" data-modulo="Requerimento de Informação"
+                  data-titulo="Cronograma de manutenção da rede de drenagem — Coroa do Meio"
+                  data-ementa="Requer ao Poder Executivo Municipal informações sobre o cronograma de manutenção e desassoreamento da rede de drenagem pluvial no bairro Coroa do Meio, diante do histórico de alagamentos na região em períodos chuvosos.">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/><path d="M9 9h1"/></svg>
+                  Abrir e ler na íntegra
+                </button>
+                <button class="btn btn-primary btn-sm" type="button" data-action="Encaminhado ao Prefeito — prazo de 15 dias úteis iniciado" data-chip="chip-warning">Encaminhar para deliberação do Plenário</button>
+              </div>
+            </div>
+
+            <div class="item" data-row>
+              <div class="top-row">
+                <span class="top" style="display:flex; align-items:center; gap:8px">
+                  <span class="badge-tipo"><b>MOÇ</b></span>
+                  <b>Moção de pesar pelo falecimento do escritor sergipano J. Andrade</b>
+                </span>
+                <span class="chip chip-neutral" data-state>Aguardando encaminhamento à CCJ</span>
+              </div>
+              <div class="meta">Moç. 15/2026 · protocolada em 21/07/2026 · Origem: SAPL</div>
+              <div class="row" style="margin-top:4px">
+                <button class="btn btn-outline btn-sm" type="button" data-reader-open
+                  data-numero="Moç. 15/2026" data-modulo="Moção"
+                  data-titulo="Moção de pesar pelo falecimento do escritor sergipano J. Andrade"
+                  data-ementa="Manifesta pesar pelo falecimento do escritor sergipano J. Andrade, reconhecendo sua contribuição para a cultura e a literatura do Estado de Sergipe.">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/><path d="M9 9h1"/></svg>
+                  Abrir e ler na íntegra
+                </button>
+                <button class="btn btn-primary btn-sm" type="button" data-action="Encaminhada à CCJ para parecer (2 dias úteis)" data-chip="chip-warning">Encaminhar à CCJ para parecer</button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <p class="text-muted" style="font-size:12.5px">Cobrir o primeiro passo do rito é suficiente nesta demonstração — os passos seguintes de cada tipo aparecem na linha do tempo da ficha correspondente.</p>
+
+      </div>
+    </main>
+
+  </div>
+
+  <div class="reader-overlay" id="readerOverlay">
+    <div class="reader-modal">
+      <div class="reader-head">
+        <div>
+          <div class="eyebrow" id="readerEyebrow">—</div>
+          <h3 class="font-display" id="readerTitulo">—</h3>
+        </div>
+        <div class="reader-actions">
+          <button class="reader-icon-btn" id="readerDownload" type="button" aria-label="Baixar texto integral">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+            <span class="reader-tooltip">Exportação em PDF — disponível na versão final</span>
+          </button>
+          <button class="reader-icon-btn" id="readerClose" type="button" aria-label="Fechar leitor">✕</button>
+        </div>
+      </div>
+      <div class="reader-body" id="readerBody"></div>
+    </div>
+  </div>
+
+  <script>
+    // Ação de tramitação — muda só o estado visual da linha (mock, sem persistência).
+    document.querySelectorAll('[data-action]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var row = btn.closest('[data-row]');
+        var chip = row.querySelector('[data-state]');
+        chip.textContent = btn.dataset.action;
+        chip.className = 'chip ' + btn.dataset.chip;
+        btn.disabled = true;
+        btn.textContent = 'Concluído ✓';
+      });
+    });
+
+    // Abrir a proposição e ler o texto na íntegra antes de decidir a tramitação (Épico 5).
+    (function(){
+      var overlay = document.getElementById('readerOverlay');
+      document.querySelectorAll('[data-reader-open]').forEach(function(btn){
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          document.getElementById('readerEyebrow').textContent = btn.dataset.numero + ' · ' + btn.dataset.modulo;
+          document.getElementById('readerTitulo').textContent = btn.dataset.titulo;
+          var body = '<h4>Ementa</h4><p>' + btn.dataset.ementa + '</p>';
+          if (btn.dataset.justificativa){ body += '<h4>Justificativa</h4><p>' + btn.dataset.justificativa + '</p>'; }
+          document.getElementById('readerBody').innerHTML = body;
+          overlay.classList.add('is-open');
+        });
+      });
+      document.getElementById('readerClose').addEventListener('click', function(){ overlay.classList.remove('is-open'); });
+      overlay.addEventListener('click', function(e){ if(e.target === overlay) overlay.classList.remove('is-open'); });
+      document.getElementById('readerDownload').addEventListener('click', function(e){ e.preventDefault(); });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VeredaTech — Indicações da Casa</title>
+<link rel="stylesheet" href="styles/global.css">
+</head>
+<body>
+  <div class="app">
+
+    <header class="topbar">
+      <div class="container">
+        <a href="6.6-visao-institucional.html" class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3,15 C6,20 11,20.5 14,17 C17,13.5 15,8.5 18.5,6 C20,5 21.5,5.8 22.5,7.5" stroke="#1E5F4E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="brand-word">Vereda<span>Tech</span></span>
+        </a>
+        <div class="topbar-actions">
+          <a class="user-chip" href="1.2-painel.html" title="Clique para ver como Gabinete (demo)">
+            <span class="avatar">SP</span>
+            <span><b>Secretaria/Presidência</b></span>
+            <span class="chip-swap" aria-hidden="true">⇄</span>
+          </a>
+          <a href="1.1-login.html" class="btn btn-secondary btn-sm">Sair</a>
+        </div>
+      </div>
+    </header>
+
+    <nav class="modulebar" aria-label="Módulos legislativos">
+      <div class="container">
+        <a href="6.2-lista-pl-mesa.html">Projetos de Lei <span class="mod-count">210</span></a>
+        <a href="6.2-lista-indicacao-mesa.html" class="is-active">Indicações <span class="mod-count">780</span></a>
+        <a href="6.2-lista-requerimento-mesa.html">Requerimentos <span class="mod-count">140</span></a>
+        <a href="6.2-lista-mocao-mesa.html">Moções <span class="mod-count">65</span></a>
+        <a href="6.7-ploa-mesa.html">Emendas ao Orçamento <span class="mod-count">45</span></a>
+      </div>
+    </nav>
+
+    <main class="page">
+      <div class="container stack">
+
+        <a href="6.6-visao-institucional.html" class="back-link">← Visão institucional</a>
+
+        <div class="page-head">
+          <div class="row" style="align-items:center; gap:18px">
+            <div class="count-hero"><span class="count-num">780</span><span class="count-lbl">na Casa</span></div>
+            <div>
+              <div class="eyebrow">Módulo · Indicação ao Executivo · visão da Mesa</div>
+              <h1 class="font-display">Indicações da Casa</h1>
+              <div class="date">Todos os 26 gabinetes · o tipo de maior volume (63% de tudo que a Casa protocola)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <section class="card">
+            <div><div class="eyebrow">Ciclo</div><h3 class="font-display" style="font-size:17px">Por estado</h3></div>
+            <div class="hbar-list">
+              <div class="hbar"><div class="h-top"><b>Respondida</b><span>383 · 49%</span></div><div class="h-track"><i class="h-fill" style="width:100%; background:var(--accent)"></i></div></div>
+              <div class="hbar"><div class="h-top"><b>Encaminhada</b><span>210 · 27%</span></div><div class="h-track"><i class="h-fill" style="width:55%; background:var(--muted)"></i></div></div>
+              <div class="hbar"><div class="h-top"><b>Em silêncio</b><span>142 · 18%</span></div><div class="h-track"><i class="h-fill" style="width:37%; background:var(--warning)"></i></div></div>
+              <div class="hbar"><div class="h-top"><b>Aguardando despacho</b><span>45 · 6%</span></div><div class="h-track"><i class="h-fill" style="width:12%; background:var(--muted)"></i></div></div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div><div class="eyebrow">Destino</div><h3 class="font-display" style="font-size:17px">Por secretaria destinatária</h3></div>
+            <div class="hbar-list">
+              <div class="hbar"><div class="h-top"><b>Serviços Urbanos</b><span>310</span></div><div class="h-track"><i class="h-fill" style="width:100%"></i></div></div>
+              <div class="hbar"><div class="h-top"><b>Infraestrutura</b><span>240</span></div><div class="h-track"><i class="h-fill" style="width:77%"></i></div></div>
+              <div class="hbar"><div class="h-top"><b>Saúde</b><span>120</span></div><div class="h-track"><i class="h-fill" style="width:39%"></i></div></div>
+              <div class="hbar"><div class="h-top"><b>Educação</b><span>70</span></div><div class="h-track"><i class="h-fill" style="width:23%"></i></div></div>
+              <div class="hbar"><div class="h-top"><b>Outras</b><span>40</span></div><div class="h-track"><i class="h-fill" style="width:13%"></i></div></div>
+            </div>
+          </section>
+        </div>
+
+        <section class="card">
+          <div class="section-label" style="margin-bottom:0">
+            <h2 class="font-display" style="font-size:17px">Por vereador — autoria de indicações</h2>
+            <span class="hint">Uso interno da Mesa · amostra de 10 dos 26 gabinetes</span>
+          </div>
+          <div class="list-stack" id="rankList" style="margin-top:6px"></div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script src="styles/vereadores.js"></script>
+  <script>renderRank('ind');</script>
+</body>
+</html>

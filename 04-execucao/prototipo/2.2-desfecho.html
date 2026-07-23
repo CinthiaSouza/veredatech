@@ -20,10 +20,11 @@
           <span class="brand-word">Vereda<span>Tech</span></span>
         </a>
         <div class="topbar-actions">
-          <div class="user-chip">
+          <a class="user-chip" href="6.6-visao-institucional.html" title="Clique para ver como Secretaria/Presidência (demo)">
             <span class="avatar">SR</span>
             <span>Gabinete <b>Vereadora Simone Rocha</b></span>
-          </div>
+            <span class="chip-swap" aria-hidden="true">⇄</span>
+          </a>
           <a href="1.1-login.html" class="btn btn-secondary btn-sm">Sair</a>
         </div>
       </div>
@@ -32,13 +33,13 @@
     <main class="page">
       <div class="container stack center-narrow">
 
-        <a href="2.1-ficha.html?id=req-214" class="back-link">← Poda de árvores na Rua Itabaiana</a>
+        <a href="2.1-ficha.html?id=req-214" class="back-link" id="backLink">← Voltar à ficha</a>
 
         <section class="card">
           <div>
-            <div class="eyebrow">Req. 214/2026</div>
+            <div class="eyebrow" id="eyebrow">—</div>
             <h3 class="font-display" style="font-size:20px">Registrar desfecho</h3>
-            <p class="sub mt-0">O morador perguntou e você tem a resposta na hora. Leva menos de 10 segundos.</p>
+            <p class="sub mt-0">O morador perguntou e você tem a resposta na hora. Leva menos de 10 segundos. Esta ação existe para Indicação e Requerimento — Projeto de Lei, Moção e Emenda usam "Atualizar tramitação" (perfil Secretaria/Presidência).</p>
           </div>
 
           <form class="login-form" onsubmit="event.preventDefault()">
@@ -51,7 +52,7 @@
               </select>
             </div>
 
-            <a href="2.1-ficha.html?id=req-214" class="btn btn-primary btn-block">Salvar desfecho</a>
+            <a href="2.1-ficha.html?id=req-214" class="btn btn-primary btn-block" id="salvarLink">Salvar desfecho</a>
           </form>
 
           <span class="text-muted" style="font-size:12px">Simulação — a próxima tela mostra a ficha já com o novo estado.</span>
@@ -61,5 +62,12 @@
     </main>
 
   </div>
+
+  <script>
+    var id = new URLSearchParams(window.location.search).get('id') || 'req-214';
+    document.getElementById('backLink').href = '2.1-ficha.html?id=' + id;
+    document.getElementById('salvarLink').href = '2.1-ficha.html?id=' + id;
+    document.getElementById('eyebrow').textContent = id.toUpperCase();
+  </script>
 </body>
 </html>

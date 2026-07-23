@@ -20,10 +20,11 @@
           <span class="brand-word">Vereda<span>Tech</span></span>
         </a>
         <div class="topbar-actions">
-          <div class="user-chip">
+          <a class="user-chip" href="6.6-visao-institucional.html" title="Clique para ver como Secretaria/Presidência (demo)">
             <span class="avatar">SR</span>
             <span>Gabinete <b>Vereadora Simone Rocha</b></span>
-          </div>
+            <span class="chip-swap" aria-hidden="true">⇄</span>
+          </a>
           <a href="1.1-login.html" class="btn btn-secondary btn-sm">Sair</a>
         </div>
       </div>
@@ -32,40 +33,54 @@
     <main class="page">
       <div class="container stack">
 
-        <a href="2.1-ficha.html?id=req-214" class="back-link">← Poda de árvores na Rua Itabaiana</a>
+        <a href="2.1-ficha.html?id=req-214" class="back-link" id="backLink">← Voltar à ficha</a>
 
         <div class="page-head">
           <div>
-            <div class="eyebrow">Req. 214/2026 · em silêncio há 15 dias</div>
+            <div class="eyebrow" id="eyebrow">—</div>
             <h1 class="font-display">Requerimento de informação</h1>
           </div>
         </div>
 
-        <section class="card callout-danger">
-          <b>Prazo regimental de 15 dias vencido.</b> O Regimento Interno prevê requerimento de informação ao Executivo como instrumento de cobrança formal — sem resposta, o Executivo fica sujeito às sanções previstas no art. 116 da Lei Orgânica Municipal.
+        <section class="card callout-danger" id="callout">
+          <b>Prazo regimental vencido.</b> O Regimento Interno prevê requerimento de informação ao Executivo como instrumento de cobrança formal — sem resposta, o Executivo fica sujeito às sanções previstas no art. 116 da Lei Orgânica Municipal.
         </section>
 
         <section class="card">
           <h3 class="font-display">Minuta gerada</h3>
-          <div class="minuta">
-            <p>REQUERIMENTO Nº ____/2026</p>
-            <p>Senhor Presidente,</p>
-            <p>Requeiro, nos termos do Regimento Interno desta Casa Legislativa, que seja oficiado ao Poder Executivo Municipal, através da Secretaria de Serviços Urbanos, para que preste informações sobre o andamento da <b>Indicação nº 214/2026</b>, de autoria deste gabinete, protocolada em <b>04/07/2026</b>, que solicita a poda de árvores na <b>Rua Itabaiana, bairro Centro</b>.</p>
-            <p>Justifica-se o presente requerimento pelo decurso do prazo regimental de <b>15 (quinze) dias</b> sem manifestação do órgão competente, configurando silêncio administrativo diante de demanda que afeta diretamente a segurança e o bem-estar dos moradores do bairro Centro.</p>
-            <p>Sala das Sessões, <span class="text-muted">[data de protocolo]</span>.</p>
-          </div>
+          <div class="minuta" id="minuta"></div>
           <span class="text-muted" style="font-size:12px">Minuta gerada automaticamente a partir dos dados da indicação — simulação, sem integração real com o SAPL.</span>
         </section>
 
         <div class="row">
           <button type="button" class="btn btn-secondary">Copiar minuta</button>
           <button type="button" class="btn btn-secondary">Baixar PDF</button>
-          <a href="2.1-ficha.html?id=req-214" class="btn btn-primary">Voltar à ficha da indicação</a>
+          <a href="2.1-ficha.html?id=req-214" class="btn btn-primary" id="voltarLink">Voltar à ficha da indicação</a>
         </div>
 
       </div>
     </main>
 
   </div>
+
+  <script>
+    var DADOS = {
+      'ind-1289': { numero: '1.289/2026', titulo: 'Tapa-buraco na Av. Euclides Figueiredo', bairro: 'Atalaia', secretaria: 'Secretaria de Infraestrutura', dataProtocolo: '18/06/2026', dias: '34' },
+      'ind-1310': { numero: '1.310/2026', titulo: 'Coleta seletiva no bairro Farolândia', bairro: 'Farolândia', secretaria: 'Secretaria de Serviços Urbanos', dataProtocolo: '14/07/2026', dias: '8' },
+      'req-214': { numero: '214/2026', titulo: 'Poda de árvores na Rua Itabaiana', bairro: 'Centro', secretaria: 'Secretaria de Serviços Urbanos', dataProtocolo: '04/07/2026', dias: '15' }
+    };
+    var id = new URLSearchParams(window.location.search).get('id') || 'req-214';
+    var d = DADOS[id] || DADOS['req-214'];
+
+    document.getElementById('backLink').href = '2.1-ficha.html?id=' + id;
+    document.getElementById('voltarLink').href = '2.1-ficha.html?id=' + id;
+    document.getElementById('eyebrow').textContent = 'Ind. ' + d.numero + ' · em silêncio há ' + d.dias + ' dias';
+    document.getElementById('minuta').innerHTML =
+      '<p>REQUERIMENTO Nº ____/2026</p>' +
+      '<p>Senhor Presidente,</p>' +
+      '<p>Requeiro, nos termos do Regimento Interno desta Casa Legislativa, que seja oficiado ao Poder Executivo Municipal, através da ' + d.secretaria + ', para que preste informações sobre o andamento da <b>Indicação nº ' + d.numero + '</b>, de autoria deste gabinete, protocolada em <b>' + d.dataProtocolo + '</b>, que trata de: <b>' + d.titulo + ', bairro ' + d.bairro + '</b>.</p>' +
+      '<p>Justifica-se o presente requerimento pelo decurso de <b>' + d.dias + ' dias</b> sem manifestação do órgão competente, configurando silêncio administrativo diante de demanda que afeta diretamente o bem-estar dos moradores do bairro ' + d.bairro + '.</p>' +
+      '<p>Sala das Sessões, <span class="text-muted">[data de protocolo]</span>.</p>';
+  </script>
 </body>
 </html>

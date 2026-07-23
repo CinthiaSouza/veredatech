@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VeredaTech — Ficha da emenda</title>
+<link rel="stylesheet" href="styles/global.css">
+</head>
+<body>
+  <div class="app">
+
+    <header class="topbar">
+      <div class="container">
+        <a href="1.2-painel.html" class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3,15 C6,20 11,20.5 14,17 C17,13.5 15,8.5 18.5,6 C20,5 21.5,5.8 22.5,7.5" stroke="#1E5F4E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="brand-word">Vereda<span>Tech</span></span>
+        </a>
+        <div class="topbar-actions">
+          <a class="user-chip" href="6.6-visao-institucional.html" title="Clique para ver como Secretaria/Presidência (demo)">
+            <span class="avatar">SR</span>
+            <span>Gabinete <b>Vereadora Simone Rocha</b></span>
+            <span class="chip-swap" aria-hidden="true">⇄</span>
+          </a>
+          <a href="1.1-login.html" class="btn btn-secondary btn-sm">Sair</a>
+        </div>
+      </div>
+    </header>
+
+    <nav class="modulebar" aria-label="Módulos legislativos">
+      <div class="container">
+        <a href="6.2-lista-pl.html">Projetos de Lei <span class="mod-count">7</span></a>
+        <a href="6.2-lista-indicacao.html">Indicações <span class="mod-count">38</span></a>
+        <a href="6.2-lista-requerimento.html">Requerimentos <span class="mod-count">3</span></a>
+        <a href="6.2-lista-mocao.html">Moções <span class="mod-count">1</span></a>
+        <a href="6.7-ploa.html" class="is-active">Emendas ao Orçamento <span class="mod-count">3</span></a>
+      </div>
+    </nav>
+
+    <main class="page">
+      <div class="container stack">
+
+        <a href="6.7-ploa.html" class="back-link">← PLOA 2027</a>
+
+        <div class="page-head">
+          <div>
+            <span class="badge-tipo" style="margin-bottom:8px"><b>EMO</b></span>
+            <div class="eyebrow">EMO 06/2026 · acessória ao PLOA 2027</div>
+            <h1 class="font-display">Ampliação da dotação para iluminação de praças públicas</h1>
+            <div class="date">Apresentada em 15/07/2026 · Secretaria de Infraestrutura</div>
+          </div>
+          <span class="chip chip-ok">Parecer favorável</span>
+        </div>
+
+        <section class="card">
+          <h3 class="font-display">Linha do tempo — rito da Emenda ao Orçamento</h3>
+          <div class="timeline">
+            <div class="timeline-event">
+              <span class="timeline-dot ok"></span>
+              <div class="timeline-body">
+                <b>Recebida</b>
+                <span>15/07/2026 · apresentada dentro da janela de 24h após leitura do parecer preliminar (Art. 220 §3º)</span>
+              </div>
+            </div>
+            <div class="timeline-event">
+              <span class="timeline-dot ok"></span>
+              <div class="timeline-body">
+                <b>Análise prévia da Comissão de Finanças, Tomada de Contas e Orçamento</b>
+                <span>17/07/2026 · verificação de compatibilidade com PPA/LDO e de não aumento de despesa global</span>
+              </div>
+            </div>
+            <div class="timeline-event">
+              <span class="timeline-dot ok"></span>
+              <div class="timeline-body">
+                <b>Parecer favorável</b>
+                <span>20/07/2026 · relator da Comissão de Finanças</span>
+              </div>
+            </div>
+            <div class="timeline-event">
+              <span class="timeline-dot"></span>
+              <div class="timeline-body">
+                <b>Discussão e votação emenda a emenda</b>
+                <span>Aguardando pauta, junto com a votação do PLOA 2027</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="row">
+          <button class="btn btn-outline" type="button" data-reader-open>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/><path d="M9 9h1"/></svg>
+            Ver texto na íntegra
+          </button>
+          <a href="6.7-ploa.html" class="btn btn-secondary">Voltar ao PLOA</a>
+        </div>
+
+        <p class="text-muted" style="font-size:12.5px">Perfil Secretaria/Presidência: encaminhamento à Comissão de Finanças, Tomada de Contas e Orçamento já registrado — <a href="6.5-fila-tramitacao.html" style="color:var(--accent); font-weight:600">ver fila de tramitação →</a></p>
+
+      </div>
+    </main>
+
+  </div>
+
+  <div class="reader-overlay" id="readerOverlay">
+    <div class="reader-modal">
+      <div class="reader-head">
+        <div>
+          <div class="eyebrow">EMO 06/2026 · Emenda ao Orçamento</div>
+          <h3 class="font-display">Ampliação da dotação — iluminação de praças</h3>
+        </div>
+        <div class="reader-actions">
+          <button class="reader-icon-btn" id="readerDownload" type="button" aria-label="Baixar texto integral">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+            <span class="reader-tooltip">Exportação em PDF — disponível na versão final</span>
+          </button>
+          <button class="reader-icon-btn" id="readerClose" type="button" aria-label="Fechar leitor">✕</button>
+        </div>
+      </div>
+      <div class="reader-body">
+        <h4>Ementa</h4>
+        <p>Amplia em R$ 180.000,00 (cento e oitenta mil reais) a dotação orçamentária destinada à manutenção e modernização da iluminação pública em praças municipais, remanejando recursos de rubrica de custeio administrativo não comprometida, sem aumento da despesa global do PLOA 2027 (Art. 221 §4º).</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      var overlay = document.getElementById('readerOverlay');
+      document.querySelectorAll('[data-reader-open]').forEach(function(btn){
+        btn.addEventListener('click', function(e){ e.preventDefault(); overlay.classList.add('is-open'); });
+      });
+      document.getElementById('readerClose').addEventListener('click', function(){ overlay.classList.remove('is-open'); });
+      overlay.addEventListener('click', function(e){ if(e.target === overlay) overlay.classList.remove('is-open'); });
+      document.getElementById('readerDownload').addEventListener('click', function(e){ e.preventDefault(); });
+    })();
+  </script>
+</body>
+</html>

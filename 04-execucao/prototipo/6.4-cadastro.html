@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VeredaTech — Protocolar proposição</title>
+<link rel="stylesheet" href="styles/global.css">
+</head>
+<body>
+  <div class="app">
+
+    <header class="topbar">
+      <div class="container">
+        <a href="1.2-painel.html" class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3,15 C6,20 11,20.5 14,17 C17,13.5 15,8.5 18.5,6 C20,5 21.5,5.8 22.5,7.5" stroke="#1E5F4E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="brand-word">Vereda<span>Tech</span></span>
+        </a>
+        <div class="topbar-actions">
+          <a class="user-chip" href="6.6-visao-institucional.html" title="Clique para ver como Secretaria/Presidência (demo)">
+            <span class="avatar">SR</span>
+            <span>Gabinete <b>Vereadora Simone Rocha</b></span>
+            <span class="chip-swap" aria-hidden="true">⇄</span>
+          </a>
+          <a href="1.1-login.html" class="btn btn-secondary btn-sm">Sair</a>
+        </div>
+      </div>
+    </header>
+
+    <nav class="modulebar" aria-label="Módulos legislativos">
+      <div class="container">
+        <a href="6.2-lista-pl.html">Projetos de Lei <span class="mod-count">7</span></a>
+        <a href="6.2-lista-indicacao.html">Indicações <span class="mod-count">38</span></a>
+        <a href="6.2-lista-requerimento.html">Requerimentos <span class="mod-count">3</span></a>
+        <a href="6.2-lista-mocao.html">Moções <span class="mod-count">1</span></a>
+        <a href="6.7-ploa.html">Emendas ao Orçamento <span class="mod-count">3</span></a>
+      </div>
+    </nav>
+
+    <main class="page">
+      <div class="container stack center-narrow" style="max-width:560px">
+
+        <a href="1.2-painel.html" class="back-link">← Painel do gabinete</a>
+
+        <div class="page-head" style="margin-bottom:8px">
+          <div>
+            <div class="eyebrow">Perfil Gabinete</div>
+            <h1 class="font-display">Protocolar proposição</h1>
+            <div class="date">Simula o ato de apresentação exigido pelo Regimento — nada é gravado neste protótipo.</div>
+          </div>
+        </div>
+
+        <form class="card" id="cadastroForm">
+          <div class="field">
+            <label for="tipo">Tipo de proposição</label>
+            <select class="input" id="tipo">
+              <option value="pl">Projeto de Lei</option>
+              <option value="indicacao">Indicação</option>
+              <option value="requerimento">Requerimento de Informação</option>
+              <option value="mocao">Moção</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="ementa">Ementa / assunto</label>
+            <textarea class="input" id="ementa" rows="3" style="border-radius:var(--radius-sm); resize:vertical" placeholder="Descreva em uma frase o que a proposição dispõe"></textarea>
+          </div>
+
+          <!-- campos condicionais por tipo -->
+          <div class="field" data-for="indicacao">
+            <label for="bairro">Bairro (até 5 logradouros, mesmo bairro — Art. 159 §2º)</label>
+            <input class="input" id="bairro" placeholder="Ex.: Farolândia — Rua X, Av. Y">
+          </div>
+
+          <div class="field" data-for="pl">
+            <label for="especiePl">Espécie (Art. 138 §1º)</label>
+            <select class="input" id="especiePl">
+              <option>Projeto de Lei Ordinário</option>
+              <option>Projeto de Lei Complementar — maioria absoluta, 2 turnos (Art. 150-152)</option>
+              <option>Projeto de Decreto Legislativo — sem sanção, efeitos externos (Art. 154-155)</option>
+              <option>Projeto de Resolução — efeitos internos à Casa (Art. 156)</option>
+            </select>
+          </div>
+
+          <div class="field" data-for="pl">
+            <label for="justificativa">Justificativa (obrigatória para PL Ordinário/Complementar, Art. 145 §2º)</label>
+            <textarea class="input" id="justificativa" rows="3" style="border-radius:var(--radius-sm); resize:vertical" placeholder="Fundamente a necessidade e o impacto da proposição"></textarea>
+          </div>
+
+          <div class="field" data-for="requerimento">
+            <label for="destinatario-req">Destinatário</label>
+            <select class="input" id="destinatario-req">
+              <option>Prefeito Municipal</option>
+              <option>Secretaria Municipal de Infraestrutura</option>
+              <option>Secretaria Municipal de Saúde</option>
+            </select>
+            <span class="text-muted" style="font-size:12px">Prazo de resposta: 15 dias úteis sob pena de crime de responsabilidade (Art. 238).</span>
+          </div>
+
+          <div class="field" data-for="mocao">
+            <label for="manifestacao">Tipo de manifestação (Art. 157)</label>
+            <select class="input" id="manifestacao">
+              <option>Apelo</option>
+              <option>Aplauso</option>
+              <option>Solidariedade</option>
+              <option>Protesto</option>
+            </select>
+          </div>
+          <div class="field" data-for="mocao">
+            <label for="destinatario-moc">Destinatário</label>
+            <input class="input" id="destinatario-moc" placeholder="Ex.: 2º Grupamento de Bombeiros Militar de Sergipe">
+          </div>
+
+          <div class="field">
+            <label for="anexo">Anexo (opcional)</label>
+            <div class="file-upload" id="fileUpload">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/></svg>
+              <span class="file-name" id="fileName">Nenhum arquivo selecionado</span>
+              <label class="btn btn-secondary btn-sm" for="anexo" style="flex-shrink:0">Selecionar arquivo</label>
+            </div>
+            <input type="file" id="anexo" accept=".doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf" style="display:none">
+            <span class="text-muted" style="font-size:12px">Word (.doc/.docx) ou PDF — protótipo não envia nem armazena o arquivo de fato.</span>
+          </div>
+
+          <button class="btn btn-primary btn-block" type="submit">Protocolar</button>
+        </form>
+
+        <section class="card" id="confirmCard" style="display:none">
+          <div class="eyebrow">Protocolado</div>
+          <h3 class="font-display">Protocolado — aguardando leitura no Expediente</h3>
+          <p class="text-muted" style="margin:0; font-size:13.5px">Ato simulado — nenhum dado foi gravado. Em produção, esta proposição entraria na fila da Secretaria/Presidência para tramitar.</p>
+          <p class="text-muted" id="confirmAnexo" style="display:none; margin:0; font-size:13.5px"></p>
+          <div class="row">
+            <a href="1.2-painel.html" class="btn btn-secondary">Voltar ao painel</a>
+            <a href="6.5-fila-tramitacao.html" class="btn btn-primary">Ver na fila de tramitação →</a>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+    var params = new URLSearchParams(window.location.search);
+    var tipoSelect = document.getElementById('tipo');
+    if (params.get('tipo')) { tipoSelect.value = params.get('tipo'); }
+
+    function updateFields(){
+      var t = tipoSelect.value;
+      document.querySelectorAll('[data-for]').forEach(function(f){
+        f.style.display = (f.dataset.for === t) ? 'flex' : 'none';
+      });
+    }
+    tipoSelect.addEventListener('change', updateFields);
+    updateFields();
+
+    var anexoInput = document.getElementById('anexo');
+    var fileUpload = document.getElementById('fileUpload');
+    var fileName = document.getElementById('fileName');
+    anexoInput.addEventListener('change', function(){
+      if (anexoInput.files.length){
+        fileName.textContent = anexoInput.files[0].name;
+        fileUpload.classList.add('has-file');
+      } else {
+        fileName.textContent = 'Nenhum arquivo selecionado';
+        fileUpload.classList.remove('has-file');
+      }
+    });
+
+    document.getElementById('cadastroForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      this.style.display = 'none';
+      if (anexoInput.files.length){
+        var confirmAnexo = document.getElementById('confirmAnexo');
+        confirmAnexo.textContent = 'Anexo recebido: ' + anexoInput.files[0].name;
+        confirmAnexo.style.display = 'block';
+      }
+      document.getElementById('confirmCard').style.display = 'flex';
+    });
+  </script>
+</body>
+</html>

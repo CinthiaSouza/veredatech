@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VeredaTech — Ficha da indicação</title>
+<title>VeredaTech — Ficha da proposição</title>
 <link rel="stylesheet" href="styles/global.css">
 </head>
 <body>
@@ -20,66 +20,209 @@
           <span class="brand-word">Vereda<span>Tech</span></span>
         </a>
         <div class="topbar-actions">
-          <div class="user-chip">
+          <a class="user-chip" href="6.6-visao-institucional.html" title="Clique para ver como Secretaria/Presidência (demo)">
             <span class="avatar">SR</span>
             <span>Gabinete <b>Vereadora Simone Rocha</b></span>
-          </div>
+            <span class="chip-swap" aria-hidden="true">⇄</span>
+          </a>
           <a href="1.1-login.html" class="btn btn-secondary btn-sm">Sair</a>
         </div>
       </div>
     </header>
 
+    <nav class="modulebar" aria-label="Módulos legislativos">
+      <div class="container">
+        <a href="6.2-lista-pl.html">Projetos de Lei <span class="mod-count">7</span></a>
+        <a href="6.2-lista-indicacao.html" id="navIndicacao">Indicações <span class="mod-count">38</span></a>
+        <a href="6.2-lista-requerimento.html" id="navRequerimento">Requerimentos <span class="mod-count">3</span></a>
+        <a href="6.2-lista-mocao.html">Moções <span class="mod-count">1</span></a>
+        <a href="6.7-ploa.html">Emendas ao Orçamento <span class="mod-count">3</span></a>
+      </div>
+    </nav>
+
     <main class="page">
       <div class="container stack">
 
-        <a href="1.2-painel.html" class="back-link">← Painel do gabinete</a>
+        <a href="1.2-painel.html" class="back-link" id="backLink">← Painel do gabinete</a>
 
         <div class="page-head">
           <div>
-            <div class="eyebrow">Req. 214/2026 · Centro</div>
-            <h1 class="font-display">Poda de árvores na Rua Itabaiana</h1>
-            <div class="date">Protocolada em 04/07/2026</div>
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px">
+              <span class="badge-tipo" id="badgeTipo"><b>—</b></span>
+              <span class="badge-tipo" id="badgeSapl" style="display:none">Origem: SAPL</span>
+            </div>
+            <div class="eyebrow" id="eyebrow">—</div>
+            <h1 class="font-display" id="titulo">—</h1>
+            <div class="date" id="dataProtocolo">—</div>
           </div>
-          <span class="chip chip-danger">Prazo regimental</span>
+          <span class="chip" id="chipEstado">—</span>
         </div>
 
         <section class="card">
           <h3 class="font-display">Linha do tempo</h3>
-
-          <div class="timeline">
-            <div class="timeline-event">
-              <span class="timeline-dot ok"></span>
-              <div class="timeline-body">
-                <b>Indicação protocolada</b>
-                <span>04/07/2026 · registrada no gabinete via relato do morador</span>
-              </div>
-            </div>
-            <div class="timeline-event">
-              <span class="timeline-dot ok"></span>
-              <div class="timeline-body">
-                <b>Encaminhada à Secretaria de Serviços Urbanos</b>
-                <span>07/07/2026 · tramitação registrada no SAPL</span>
-              </div>
-            </div>
-            <div class="timeline-event">
-              <span class="timeline-dot danger"></span>
-              <div class="timeline-body">
-                <b>15 dias regimentais sem resposta</b>
-                <span>Prazo de resposta vence em 2 dias · nenhum retorno da Secretaria até o momento</span>
-              </div>
-            </div>
-          </div>
+          <div class="timeline" id="timeline"></div>
         </section>
 
-        <div class="row">
-          <a href="2.2-desfecho.html?id=req-214" class="btn btn-primary">Registrar desfecho</a>
-          <a href="2.3-requerimento.html?id=req-214" class="btn btn-accent">Gerar requerimento de informação</a>
-          <a href="4.1-whatsapp.html" class="btn btn-secondary">Como o WhatsApp te avisa</a>
-        </div>
+        <div class="row" id="acoes"></div>
 
       </div>
     </main>
 
   </div>
+
+  <div class="reader-overlay" id="readerOverlay">
+    <div class="reader-modal">
+      <div class="reader-head">
+        <div>
+          <div class="eyebrow" id="readerEyebrow">—</div>
+          <h3 class="font-display" id="readerTitulo">—</h3>
+        </div>
+        <div class="reader-actions">
+          <button class="reader-icon-btn" id="readerDownload" type="button" aria-label="Baixar texto integral">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+            <span class="reader-tooltip">Exportação em PDF — disponível na versão final</span>
+          </button>
+          <button class="reader-icon-btn" id="readerClose" type="button" aria-label="Fechar leitor">✕</button>
+        </div>
+      </div>
+      <div class="reader-body" id="readerBody"></div>
+    </div>
+  </div>
+
+  <script>
+    // Ficha parametrizada por tipo (2.1) — corrige o bug em que os 3 itens de
+    // "Requer ação agora" (1.2) apontavam todos para a mesma ficha estática.
+    var FICHAS = {
+      'req-214': {
+        tipo: 'REQ', modulo: 'Requerimento', sapl: true,
+        numero: 'Req. 214/2026', local: 'Centro', titulo: 'Poda de árvores na Rua Itabaiana',
+        data: 'Protocolada em 04/07/2026', chip: ['chip-danger', 'Prazo regimental'],
+        timeline: [
+          ['ok', 'Requerimento protocolado', '04/07/2026 · registrado no gabinete via relato do morador'],
+          ['ok', 'Encaminhado à Secretaria de Serviços Urbanos', '07/07/2026 · tramitação registrada no SAPL'],
+          ['danger', '15 dias úteis sem resposta', 'Prazo legal vence em 2 dias · sem retorno da Secretaria (Art. 238 — sanção de crime de responsabilidade)']
+        ],
+        acoes: 'desfecho+requerimento'
+      },
+      'req-198': {
+        tipo: 'REQ', modulo: 'Requerimento', sapl: true,
+        numero: 'Req. 198/2026', local: 'Coroa do Meio', titulo: 'Cronograma de manutenção da rede de drenagem',
+        data: 'Protocolado em 15/07/2026', chip: ['chip-neutral', 'Aguardando deliberação do Plenário'],
+        timeline: [
+          ['ok', 'Requerimento protocolado', '15/07/2026 · registrado no gabinete'],
+          ['warning', 'Aguardando deliberação do Plenário', 'Art. 167 — precisa de aprovação em Plenário antes de seguir ao Prefeito']
+        ],
+        acoes: 'desfecho'
+      },
+      'req-177': {
+        tipo: 'REQ', modulo: 'Requerimento', sapl: true,
+        numero: 'Req. 177/2026', local: 'Industrial', titulo: 'Cópia do plano de manutenção da iluminação pública',
+        data: 'Protocolado em 22/05/2026', chip: ['chip-ok', 'Respondido'],
+        timeline: [
+          ['ok', 'Requerimento protocolado', '22/05/2026'],
+          ['ok', 'Encaminhado ao Prefeito', '26/05/2026 · início do prazo de 15 dias úteis'],
+          ['ok', 'Respondido dentro do prazo', '13/06/2026 · resposta em 13 dias úteis']
+        ],
+        acoes: ''
+      },
+      'ind-1289': {
+        tipo: 'IND', modulo: 'Indicação', sapl: true,
+        numero: 'Ind. 1.289/2026', local: 'Atalaia', titulo: 'Tapa-buraco na Av. Euclides Figueiredo',
+        data: 'Protocolada em 18/06/2026', chip: ['chip-warning', 'Em silêncio'],
+        timeline: [
+          ['ok', 'Indicação protocolada', '18/06/2026 · registrada no gabinete via relato do morador'],
+          ['ok', 'Encaminhada à Secretaria de Infraestrutura', '20/06/2026 · tramitação registrada no SAPL'],
+          ['warning', 'Sem resposta há 34 dias', 'O Regimento não define prazo — o VeredaTech é quem cria e monitora esse SLA']
+        ],
+        acoes: 'desfecho+requerimento'
+      },
+      'ind-1310': {
+        tipo: 'IND', modulo: 'Indicação', sapl: true,
+        numero: 'Ind. 1.310/2026', local: 'Farolândia', titulo: 'Coleta seletiva no bairro Farolândia',
+        data: 'Protocolada em 14/07/2026', chip: ['chip-warning', 'Em silêncio'],
+        timeline: [
+          ['ok', 'Indicação protocolada', '14/07/2026'],
+          ['ok', 'Encaminhada à Secretaria de Serviços Urbanos', '16/07/2026'],
+          ['warning', 'Sem resposta há 8 dias', 'Ainda dentro da média histórica da secretaria (38 dias) — acompanhar']
+        ],
+        acoes: 'desfecho+requerimento'
+      },
+      'ind-1201': {
+        tipo: 'IND', modulo: 'Indicação', sapl: true,
+        numero: 'Ind. 1.201/2026', local: 'Suíssa', titulo: 'Recapeamento asfáltico na Rua José do Prado Franco',
+        data: 'Protocolada em 30/04/2026', chip: ['chip-ok', 'Respondida'],
+        timeline: [
+          ['ok', 'Indicação protocolada', '30/04/2026'],
+          ['ok', 'Encaminhada à Secretaria de Infraestrutura', '04/05/2026'],
+          ['ok', 'Respondida', '10/06/2026 · resposta em 41 dias']
+        ],
+        acoes: 'desfecho'
+      },
+      'ind-1327': {
+        tipo: 'IND', modulo: 'Indicação', sapl: false,
+        numero: 'Ind. 1.327/2026', local: 'Centro', titulo: 'Substituição de luminárias de LED na Praça Fausto Cardoso',
+        data: 'Protocolada em 19/07/2026 · originada no Gabinete (VeredaTech)', chip: ['chip-neutral', 'Encaminhada'],
+        timeline: [
+          ['ok', 'Indicação protocolada', '19/07/2026 · protocolada diretamente no VeredaTech'],
+          ['ok', 'Despachada à Secretaria de Infraestrutura', '20/07/2026 · há 2 dias']
+        ],
+        acoes: 'desfecho'
+      }
+    };
+
+    var id = new URLSearchParams(window.location.search).get('id') || 'req-214';
+    var f = FICHAS[id] || FICHAS['req-214'];
+
+    document.title = 'VeredaTech — ' + f.titulo;
+    document.getElementById('badgeTipo').innerHTML = '<b>' + f.tipo + '</b>';
+    if (f.sapl){ document.getElementById('badgeSapl').style.display = 'inline-flex'; }
+    document.getElementById('eyebrow').textContent = f.numero + ' · ' + f.local;
+    document.getElementById('titulo').textContent = f.titulo;
+    document.getElementById('dataProtocolo').textContent = f.data;
+    document.getElementById('chipEstado').className = 'chip ' + f.chip[0];
+    document.getElementById('chipEstado').textContent = f.chip[1];
+
+    var backHref = f.modulo === 'Requerimento' ? '6.2-lista-requerimento.html' : '6.2-lista-indicacao.html';
+    document.getElementById('backLink').href = backHref;
+    document.getElementById('backLink').textContent = f.modulo === 'Requerimento' ? '← Requerimentos' : '← Indicações';
+    document.getElementById(f.modulo === 'Requerimento' ? 'navRequerimento' : 'navIndicacao').classList.add('is-active');
+
+    var tl = document.getElementById('timeline');
+    f.timeline.forEach(function(ev){
+      var div = document.createElement('div');
+      div.className = 'timeline-event';
+      div.innerHTML = '<span class="timeline-dot ' + ev[0] + '"></span>' +
+        '<div class="timeline-body"><b>' + ev[1] + '</b><span>' + ev[2] + '</span></div>';
+      tl.appendChild(div);
+    });
+
+    var acoes = document.getElementById('acoes');
+    var html = '<button class="btn btn-outline" type="button" data-reader-open>' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/><path d="M9 9h1"/></svg>' +
+      'Ver texto na íntegra</button>';
+    if (f.acoes.indexOf('desfecho') > -1){
+      html += ' <a href="2.2-desfecho.html?id=' + id + '" class="btn btn-primary">Registrar desfecho</a>';
+    }
+    if (f.acoes.indexOf('requerimento') > -1 && f.modulo === 'Indicação'){
+      html += ' <a href="2.3-requerimento.html?id=' + id + '" class="btn btn-accent">Gerar requerimento de informação</a>';
+    }
+    html += ' <a href="4.1-whatsapp.html" class="btn btn-secondary">Como o WhatsApp te avisa</a>';
+    acoes.innerHTML = html;
+
+    document.getElementById('readerEyebrow').textContent = f.numero + ' · ' + f.modulo;
+    document.getElementById('readerTitulo').textContent = f.titulo;
+    document.getElementById('readerBody').innerHTML =
+      '<h4>Ementa</h4><p>' + f.titulo + ' — texto integral mockado para fins de demonstração, representando o conteúdo que seria extraído do SAPL ou protocolado diretamente no VeredaTech.</p>';
+
+    (function(){
+      var overlay = document.getElementById('readerOverlay');
+      document.querySelectorAll('[data-reader-open]').forEach(function(btn){
+        btn.addEventListener('click', function(e){ e.preventDefault(); overlay.classList.add('is-open'); });
+      });
+      document.getElementById('readerClose').addEventListener('click', function(){ overlay.classList.remove('is-open'); });
+      overlay.addEventListener('click', function(e){ if(e.target === overlay) overlay.classList.remove('is-open'); });
+      document.getElementById('readerDownload').addEventListener('click', function(e){ e.preventDefault(); });
+    })();
+  </script>
 </body>
 </html>

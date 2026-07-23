@@ -49,12 +49,20 @@
           <p>Acesso restrito — cada gabinete só vê as próprias indicações.</p>
         </div>
 
-        <div class="login-session">
-          <span class="avatar">SR</span>
-          <span>Sessão simulada: <b>Gabinete Vereadora Simone Rocha</b></span>
+        <div class="field">
+          <label>Entrar como</label>
+          <div class="profile-toggle" role="group" aria-label="Perfil de acesso">
+            <button type="button" class="is-active" data-profile="gabinete">Gabinete</button>
+            <button type="button" data-profile="secretaria">Secretaria/Presidência</button>
+          </div>
         </div>
 
-        <form class="login-form" action="1.2-painel.html">
+        <div class="login-session">
+          <span class="avatar" id="profileAvatar">SR</span>
+          <span id="profileSession">Sessão simulada: <b>Gabinete Vereadora Simone Rocha</b></span>
+        </div>
+
+        <form class="login-form" id="loginForm" action="1.2-painel.html">
           <div class="field">
             <label for="email">E-mail institucional</label>
             <input class="input" type="email" id="email" name="email" placeholder="voce@gabinete.aracaju.leg.br" autocomplete="username">
@@ -63,13 +71,41 @@
             <label for="senha">Senha</label>
             <input class="input" type="password" id="senha" name="senha" placeholder="••••••••" autocomplete="current-password">
           </div>
-          <button class="btn btn-primary btn-block" type="submit">Entrar no gabinete</button>
+          <button class="btn btn-primary btn-block" type="submit" id="loginSubmit">Entrar no gabinete</button>
         </form>
 
-        <p class="login-note">Protótipo de navegação — nenhum dado é validado ou armazenado nesta tela. Ao entrar, você acessa o painel do Gabinete Simone Rocha.</p>
+        <p class="login-note" id="loginNote">Protótipo de navegação — nenhum dado é validado ou armazenado nesta tela. Ao entrar, você acessa o painel do Gabinete Simone Rocha.</p>
       </div>
     </section>
 
   </div>
+
+  <script>
+    // Seletor de perfil — troca só o destino simulado do login, sem validação real.
+    var PROFILES = {
+      gabinete: {
+        avatar: 'SR', session: 'Sessão simulada: <b>Gabinete Vereadora Simone Rocha</b>',
+        cta: 'Entrar no gabinete', dest: '1.2-painel.html',
+        note: 'Protótipo de navegação — nenhum dado é validado ou armazenado nesta tela. Ao entrar, você acessa o painel do Gabinete Simone Rocha.'
+      },
+      secretaria: {
+        avatar: 'SP', session: 'Sessão simulada: <b>Secretaria/Presidência</b>',
+        cta: 'Entrar como Secretaria/Presidência', dest: '6.6-visao-institucional.html',
+        note: 'Protótipo de navegação — nenhum dado é validado ou armazenado nesta tela. Ao entrar, você acessa a visão institucional agregada da Mesa.'
+      }
+    };
+    document.querySelectorAll('.profile-toggle button').forEach(function(b){
+      b.addEventListener('click', function(){
+        document.querySelectorAll('.profile-toggle button').forEach(function(x){ x.classList.remove('is-active') });
+        b.classList.add('is-active');
+        var p = PROFILES[b.dataset.profile];
+        document.getElementById('profileAvatar').textContent = p.avatar;
+        document.getElementById('profileSession').innerHTML = p.session;
+        document.getElementById('loginSubmit').textContent = p.cta;
+        document.getElementById('loginForm').action = p.dest;
+        document.getElementById('loginNote').textContent = p.note;
+      });
+    });
+  </script>
 </body>
 </html>
