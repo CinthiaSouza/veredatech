@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "04-execucao/prototipo/**"
+      - "04-execucao/prototipo-aracaju/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -26,10 +27,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Upload prototipo as Pages artifact
+
+      # A raiz do site continua sendo o protótipo com a identidade VeredaTech
+      # (não muda nenhum link já distribuído). A versão com a identidade da
+      # Câmara de Aracaju entra como subpasta /aracaju/.
+      - name: Montar site (VeredaTech na raiz + Aracaju em /aracaju)
+        run: |
+          mkdir -p _site
+          cp -R 04-execucao/prototipo/. _site/
+          mkdir -p _site/aracaju
+          cp -R 04-execucao/prototipo-aracaju/. _site/aracaju/
+          echo "--- raiz ---"; ls _site
+          echo "--- aracaju ---"; ls _site/aracaju
+
+      - name: Upload site as Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 04-execucao/prototipo
+          path: _site
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
