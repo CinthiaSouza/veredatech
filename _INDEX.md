@@ -1,6 +1,6 @@
 # _INDEX — Produto GovTech Câmaras Municipais
 
-_Atualizado em: 2026-07-22 (sessão 6)_
+_Atualizado em: 2026-07-29 (sessão 8)_
 
 Projeto: NOVOS PROJETOS/vereda-tech · Nome do produto: **VeredaTech** (3.1 — pendente INPI/registro.br)
 Início do pipeline: 2026-07-17
@@ -8,8 +8,11 @@ Início do pipeline: 2026-07-17
 ## Estado
 - **Fase corrente:** 4 Execução — **modularização construída e publicada**. O protótipo deixou de ser "sistema de indicações" e virou plataforma modular navegável nos 2 perfis (Gabinete e Secretaria/Presidência), servida no GitHub Pages.
 - **Construído em 2026-07-22 (sessão 6):** todos os HTMLs do 4.3 revisado (Épicos 5 e 6) + páginas dedicadas do perfil Secretaria com quantitativo por vereador/comissão (`6.2-*-mesa.html`, `6.7-ploa-mesa.html`), nav de módulos com contadores e profile-aware, subtipos de PL (Art. 138 §1º) diferenciados, leitor de texto integral, troca rápida de perfil. Commit `e988b08` publicado.
-- **⚠️ Abrir a próxima sessão pelas 4 perguntas registradas** em `memory/veredatech-perguntar-proxima-sessao.md`: (1) **transcrição bruta da reunião NÃO foi publicada** (repo é público — mantida só local; a confirmar); (2) números mock (Gabinete 52 / Casa 1.240); (3) ranking de autoria como exceção interna da Mesa; (4) páginas -mesa agregadas sem drill-down.
+- **Sessão 7 (2026-07-23):** criada a **apresentação v2** (`index.html`) reposicionando o produto de "sistema de indicações" para **plataforma modular de gestão legislativa** (5 módulos + 2 perfis), pronta para distribuição externa — oculta preço/plano/pendências e remove menção ao repositório. Versão anterior preservada como `index-v1.html` (uso interno, link discreto), também limpa. Commits `c54f8c4` + `1f71c48` publicados. **Pergunta nº1 resolvida: transcrição bruta fica só local (não publicada).**
+- **⚠️ Restam 3 das 4 perguntas** em `memory/veredatech-perguntar-proxima-sessao.md`: (2) números mock (Gabinete 52 / Casa 1.240); (3) ranking de autoria como exceção interna da Mesa; (4) páginas -mesa agregadas sem drill-down. A nº1 (transcrição) foi decidida em 2026-07-23.
 - **Decisão travada:** ranking nominal de autoria só no dashboard interno da Mesa (6.6) — regra "sem comparação pública" (2.2/2.4) segue valendo fora dela.
+- **Sessão 8 (2026-07-29):** integrado o protocolo administrativo interno da Câmara de Aracaju (UnDoc, SAPL, Procuradoria, Comissão Temática) — pesquisa em `01-discovery/1.9-protocolos-administrativos-internos.md` (deixa explícito que é arranjo específico de Aracaju, a tratar como configurável por Câmara-cliente no sistema real). Linha do tempo de Indicação (`2.1-ficha.html`) e de Projeto de Lei (`6.3-ficha-pl.html`, 7 fichas) ganhou os novos estados administrativos; fila de tramitação (`6.5-fila-tramitacao.html`) nomeia a CCJ explicitamente. Emenda a entidades (Título de Utilidade Pública) fica de fora por enquanto — fonte incompleta. Verificado visualmente com Playwright (screenshots + sem erros de console).
+- **⚠️ Próxima atividade:** criar uma versão do protótipo com a **identidade visual real da Câmara Municipal de Aracaju** (aplicando cores/logo/fotos oficiais, quando obtidos de Diego — item G do feedback, já pendente desde 2026-07-23).
 
 ## Artefatos por fase
 
@@ -25,6 +28,7 @@ Início do pipeline: 2026-07-17
 - [x] 1.6 `01-discovery/1.6-regimento-e-dados-abertos.md` (pesquisa complementar: Regimento Interno + API dados abertos)
 - [x] 1.7 `01-discovery/1.7-tramitacao-regimental-modulos.md` (rito completo dos 5 módulos pedidos por Diego: Projeto de Lei, Indicações, Requerimentos, Moções, Emendas ao Orçamento — artigos citados)
 - [x] 1.8 `01-discovery/1.8-feedback-diego-priorizacao.md` (priorização P0-P3 do feedback da reunião de 2026-07-22)
+- [x] 1.9 `01-discovery/1.9-protocolos-administrativos-internos.md` (protocolo administrativo interno de Aracaju — UnDoc/SAPL/Procuradoria/Comissão Temática; explicitamente contexto de uma Câmara, não regra regimental)
 
 ### 02 Estratégia & Visão
 - [x] 2.1 `02-estrategia/2.1-requisitos-restricoes.md`
@@ -68,6 +72,8 @@ Início do pipeline: 2026-07-17
 | 2026-07-19 | QA de responsividade mobile (3 bugs corrigidos: legibilidade login, callout empilhado, wordmark/trilha do hero), rename `apresentacao.html`→`index.html`, projeto publicado em `github.com/CinthiaSouza/veredatech` com GitHub Pages via Actions | `04-execucao/_logs/2026-07-19_responsividade-e-publicacao-github-pages.md` |
 | 2026-07-22 | Feedback de Diego lido e priorizado (1.8); Regimento Interno de Aracaju lido na íntegra para tramitação dos 5 módulos (1.7); replanejamento do protótipo em 2 rodadas (3.5 + 4.3 revisado 3x) garantindo que os 5 módulos (PL, Indicação, Requerimento, Moção, Emenda ao Orçamento) sejam demonstráveis, incluindo visão institucional da Mesa (6.6). Ainda sem HTML alterado; próxima sessão constrói os 17 estórias do 4.3. | `04-execucao/_logs/2026-07-22_feedback-diego-regimento-replanejamento.md` |
 | 2026-07-22 | Construção completa dos HTMLs do 4.3 (Épicos 5 e 6); páginas dedicadas do perfil Secretaria com quantitativo por vereador/comissão (`6.2-*-mesa`, `6.7-ploa-mesa`); nav de módulos com contadores + profile-aware; subtipos de PL diferenciados; leitor de texto integral; troca rápida de perfil; upload de anexo. Revisão de consistência/design. Commit `e988b08` publicado no GitHub Pages. Transcrição bruta da reunião deixada de fora do push (repo público) — a confirmar. | `04-execucao/_logs/2026-07-22_construcao-modulos-perfil-secretaria-publicacao.md` |
+| 2026-07-23 | Apresentação v2 (`index.html`): reposicionada como plataforma modular (5 módulos + 2 perfis) para distribuição externa — ocultadas seções de preço/plano/pendências e removida menção ao repositório. Versão anterior preservada e limpa como `index-v1.html` (uso interno, link discreto). Transcrição bruta confirmada como local-only (pergunta nº1 das 4 resolvida). Commits `c54f8c4` + `1f71c48` publicados no GitHub Pages. | `04-execucao/_logs/2026-07-23_apresentacao-v2-modular-e-v1-interna.md` |
+| 2026-07-29 | Protocolo administrativo interno de Aracaju (UnDoc/SAPL/Procuradoria/Comissão Temática) pesquisado (1.9) e integrado à linha do tempo de Indicação e Projeto de Lei + fila de tramitação, com nota explícita de que é contexto de uma Câmara (configurável no sistema real). Emenda a entidades deixada de fora (fonte incompleta). Verificado visualmente com Playwright. | (log a gerar) |
 
 ## Material-fonte
 `inputs/` — resumo da reunião + 2 pesquisas de mercado GovTech legislativo.
