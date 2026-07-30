@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VeredaTech — Parlamentares da Casa</title>
+<link rel="stylesheet" href="styles/global.css">
+</head>
+<body>
+  <div class="app">
+
+    <header class="topbar">
+      <div class="container">
+        <a href="6.6-visao-institucional.html" class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3,15 C6,20 11,20.5 14,17 C17,13.5 15,8.5 18.5,6 C20,5 21.5,5.8 22.5,7.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="brand-word">Vereda<span>Tech</span></span>
+          <span class="brand-city" aria-hidden="true"><img src="styles/assets/brasao-aracaju.png" alt="" width="22" height="27"><span>Câmara de Aracaju</span></span>
+        </a>
+        <div class="topbar-actions">
+          <a class="user-chip" href="1.2-painel.html" title="Clique para ver como Gabinete (demo)">
+            <span class="avatar">SP</span>
+            <span><b>Secretaria/Presidência</b></span>
+            <span class="chip-swap" aria-hidden="true">⇄</span>
+          </a>
+          <a href="1.1-login.html" class="btn btn-secondary btn-sm">Sair</a>
+        </div>
+      </div>
+    </header>
+
+    <nav class="modulebar" aria-label="Módulos legislativos">
+      <div class="container">
+        <a href="6.2-lista-pl-mesa.html">Projetos de Lei <span class="mod-count">210</span></a>
+        <a href="6.2-lista-indicacao-mesa.html">Indicações <span class="mod-count">780</span></a>
+        <a href="6.2-lista-requerimento-mesa.html">Requerimentos <span class="mod-count">140</span></a>
+        <a href="6.2-lista-mocao-mesa.html">Moções <span class="mod-count">65</span></a>
+        <a href="6.7-ploa-mesa.html">Emendas ao Orçamento <span class="mod-count">45</span></a>
+        <a href="6.8-parlamentares.html" class="is-active">Parlamentares <span class="mod-count">26</span></a>
+      </div>
+    </nav>
+
+    <section class="hero-band">
+      <div class="container">
+        <div class="hero-head">
+          <div>
+            <div class="eyebrow">Visão institucional · Mesa Diretora · 44ª Legislatura</div>
+            <h1 class="font-display">Parlamentares da Casa</h1>
+            <p class="hero-insight">Os <b>26 gabinetes</b> em exercício no 1º biênio (2025–2026) e o volume de proposições de cada um, por módulo. A Mesa vê a Casa inteira; cada gabinete vê só o que é seu.</p>
+          </div>
+          <div class="date" style="color:var(--header-muted)">Quarta-feira, 22 de julho de 2026</div>
+        </div>
+        <p style="font-size:12.5px; color:var(--header-muted); margin-top:20px">Uso interno da Mesa — a comparação nominal entre gabinetes não é pública nem visível aos demais gabinetes (regra 2.2/2.4).</p>
+      </div>
+    </section>
+
+    <main class="page" style="padding-top:0">
+      <div class="container">
+
+        <div class="kpi-row" style="margin-bottom:26px">
+          <div class="kpi">
+            <span class="lbl">Parlamentares em exercício</span>
+            <span class="val">26</span>
+            <span class="delta"><span>44ª Legislatura · 1º biênio 2025–2026</span></span>
+          </div>
+          <div class="kpi">
+            <span class="lbl">Proposições da Casa no mandato</span>
+            <span class="val">1.240</span>
+            <span class="delta"><span>soma dos 26 gabinetes</span></span>
+          </div>
+          <div class="kpi">
+            <span class="lbl">Média por gabinete</span>
+            <span class="val">48</span>
+            <span class="delta"><span>entre 34 e 63 proposições</span></span>
+          </div>
+          <div class="kpi">
+            <span class="lbl">Partidos representados</span>
+            <span class="val" id="kpiPartidos">—</span>
+            <span class="delta"><span>na composição atual</span></span>
+          </div>
+        </div>
+
+        <div class="data-notice">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M12 9v4"/><path d="M12 17h.01"/>
+            <path d="M10.3 3.9 2.4 17.2A2 2 0 0 0 4.1 20.2h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/>
+          </svg>
+          <span>
+            <b>Nomes, partidos e fotos são reais</b> — fonte: página oficial dos parlamentares da 44ª Legislatura, <span class="text-muted">aracaju.se.leg.br</span>.
+            <b>Os números de proposições são simulados</b> para esta demonstração: não vêm do SAPL e não refletem a produção real de nenhum parlamentar.
+            Na implantação, estes números passam a ser lidos do SAPL da Casa.
+          </span>
+        </div>
+
+        <section class="card" style="margin-bottom:22px">
+          <div class="section-label" style="margin-bottom:0">
+            <h2 class="font-display" style="font-size:17px">Quantidade de proposições por parlamentar</h2>
+            <span class="hint" id="ordHint">Em ordem alfabética</span>
+          </div>
+          <div class="profile-toggle" id="ordFilter" style="max-width:100%; flex-wrap:wrap">
+            <button type="button" class="is-active" data-ord="nome">Nome (A–Z)</button>
+            <button type="button" data-ord="total">Total</button>
+            <button type="button" data-ord="ind">Indicações</button>
+            <button type="button" data-ord="pl">PLs</button>
+            <button type="button" data-ord="req">Requerimentos</button>
+            <button type="button" data-ord="moc">Moções</button>
+            <button type="button" data-ord="emo">Emendas</button>
+          </div>
+        </section>
+
+        <div class="parl-grid" id="parlGrid"></div>
+
+        <p class="text-muted" style="font-size:11.5px; margin-top:20px">
+          IND Indicação ao Executivo · PL Projeto de Lei (4 variantes do Art. 138 §1º) · REQ Requerimento · MOÇ Moção · EMO Emenda ao Orçamento.
+          Protótipo de navegação — sem drill-down por gabinete nesta rodada.
+        </p>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script src="styles/vereadores.js"></script>
+  <script>
+    // Grid de parlamentares. Ordenação padrão alfabética (leitura institucional);
+    // as ordenações por volume são o que a Mesa usa para achar concentração.
+    var MODULOS = [
+      { k:'ind', r:'IND' }, { k:'pl', r:'PL' }, { k:'req', r:'REQ' },
+      { k:'moc', r:'MOÇ' }, { k:'emo', r:'EMO' }
+    ];
+    var MAX = {};
+    MODULOS.forEach(function(m){
+      MAX[m.k] = VEREADORES.reduce(function(a, v){ return Math.max(a, v[m.k]); }, 0);
+    });
+
+    function cardParlamentar(v){
+      var barras = MODULOS.map(function(m){
+        var pct = MAX[m.k] ? Math.round(v[m.k] / MAX[m.k] * 100) : 0;
+        return '<div class="parl-break-row">' +
+          '<span class="bl">' + m.r + '</span>' +
+          '<span class="bt"><i style="width:' + pct + '%"></i></span>' +
+          '<span class="bn">' + v[m.k] + '</span>' +
+        '</div>';
+      }).join('');
+      return '<article class="parl-card">' +
+        '<div class="parl-top">' +
+          avatarParlamentar(v, 52) +
+          '<span class="parl-id"><b>' + v.nome + '</b><span class="parl-partido">' + v.partido + '</span></span>' +
+        '</div>' +
+        '<div class="parl-total"><span class="n">' + v.total + '</span><span class="l">proposições no mandato</span></div>' +
+        '<div class="parl-break">' + barras + '</div>' +
+      '</article>';
+    }
+
+    var HINTS = {
+      nome:'Em ordem alfabética', total:'Do maior para o menor volume total',
+      ind:'Ordenado por indicações ao Executivo', pl:'Ordenado por Projetos de Lei',
+      req:'Ordenado por requerimentos', moc:'Ordenado por moções',
+      emo:'Ordenado por emendas ao orçamento'
+    };
+
+    function renderGrid(ord){
+      var lista = VEREADORES.slice();
+      if (ord === 'nome') {
+        lista.sort(function(a, b){ return a.nome.localeCompare(b.nome, 'pt-BR'); });
+      } else {
+        lista.sort(function(a, b){ return b[ord] - a[ord] || a.nome.localeCompare(b.nome, 'pt-BR'); });
+      }
+      document.getElementById('parlGrid').innerHTML = lista.map(cardParlamentar).join('');
+      document.getElementById('ordHint').textContent = HINTS[ord];
+    }
+
+    document.querySelectorAll('[data-ord]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        document.querySelectorAll('[data-ord]').forEach(function(x){ x.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+        renderGrid(btn.dataset.ord);
+      });
+    });
+
+    document.getElementById('kpiPartidos').textContent =
+      new Set(VEREADORES.map(function(v){ return v.partido; })).size;
+
+    renderGrid('nome');
+  </script>
+</body>
+</html>

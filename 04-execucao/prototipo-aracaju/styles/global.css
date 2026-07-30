@@ -488,9 +488,52 @@ a.user-chip{
   display:flex; align-items:center; justify-content:center; font-size:10.5px; font-weight:700; flex-shrink:0;
 }
 .rank-row .rank-name{flex:1; font-size:13.5px; font-weight:600; color:var(--ink)}
+.rank-row .rank-partido{font-size:11px; font-weight:500; color:var(--muted); white-space:nowrap}
 .rank-row .rank-breakdown{font-size:11.5px; color:var(--muted)}
 .rank-row .rank-count{font-size:17px; font-weight:700; font-variant-numeric:tabular-nums; color:var(--ink); min-width:34px; text-align:right}
 @media (max-width:620px){ .rank-row .rank-breakdown{display:none} }
+
+/* Foto oficial do parlamentar no lugar do avatar de iniciais (6.6 / 6.8).
+   Retratos institucionais vêm em fundo branco — object-fit:cover + top mantém o rosto. */
+.avatar-foto{
+  width:28px; height:28px; border-radius:50%; flex-shrink:0; display:block;
+  object-fit:cover; object-position:center top; background:var(--accent-soft);
+}
+
+/* ================= Parlamentares (6.8) =================
+   Nomes/partidos/fotos reais (site oficial); contagens SIMULADAS — ver aviso na tela. */
+.parl-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(232px,1fr)); gap:14px}
+.parl-card{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-card);
+  padding:18px 18px 16px; display:flex; flex-direction:column; gap:12px;
+  transition:box-shadow .15s, border-color .15s;
+}
+.parl-card:hover{box-shadow:var(--shadow-card); border-color:var(--accent)}
+.parl-top{display:flex; align-items:center; gap:12px}
+.parl-card .avatar-foto{width:52px; height:52px}
+.parl-id{min-width:0}
+.parl-id b{display:block; font-family:var(--font-display); font-size:14.5px; font-weight:650; letter-spacing:-0.01em; line-height:1.25}
+.parl-id .parl-partido{font-size:11.5px; color:var(--muted)}
+.parl-total{
+  display:flex; align-items:baseline; gap:6px; padding-top:10px; border-top:1px solid var(--line);
+}
+.parl-total .n{font-family:var(--font-display); font-size:26px; font-weight:700; letter-spacing:-0.02em; line-height:1; color:var(--accent); font-variant-numeric:tabular-nums}
+.parl-total .l{font-size:11.5px; color:var(--muted)}
+.parl-break{display:flex; flex-direction:column; gap:5px}
+.parl-break-row{display:flex; align-items:center; gap:8px; font-size:11.5px}
+.parl-break-row .bl{color:var(--muted); width:34px; flex-shrink:0; font-weight:600; letter-spacing:.02em}
+.parl-break-row .bt{flex:1; height:6px; border-radius:var(--radius-pill); background:var(--heat-0); overflow:hidden}
+.parl-break-row .bt i{display:block; height:100%; background:var(--accent); border-radius:var(--radius-pill)}
+.parl-break-row .bn{font-variant-numeric:tabular-nums; font-weight:700; color:var(--ink); min-width:18px; text-align:right}
+
+/* aviso de dado simulado — precisa ser impossível de não ver nesta tela */
+.data-notice{
+  display:flex; gap:12px; align-items:flex-start; background:var(--warning-soft);
+  border:1px solid rgba(180,83,9,.28); border-radius:var(--radius-card); padding:14px 18px;
+  font-size:13px; line-height:1.6; color:var(--ink); margin-bottom:22px;
+}
+.data-notice svg{width:18px; height:18px; color:var(--warning); flex-shrink:0; margin-top:2px}
+.data-notice b{font-weight:700}
 
 /* barras horizontais (silêncio por secretaria) */
 .hbar-list{display:flex; flex-direction:column; gap:14px}

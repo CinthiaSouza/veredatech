@@ -38,6 +38,7 @@
         <a href="6.2-lista-requerimento-mesa.html">Requerimentos <span class="mod-count">140</span></a>
         <a href="6.2-lista-mocao-mesa.html">Moções <span class="mod-count">65</span></a>
         <a href="6.7-ploa-mesa.html">Emendas ao Orçamento <span class="mod-count">45</span></a>
+        <a href="6.8-parlamentares.html">Parlamentares <span class="mod-count">26</span></a>
       </div>
     </nav>
 
@@ -221,7 +222,8 @@
             <button type="button" data-rank="emo">Emendas</button>
           </div>
           <div class="list-stack" id="rankList" style="margin-top:6px"></div>
-          <span class="text-muted" style="font-size:11.5px">Amostra dos 10 gabinetes de maior volume, de 26 no total — ordenação ilustrativa, sem persistência real.</span>
+          <span class="text-muted" style="font-size:11.5px">Os 26 gabinetes da Casa. Nomes, partidos e fotos são reais (site oficial da Câmara); os números de proposições são simulados para demonstração — não vêm do SAPL.</span>
+          <a href="6.8-parlamentares.html" class="btn btn-secondary btn-sm" style="width:fit-content">Ver os parlamentares em cards →</a>
         </section>
 
         <div class="stack" style="margin-top:20px">
@@ -321,22 +323,9 @@
     renderPanorama('ind');
 
     // Ranking de autoria — exceção pontual, uso interno da Mesa (nunca público).
-    // VEREADORES vem de styles/vereadores.js (mesma base das páginas -mesa).
-    function renderRanking(key){
-      var lista = VEREADORES.slice().sort(function(a, b){ return b[key] - a[key]; });
-      var html = '';
-      lista.forEach(function(v, i){
-        var destaque = v.ini === 'SR' ? ' style="border-color:var(--accent); background:var(--accent-soft)"' : '';
-        html += '<div class="rank-row"' + destaque + '>' +
-          '<span class="rank-num">' + (i + 1) + '</span>' +
-          '<span class="avatar">' + v.ini + '</span>' +
-          '<span class="rank-name">' + v.nome + '</span>' +
-          '<span class="rank-breakdown">IND ' + v.ind + ' · PL ' + v.pl + ' · REQ ' + v.req + ' · MOÇ ' + v.moc + ' · EMO ' + v.emo + '</span>' +
-          '<span class="rank-count">' + v[key] + '</span>' +
-        '</div>';
-      });
-      document.getElementById('rankList').innerHTML = html;
-    }
+    // Delega para renderRank de styles/vereadores.js (mesma base e mesmo desenho de
+    // linha das páginas -mesa, já com a foto oficial do parlamentar).
+    function renderRanking(key){ renderRank(key); }
     document.querySelectorAll('[data-rank]').forEach(function(btn){
       btn.addEventListener('click', function(){
         document.querySelectorAll('[data-rank]').forEach(function(x){ x.classList.remove('is-active') });
