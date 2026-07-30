@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VeredaTech — Moções</title>
+<link rel="stylesheet" href="styles/global.css">
+</head>
+<body>
+  <div class="app">
+
+    <header class="topbar">
+      <div class="container">
+        <a href="1.2-painel.html" class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3,15 C6,20 11,20.5 14,17 C17,13.5 15,8.5 18.5,6 C20,5 21.5,5.8 22.5,7.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="brand-word">Vereda<span>Tech</span></span>
+          <span class="brand-city" aria-hidden="true"><img src="styles/assets/brasao-aracaju.png" alt="" width="22" height="27"><span>Câmara de Aracaju</span></span>
+        </a>
+        <div class="topbar-actions">
+          <a class="user-chip" href="6.6-visao-institucional.html" title="Clique para ver como Secretaria/Presidência (demo)">
+            <span class="avatar">SR</span>
+            <span>Gabinete <b>Vereadora Simone Rocha</b></span>
+            <span class="chip-swap" aria-hidden="true">⇄</span>
+          </a>
+          <a href="1.1-login.html" class="btn btn-secondary btn-sm">Sair</a>
+        </div>
+      </div>
+    </header>
+
+    <nav class="modulebar" aria-label="Módulos legislativos">
+      <div class="container">
+        <a href="6.2-lista-pl.html">Projetos de Lei <span class="mod-count">7</span></a>
+        <a href="6.2-lista-indicacao.html">Indicações <span class="mod-count">38</span></a>
+        <a href="6.2-lista-requerimento.html">Requerimentos <span class="mod-count">3</span></a>
+        <a href="6.2-lista-mocao.html" class="is-active">Moções <span class="mod-count">1</span></a>
+        <a href="6.7-ploa.html">Emendas ao Orçamento <span class="mod-count">3</span></a>
+      </div>
+    </nav>
+
+    <main class="page">
+      <div class="container stack">
+
+        <a href="1.2-painel.html" class="back-link">← Painel do gabinete</a>
+
+        <div class="page-head">
+          <div class="row" style="align-items:center; gap:18px">
+            <div class="count-hero"><span class="count-num">1</span><span class="count-lbl">no mandato</span></div>
+            <div>
+              <div class="eyebrow">Módulo · Moção</div>
+              <h1 class="font-display">Moções do mandato</h1>
+              <div class="date">Rito curtíssimo — parecer da CCJ em 2 dias úteis, discussão única (Art. 158)</div>
+            </div>
+          </div>
+          <a href="6.4-cadastro.html?tipo=mocao" class="btn btn-primary">Protocolar nova moção</a>
+        </div>
+
+        <div class="list-stack">
+          <a class="item-link" href="6.3-ficha-mocao.html?id=moc-12">
+            <div class="item">
+              <div class="top-row">
+                <span class="top" style="display:flex; align-items:center; gap:8px">
+                  <span class="badge-tipo"><b>MOÇ</b></span>
+                  <b>Moção de aplauso ao corpo de bombeiros pelo resgate na Orla de Atalaia</b>
+                </span>
+                <span class="chip chip-ok">Aprovada</span>
+              </div>
+              <div class="meta">Moç. 12/2026 · protocolada em 09/07/2026 · aprovada em discussão única</div>
+            </div>
+          </a>
+        </div>
+        <span class="text-muted" style="font-size:12.5px">Rito mais simples dos 5 módulos — o produto mostra que lida bem com o complexo (PL) e com o simples (Moção).</span>
+
+      </div>
+    </main>
+
+  </div>
+</body>
+</html>
