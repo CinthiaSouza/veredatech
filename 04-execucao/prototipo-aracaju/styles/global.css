@@ -573,10 +573,13 @@ a.user-chip{
 /* ================= Navegação de módulos (6.1) =================
    Segunda faixa do header, sempre presente nas telas internas, prova a plataforma modular. */
 .modulebar{background:var(--surface); border-bottom:1px solid var(--line)}
-.modulebar .container{display:flex; gap:4px; overflow-x:auto; padding:6px 24px}
+/* Nesta versão a barra tem 6 itens (os 5 módulos + Parlamentares), então os links
+   são um pouco mais compactos que no protótipo original — com o espaçamento de lá,
+   o contador do último item ficava cortado em qualquer largura de desktop. */
+.modulebar .container{display:flex; gap:2px; overflow-x:auto; padding:6px 20px}
 .modulebar a{
-  display:inline-flex; align-items:center; gap:6px; padding:9px 16px; border-radius:var(--radius-pill);
-  font-size:13px; font-weight:600; color:var(--muted); text-decoration:none; white-space:nowrap;
+  display:inline-flex; align-items:center; gap:5px; padding:9px 12px; border-radius:var(--radius-pill);
+  font-size:12.5px; font-weight:600; color:var(--muted); text-decoration:none; white-space:nowrap;
   transition:background-color .15s, color .15s;
 }
 .modulebar a:hover{background:var(--bg); color:var(--ink)}
